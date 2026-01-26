@@ -5,61 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TobiMessi Infrastructure</title>
     <style>
-        body { font-family: sans-serif; background: #f0f2f5; color: #1c1e21; display: flex; justify-content: center; padding: 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f0f2f5; color: #1c1e21; display: flex; justify-content: center; padding: 20px; line-height: 1.5; }
         .wrapper { max-width: 600px; width: 100%; }
-        .card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); text-align: center; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .node { background: white; border: 1px solid #ddd; padding: 15px; border-radius: 12px; }
-        .status { color: #28a745; font-weight: bold; font-size: 0.8rem; }
-        .btn { display: inline-block; padding: 10px 20px; margin: 10px 5px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; }
+        .card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); text-align: center; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .node { background: white; border: 1px solid #ddd; padding: 15px; border-radius: 12px; text-align: left; }
+        .status { color: #28a745; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; }
+        .btn { display: inline-block; padding: 12px 24px; margin: 8px 4px; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; transition: 0.2s; }
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
         .btn-gh { background: #24292e; }
+        .btn-reddit { background: #FF4500; }
         .btn-coffee { background: #FFDD00; color: #000; }
-        .btn-social { background: #0066cc; }
         img { max-width: 100%; height: auto; border-radius: 8px; }
+        @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
     <header style="text-align: center; margin-bottom: 30px;">
-        <h1>TobiMessi</h1>
-        <p>Infrastructure & Project Orbit Developer</p>
-        <div style="margin-top: 15px;">
-            <a href="https://github.com/TobiMessi" class="btn btn-social">GitHub</a>
-            <a href="#" class="btn btn-social" style="background: #5865F2;">Discord</a>
+        <h1 style="margin-bottom: 5px;">TobiMessi</h1>
+        <p style="color: #606770; margin-bottom: 20px;">Infrastructure & Project Orbit Developer</p>
+        <div>
+            <a href="https://github.com/TobiMessi" class="btn btn-gh">GitHub</a>
+            <a href="https://www.reddit.com/user/TobiMessi201/" class="btn btn-reddit">Reddit</a>
         </div>
     </header>
 
-    <div class="grid" style="margin-bottom: 20px;">
+    <div class="grid">
         <div class="node">
             <span class="status">● ONLINE</span><br>
-            <strong>HP Elite 8300 SFF</strong><br>
-            <small>i5-3470 | 8GB RAM</small>
+            <strong style="display:block; margin-top:5px;">HP Elite 8300 SFF</strong>
+            <small style="color: #606770;">i5-3470 | 8GB RAM | ADATA SSD</small>
         </div>
         <div class="node">
             <span class="status">● ONLINE</span><br>
-            <strong>Asus VivoBook 15</strong><br>
-            <small>N4000 | 4GB RAM</small>
+            <strong style="display:block; margin-top:5px;">Asus VivoBook 15</strong>
+            <small style="color: #606770;">N4000 | 4GB RAM | Kingston SSD</small>
         </div>
     </div>
 
     <div class="card">
-        <h3>Support Orbit Project</h3>
-        <p>Your support helps me upgrade hardware and develop the Orbit container app.</p>
+        <h2 style="margin-top: 0; color: #0066cc;">Support Orbit Project</h2>
+        <p style="color: #606770;">Your donations help me upgrade the home-lab infrastructure and fund the development of the Orbit container management app.</p>
         
-        <div style="margin: 20px 0;">
+        <div style="margin: 25px 0;">
             <a href="https://github.com/sponsors/TobiMessi" class="btn btn-gh">Sponsor on GitHub</a>
+            
             <a href="https://www.buymeacoffee.com/TobiK0" class="btn btn-coffee">Buy Me a Coffee</a>
         </div>
 
-        <div style="margin-top: 20px;">
-            <p style="font-size: 0.8rem; margin-bottom: 10px;">Mobile Support (QR):</p>
-            <img src="qr-code.png" alt="QR Code" style="width: 150px; border: 1px solid #eee;">
+        <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+            <p style="font-size: 0.85rem; color: #606770; margin-bottom: 15px;">Mobile Quick Support (QR Code):</p>
+            <img src="qr-code.png" alt="Support QR" style="width: 150px; border: 1px solid #ddd; padding: 5px; background: #fff;">
         </div>
     </div>
 
-    <footer style="text-align: center; color: #888; font-size: 0.8rem;">
-        Linux Mint | 1 Gbps Fiber | 2026
+    <footer style="text-align: center; color: #888; font-size: 0.8rem; margin-top: 40px;">
+        1 Gbps Fiber • Linux Mint 22.2 • Project Orbit 2026
     </footer>
 </div>
 
