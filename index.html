@@ -5,64 +5,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TobiMessi | Infrastructure</title>
     
-    <link rel="icon" type="image/png" href="qr-code.png">
+    <link rel="icon" type="image/png" href="qr-code.png?v=99">
+    <link rel="shortcut icon" type="image/png" href="qr-code.png?v=99">
 
     <style>
-        body { font-family: -apple-system, sans-serif; background: #f0f2f5; display: flex; justify-content: center; padding: 20px; }
-        .wrapper { max-width: 600px; width: 100%; }
-        .card { background: white; border-radius: 15px; padding: 25px; border: 1px solid #ddd; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
-        .node { background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 10px; text-align: left; }
-        .btn { display: inline-block; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; }
-        .btn-gh { background: #24292e; }
-        .btn-rd { background: #ff4500; }
-        .btn-coffee { background: #FFDD00; color: black; }
-        /* Styl dla obrazka QR */
-        .qr-frame { 
-            margin-top: 20px; 
-            padding: 10px; 
-            border: 2px dashed #ccc; 
-            display: inline-block; 
-            border-radius: 10px;
+        /* Nowoczesny font i tło */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Gradient tła */
+            color: #1c1e21; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
         }
-        .qr-img { width: 180px; height: auto; display: block; }
+
+        .wrapper { 
+            max-width: 600px; 
+            width: 100%; 
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Cień pod całą stroną */
+        }
+        
+        header { text-align: center; margin-bottom: 35px; }
+        h1 { margin: 0 0 10px 0; font-size: 2.2rem; letter-spacing: -0.5px; color: #111; }
+        
+        /* Przyciski */
+        .btn-group { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .btn { 
+            display: inline-block; 
+            padding: 10px 24px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            color: white; 
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+        
+        .btn-gh { background: #24292e; }
+        .btn-reddit { background: #FF4500; }
+        .btn-coffee { background: #FFDD00; color: #000; }
+        
+        /* Sekcja Focus */
+        .focus-box { 
+            background: #e8f3ff; 
+            border-left: 5px solid #0066cc; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 30px; 
+        }
+        .focus-box h3 { margin-top: 0; color: #0056b3; font-size: 1.1rem; margin-bottom: 5px; }
+
+        /* Grid serwerów */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .node { 
+            background: white; 
+            border: 1px solid #e1e4e8; 
+            padding: 20px; 
+            border-radius: 12px; 
+            transition: 0.2s;
+        }
+        .node:hover { border-color: #0066cc; }
+        .status { color: #28a745; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Sekcja Wsparcia */
+        .support-card { 
+            text-align: center; 
+            border-top: 2px solid #f0f0f0; 
+            padding-top: 30px; 
+        }
+        
+        .qr-img { 
+            width: 150px; 
+            height: auto; 
+            border: 1px solid #ddd; 
+            padding: 8px; 
+            background: #fff; 
+            border-radius: 12px; 
+            margin-top: 15px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        footer { text-align: center; color: #888; font-size: 0.8rem; margin-top: 40px; }
+        
         @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
-    <header style="text-align: center; margin-bottom: 20px;">
+    <header>
         <h1>TobiMessi</h1>
-        <a href="https://github.com/TobiMessi" class="btn btn-gh">GitHub</a>
-        <a href="https://www.reddit.com/user/TobiMessi201/" class="btn btn-rd">Reddit</a>
+        <p style="color: #555; margin-bottom: 20px;">Infrastructure Architect & Docker Developer</p>
+        <div class="btn-group">
+            <a href="https://github.com/TobiMessi" class="btn btn-gh">GitHub</a>
+            <a href="https://www.reddit.com/user/TobiMessi201/" class="btn btn-reddit">Reddit</a>
+        </div>
     </header>
+
+    <div class="focus-box">
+        <h3>Current Focus: Orbit Docker Image</h3>
+        <p style="margin: 0; font-size: 0.95rem; color: #333;">
+            Developing a highly optimized, custom Docker image for Project Orbit. 
+            Aiming for maximum performance across distributed hardware nodes.
+        </p>
+    </div>
 
     <div class="grid">
         <div class="node">
-            <strong style="color: #28a745;">● HP Compaq Pro 6300</strong><br>
-            <small>i5-3470 | 8GB RAM</small>
+            <span class="status">● Online</span><br>
+            <strong style="display:block; margin-top:8px;">HP Compaq Pro 6300</strong>
+            <small style="color: #666;">i5-3470 | 8GB RAM</small>
         </div>
         <div class="node">
-            <strong style="color: #28a745;">● Asus VivoBook 15</strong><br>
-            <small>N4000 | 4GB RAM</small>
+            <span class="status">● Online</span><br>
+            <strong style="display:block; margin-top:8px;">Asus VivoBook 15</strong>
+            <small style="color: #666;">N4000 | 4GB RAM</small>
         </div>
     </div>
 
-    <div class="card">
-        <h3>Support & Docker Dev</h3>
-        <p>I am optimizing my custom Docker image for Project Orbit.</p>
+    <div class="support-card">
+        <h2 style="margin-top: 0; font-size: 1.5rem;">Support the Project</h2>
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">
+            Your support directly funds hardware upgrades (SSD/RAM) and development time.
+        </p>
         
-        <div style="margin: 15px 0;">
+        <div class="btn-group">
             <a href="https://github.com/sponsors/TobiMessi" class="btn btn-gh">Sponsor</a>
             <a href="https://www.buymeacoffee.com/TobiK0" class="btn btn-coffee">Buy Coffee</a>
         </div>
 
-        <div class="qr-frame">
-            <p style="font-size: 0.8rem; margin-bottom: 5px;">Scan QR Code:</p>
-            <img src="qr-code.png" alt="Jeśli nie widzisz QR, sprawdź nazwę pliku w repozytorium" class="qr-img">
+        <div style="margin-top: 25px;">
+            <p style="font-size: 0.8rem; font-weight: bold; color: #888; margin-bottom: 5px;">QUICK MOBILE SCAN</p>
+            <img src="qr-code.png" alt="Scan to Support" class="qr-img">
         </div>
     </div>
+
+    <footer>
+        1 Gbps Fiber • Linux Mint 22.2 • Orbit 2026
+    </footer>
 </div>
 
 </body>
