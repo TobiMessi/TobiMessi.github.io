@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TobiMessi | Infrastructure</title>
     
-    <link rel="icon" type="image/png" href="qr-code.png?v=final">
-    <link rel="shortcut icon" type="image/png" href="qr-code.png?v=final">
+    <link rel="icon" type="image/png" href="qr-code.png?v=final2">
+    <link rel="shortcut icon" type="image/png" href="qr-code.png?v=final2">
 
     <style>
         /* Styl PRO: Gradienty i cienie */
@@ -29,7 +29,7 @@
             background: rgba(255, 255, 255, 0.98);
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Głęboki cień */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
         
         header { text-align: center; margin-bottom: 35px; }
@@ -54,7 +54,7 @@
         .btn-reddit { background: #FF4500; }
         .btn-coffee { background: #FFDD00; color: #000; }
         
-        /* Sekcja Focus - Dłuższy tekst */
+        /* Sekcja Focus */
         .focus-box { 
             background: #f0f7ff; 
             border-left: 5px solid #0066cc; 
@@ -77,6 +77,10 @@
         }
         .node:hover { border-color: #0066cc; transform: translateY(-2px); }
         .status { color: #28a745; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Nowy styl dla parametrów (dysk i cpu) */
+        .specs { margin-top: 10px; font-size: 0.85rem; color: #555; }
+        .spec-line { display: block; margin-bottom: 4px; }
 
         /* Sekcja Wsparcia */
         .support-card { 
@@ -124,13 +128,20 @@
     <div class="grid">
         <div class="node">
             <span class="status">● Online</span><br>
-            <strong style="display:block; margin-top:8px;">HP Compaq Pro 6300</strong>
-            <small style="color: #666;">i5-3470 | 8GB RAM | ADATA SSD</small>
+            <strong style="display:block; margin-top:8px; font-size: 1.05rem;">HP Compaq Pro 6300</strong>
+            <div class="specs">
+                <span class="spec-line">⚙️ i5-3470 • 8GB RAM</span>
+                <span class="spec-line" style="color: #1a1d21; font-weight: 500;">💾 ADATA SU900 SSD</span>
+            </div>
         </div>
+
         <div class="node">
             <span class="status">● Online</span><br>
-            <strong style="display:block; margin-top:8px;">Asus VivoBook 15</strong>
-            <small style="color: #666;">N4000 | 4GB RAM | Kingston SSD</small>
+            <strong style="display:block; margin-top:8px; font-size: 1.05rem;">Asus VivoBook 15</strong>
+            <div class="specs">
+                <span class="spec-line">⚙️ Celeron N4000 • 4GB RAM</span>
+                <span class="spec-line" style="color: #1a1d21; font-weight: 500;">💾 Kingston SSD</span>
+            </div>
         </div>
     </div>
 
