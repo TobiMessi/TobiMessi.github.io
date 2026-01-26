@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +37,7 @@
         }
         .card h2 { margin-top: 0; font-size: 1.25rem; color: var(--accent); margin-bottom: 15px; }
         
-        /* Sekcja Sprzętowa */
+        /* Infrastructure Grid */
         .infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
         .infra-item { 
             background: var(--card); 
@@ -45,12 +45,11 @@
             border-radius: 12px; 
             padding: 20px; 
             text-align: left;
-            position: relative;
         }
         .status { color: var(--green); font-size: 0.65rem; font-weight: bold; margin-bottom: 10px; display: block; }
         .specs { font-size: 0.8rem; color: var(--text-sub); line-height: 1.4; margin-top: 8px; }
 
-        /* Lista celów */
+        /* Funding Goals */
         .goals-list { margin: 0; padding: 0; list-style: none; }
         .goals-list li { 
             padding: 12px 0; 
@@ -62,7 +61,7 @@
         .goals-list strong { color: #000; display: block; font-size: 0.95rem; }
         .goals-list span { font-size: 0.9rem; color: var(--text-sub); line-height: 1.5; }
 
-        /* Wsparcie */
+        /* Support Section */
         .support-box { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; }
         .qr-img { width: 130px; border: 1px solid #ddd; border-radius: 10px; padding: 5px; background: #fff; }
 
@@ -78,7 +77,7 @@
 <div class="container">
     <header>
         <h1>TobiMessi</h1>
-        <p style="color: var(--text-sub); margin-top: 5px;">Infrastructure Architect & Project Orbit Developer</p>
+        <p style="color: var(--text-sub); margin-top: 5px;">Infrastructure Architect & Orbit Project Developer</p>
     </header>
 
     <div class="infra-grid">
@@ -104,38 +103,54 @@
     </div>
 
     <div class="card">
-        <h2>O projekcie Orbit</h2>
-        <p style="color: var(--text-sub); line-height: 1.6;">Buduję <strong>Orbit</strong> – lekką aplikację do zarządzania infrastrukturą kontenerową. Projekt ma na celu uproszczenie orkiestracji Dockerem w środowiskach domowych i profesjonalnych.</p>
+        <h2>About Project Orbit</h2>
+        <p style="color: var(--text-sub); line-height: 1.6;">I am developing <strong>Orbit</strong> – a lightweight container management suite. This project focuses on simplifying Docker orchestration for both home-lab enthusiasts and professional environments.</p>
     </div>
 
     <div class="card">
-        <h2>Na co przeznaczam wsparcie?</h2>
+        <h2>How your support helps</h2>
         <ul class="goals-list">
             <li>
                 <div style="font-size: 1.2rem;">🚀</div>
                 <div>
-                    <strong>Rozwój aplikacji Orbit</strong>
-                    <span>Finansowanie architektury, API oraz czasu poświęconego na wdrażanie nowych funkcjonalności.</span>
+                    <strong>Orbit Development</strong>
+                    <span>Funding the software architecture, API deployment, and dedicated development time for new features.</span>
                 </div>
             </li>
             <li>
                 <div style="font-size: 1.2rem;">💾</div>
                 <div>
-                    <strong>Upgrade Hardware</strong>
-                    <span>Wymiana budżetowych dysków na większe jednostki (1TB+) oraz rozbudowa RAM w HP do 16GB/32GB.</span>
+                    <strong>Hardware Upgrades</strong>
+                    <span>Upgrading existing nodes with larger SSDs (1TB+) and expanding HP RAM capacity to 16GB/32GB for better testing.</span>
                 </div>
             </li>
             <li>
                 <div style="font-size: 1.2rem;">⚡</div>
                 <div>
-                    <strong>Utrzymanie 24/7</strong>
-                    <span>Koszty energii elektrycznej domowego laboratorium oraz stabilnego łącza Gigabit Fiber.</span>
+                    <strong>24/7 Infrastructure</strong>
+                    <span>Covering electricity costs for the home-lab and maintaining the high-speed Gigabit Fiber connectivity.</span>
                 </div>
             </li>
         </ul>
     </div>
 
     <div class="card support-box">
-        <h2>Wesprzyj moje projekty</h2>
+        <h2>Support my work</h2>
         
-        <iframe src="https://github.com/sponsors/TobiMessi/button" title="Sponsor TobiMessi" height="32" width="114" style="border: 0; border-radius: 6
+        <iframe src="https://github.com/sponsors/TobiMessi/button" title="Sponsor TobiMessi" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+        
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="TobiK0" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+
+        <div style="margin-top: 10px;">
+            <p style="font-size: 0.8rem; color: var(--text-sub); margin-bottom: 10px;">Mobile Quick Support (QR Code):</p>
+            <img src="qr-code.png" alt="Support QR" class="qr-img">
+        </div>
+    </div>
+
+    <footer>
+        1 Gbps Fiber • Linux Mint 22.2 • Docker Ecosystem • Project Orbit 2026
+    </footer>
+</div>
+
+</body>
+</html>
