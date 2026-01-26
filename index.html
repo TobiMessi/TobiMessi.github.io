@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TobiMessi | Infrastructure & Orbit Project</title>
+    <title>TobiMessi | Infrastructure & Orbit</title>
     <style>
         :root {
             --bg: #f5f7f9;
@@ -12,11 +12,9 @@
             --text-main: #1a1d21;
             --text-sub: #4a5568;
             --accent: #0066cc;
-            --green: #2ecc71;
-            --social: #24292e;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
             margin: 0;
@@ -25,9 +23,16 @@
             padding: 40px 20px;
         }
         .container { max-width: 700px; width: 100%; }
-        header { text-align: center; margin-bottom: 30px; }
-        h1 { margin: 0; font-size: 2.2rem; font-weight: 800; color: #000; letter-spacing: -1px; }
+        header { text-align: center; margin-bottom: 25px; }
         
+        /* Social Media Icons */
+        .socials { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; }
+        .socials a { text-decoration: none; color: #fff; padding: 8px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; transition: 0.3s; }
+        .btn-github { background: #24292e; }
+        .btn-discord { background: #5865F2; }
+        .btn-twitter { background: #1DA1F2; }
+        .socials a:hover { opacity: 0.8; transform: translateY(-2px); }
+
         .card {
             background: var(--card);
             border: 1px solid var(--border);
@@ -35,37 +40,72 @@
             padding: 25px;
             margin-bottom: 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            text-align: center;
         }
-        .card h2 { margin-top: 0; font-size: 1.25rem; color: var(--accent); margin-bottom: 15px; text-align: center; }
         
-        /* Infra Grid */
         .infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .infra-item { 
-            background: var(--card); 
-            border: 1px solid var(--border); 
-            border-radius: 12px; 
-            padding: 20px; 
-        }
-        .status { color: var(--green); font-size: 0.65rem; font-weight: bold; margin-bottom: 10px; display: block; }
-        .specs { font-size: 0.8rem; color: var(--text-sub); line-height: 1.4; margin-top: 8px; }
+        .infra-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 15px; text-align: left; }
+        .status { color: #2ecc71; font-size: 0.7rem; font-weight: bold; }
 
-        /* Socials */
-        .social-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
-        .social-btn {
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .github { background: #24292e; color: white; }
-        .social-btn:hover { opacity: 0.8; transform: translateY(-2px); }
+        /* Poprawione kontenery na iframe/skrypty */
+        .widget-box { margin: 20px 0; min-height: 40px; display: flex; justify-content: center; align-items: center; }
+        .qr-img { width: 130px; border-radius: 10px; border: 1px solid #ddd; margin-top: 15px; }
 
-        /* Support Section */
-        .support-links { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-        .btn-img { height: 40px; transition: 0.2s; }
-        .btn-img:hover { transform: scale(1.05);
+        footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: #a0aec0; }
+        @media (max-width: 600px) { .infra-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>TobiMessi</h1>
+        <p>Infrastructure & Orbit Project Developer</p>
+    </header>
+
+    <div class="socials">
+        <a href="https://github.com/TobiMessi" class="btn-github">GitHub</a>
+        <a href="#" class="btn-discord">Discord</a> <a href="#" class="btn-twitter">X (Twitter)</a> </div>
+
+    <div class="infra-grid">
+        <div class="infra-item">
+            <span class="status">● ONLINE</span><br>
+            <strong>HP Elite 8300 SFF</strong>
+            <p style="font-size: 0.75rem; color: var(--text-sub);">i5-3470 • 8GB RAM • 240GB SSD</p>
+        </div>
+        <div class="infra-item">
+            <span class="status">● ONLINE</span><br>
+            <strong>Asus VivoBook 15</strong>
+            <p style="font-size: 0.75rem; color: var(--text-sub);">Celeron N4000 • 4GB RAM • 240GB SSD</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Support & Donation</h2>
+        <p style="font-size: 0.9rem; color: var(--text-sub);">All funds are used for server upgrades and Orbit app development.</p>
+
+        <div class="widget-box">
+            <iframe src="https://github.com/sponsors/TobiMessi/card" title="Sponsor TobiMessi" height="225" width="600" style="border: 0; max-width: 100%;"></iframe>
+        </div>
+
+        <div class="widget-box">
+            <iframe src="https://github.com/sponsors/TobiMessi/button" title="Sponsor TobiMessi" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+        </div>
+
+        <div class="widget-box">
+            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="TobiK0" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+        </div>
+
+        <div>
+            <p style="font-size: 0.8rem; color: var(--text-sub);">Mobile Support:</p>
+            <img src="qr-code.png" class="qr-img" alt="QR Code">
+        </div>
+    </div>
+
+    <footer>
+        1 Gbps Fiber • Linux Mint 22.2 • Orbit 2026
+    </footer>
+</div>
+
+</body>
+</html>
