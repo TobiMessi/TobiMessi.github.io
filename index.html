@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TobiMessi | Infrastructure & Orbit</title>
+    <title>TobiMessi | Project Orbit & Infrastructure</title>
     <style>
         :root {
-            --bg: #f8f9fa; /* Jasne, nowoczesne tło */
+            --bg: #f4f7f9; /* Jasne, szarawe tło (brak niebieskiego) */
             --card: #ffffff; /* Białe karty */
             --border: #e1e4e8;
-            --text-main: #24292e;
-            --text-sub: #586069;
-            --accent: #0366d6; /* Profesjonalny niebieski */
-            --highlight: #28a745; /* Zielony akcent sukcesu */
+            --text-main: #1a1d21;
+            --text-sub: #4a5568;
+            --accent: #0066cc;
+            --green: #28a745;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
             margin: 0;
@@ -24,47 +24,46 @@
             padding: 40px 20px;
         }
         .container { max-width: 650px; width: 100%; }
-        header { text-align: center; margin-bottom: 40px; }
-        h1 { margin: 0; font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { margin: 0; font-size: 2.2rem; font-weight: 800; color: #000; }
         
         .card {
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 30px;
+            padding: 25px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Delikatny cień */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
-        .card h2 { margin-top: 0; color: var(--text-main); font-size: 1.3rem; border-bottom: 2px solid var(--bg); padding-bottom: 10px; }
-        .card p { line-height: 1.6; color: var(--text-sub); margin-bottom: 15px; }
-        
+        .card h2 { margin-top: 0; font-size: 1.3rem; color: var(--accent); margin-bottom: 15px; }
+        .card p { line-height: 1.6; color: var(--text-sub); }
+
+        /* Sekcja Celów */
+        .goals-list { margin: 0; padding: 0; list-style: none; }
+        .goals-list li { 
+            padding: 10px 0; 
+            border-bottom: 1px solid #f0f0f0; 
+            display: flex; 
+            align-items: flex-start;
+        }
+        .goals-list li:last-child { border-bottom: none; }
+        .goals-list strong { color: #000; display: block; }
+        .icon { margin-right: 12px; margin-top: 4px; }
+
         .infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
         .infra-item { 
             background: var(--card); 
             border: 1px solid var(--border); 
-            border-radius: 16px; 
-            padding: 20px; 
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-        .status { color: var(--highlight); font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; }
-
-        .goals-list { padding-left: 20px; color: var(--text-sub); }
-        .goals-list li { margin-bottom: 10px; }
-        .goals-list strong { color: var(--text-main); }
-
-        .support-section { text-align: center; }
-        .actions { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-        
-        .qr-small { 
-            width: 120px; 
             border-radius: 12px; 
-            border: 1px solid var(--border); 
-            padding: 5px; 
-            background: white;
+            padding: 15px; 
+            text-align: center;
         }
-        
-        footer { text-align: center; margin-top: 40px; font-size: 0.85rem; color: var(--text-sub); }
+        .status { color: var(--green); font-size: 0.7rem; font-weight: bold; }
+
+        .support-box { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .qr-img { width: 140px; border: 1px solid #ddd; border-radius: 10px; padding: 5px; background: #fff; }
+
+        footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: #a0aec0; }
     </style>
 </head>
 <body>
@@ -72,53 +71,58 @@
 <div class="container">
     <header>
         <h1>TobiMessi</h1>
-        <p style="color: var(--text-sub);">Infrastructure Architect & Orbit Creator</p>
+        <p style="color: var(--text-sub); margin-top: 5px;">DevOps & Cloud Infrastructure Developer</p>
     </header>
 
     <div class="infra-grid">
         <div class="infra-item">
-            <div class="status">● ACTIVE</div>
+            <div class="status">● ONLINE</div>
             <strong>HP Enterprise Cluster</strong>
-            <p style="font-size: 0.8rem; margin-top: 5px; color: var(--text-sub);">Primary Production</p>
         </div>
         <div class="infra-item">
-            <div class="status">● ACTIVE</div>
-            <strong>Asus Server</strong>
-            <p style="font-size: 0.8rem; margin-top: 5px; color: var(--text-sub);">Management Node</p>
+            <div class="status">● ONLINE</div>
+            <strong>Asus Node</strong>
         </div>
     </div>
 
     <div class="card">
-        <h2>Mission: Project Orbit</h2>
-        <p>I am developing <strong>Orbit</strong> — a professional, lightweight container management suite. It aims to bridge the gap between complex orchestration and ease of use for home-lab enthusiasts.</p>
-    </div>
-
-    <div class="card">
-        <h2>Funding & Development Goals</h2>
-        <p>Support is used to build a robust development environment:</p>
+        <h2>Na co idzie Twoje wsparcie?</h2>
+        <p>Każda darowizna pomaga mi utrzymać i rozwijać projekty open-source. Środki przeznaczam na:</p>
         <ul class="goals-list">
-            <li><strong>Hardware Upgrades:</strong> Scaling the HP Enterprise server for Orbit stress-testing.</li>
-            <li><strong>Development Costs:</strong> Funding the architecture and API deployment for the Orbit app.</li>
-            <li><strong>Infrastructure:</strong> Maintaining 24/7 availability and Gigabit fiber connectivity.</li>
+            <li>
+                <span class="icon">🚀</span>
+                <span><strong>Rozwój aplikacji Orbit</strong>Finansowanie architektury i wdrożenia mojego autorskiego systemu do zarządzania kontenerami.</span>
+            </li>
+            <li>
+                <span class="icon">🖥️</span>
+                <span><strong>Upgrade infrastruktury</strong>Zakup wydajniejszych dysków SSD i pamięci RAM do klastra HP Enterprise, aby testy przebiegały szybciej.</span>
+            </li>
+            <li>
+                <span class="icon">⚡</span>
+                <span><strong>Utrzymanie serwerów</strong>Pokrycie kosztów energii elektrycznej dla labu pracującego 24/7 oraz symetrycznego łącza światłowodowego.</span>
+            </li>
+            <li>
+                <span class="icon">🛠️</span>
+                <span><strong>Profesjonalne narzędzia</strong>Licencje JetBrains oraz usługi GitHub Premium, które pozwalają mi pisać lepszy kod.</span>
+            </li>
         </ul>
     </div>
 
-    <div class="card support-section">
-        <h2>Support the Projects</h2>
-        <div class="actions">
-            <iframe src="https://github.com/sponsors/TobiMessi/button" title="Sponsor TobiMessi" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
-            
-            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="TobiK0" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+    <div class="card support-box">
+        <h2>Wesprzyj moją pracę</h2>
+        
+        <iframe src="https://github.com/sponsors/TobiMessi/button" title="Sponsor TobiMessi" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+        
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="TobiK0" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
 
-            <div>
-                <p style="font-size: 0.8rem; color: var(--text-sub); margin-bottom: 10px;">Mobile Quick Support:</p>
-                <img src="qr-code.png" class="qr-small" alt="QR Support">
-            </div>
+        <div style="margin-top: 10px;">
+            <p style="font-size: 0.8rem; color: var(--text-sub); margin-bottom: 10px;">Szybkie wsparcie mobilne (QR Code):</p>
+            <img src="qr-code.png" alt="QR wsparcia" class="qr-img">
         </div>
     </div>
 
     <footer>
-        <p>Built with Passion • Powered by HP Enterprise • Managed via JetBrains</p>
+        1 Gbps Fiber • Docker Infrastructure • Project Orbit 2024
     </footer>
 </div>
 
