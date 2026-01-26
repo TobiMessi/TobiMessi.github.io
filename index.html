@@ -13,6 +13,7 @@
             --text-sub: #4a5568;
             --accent: #0066cc;
             --green: #2ecc71;
+            --social: #24292e;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -37,130 +38,34 @@
         }
         .card h2 { margin-top: 0; font-size: 1.25rem; color: var(--accent); margin-bottom: 15px; text-align: center; }
         
+        /* Infra Grid */
         .infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
         .infra-item { 
             background: var(--card); 
             border: 1px solid var(--border); 
             border-radius: 12px; 
-            padding: 20px;
+            padding: 20px; 
         }
         .status { color: var(--green); font-size: 0.65rem; font-weight: bold; margin-bottom: 10px; display: block; }
         .specs { font-size: 0.8rem; color: var(--text-sub); line-height: 1.4; margin-top: 8px; }
 
-        .goals-list { margin: 0; padding: 0; list-style: none; }
-        .goals-list li { 
-            padding: 12px 0; 
-            border-bottom: 1px solid #f0f0f0; 
-            display: flex; 
-            gap: 12px;
-        }
-        .goals-list li:last-child { border-bottom: none; }
-        .goals-list strong { color: #000; display: block; font-size: 0.95rem; }
-        .goals-list span { font-size: 0.9rem; color: var(--text-sub); line-height: 1.5; }
-
-        /* Niezawodna Sekcja Wsparcia */
-        .support-links {
+        /* Socials */
+        .social-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
+        .social-btn {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.2s;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 20px;
-            padding: 10px 0;
+            gap: 8px;
         }
-        .support-btn {
-            transition: transform 0.2s;
-            display: block;
-        }
-        .support-btn:hover {
-            transform: scale(1.05);
-        }
-        .qr-img { width: 140px; border: 1px solid #ddd; border-radius: 12px; padding: 5px; background: #fff; margin-top: 10px; }
+        .github { background: #24292e; color: white; }
+        .social-btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
-        footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: #a0aec0; }
-
-        @media (max-width: 600px) {
-            .infra-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <h1>TobiMessi</h1>
-        <p style="color: var(--text-sub); margin-top: 5px;">Infrastructure Architect & Orbit Project Developer</p>
-    </header>
-
-    <div class="infra-grid">
-        <div class="infra-item">
-            <span class="status">● ONLINE</span>
-            <strong>HP Compaq Elite 8300 SFF</strong>
-            <div class="specs">
-                CPU: Intel i5-3470 (4x 3.6GHz)<br>
-                RAM: 8GB DDR3<br>
-                Disk: ADATA SU900 SSD
-            </div>
-        </div>
-        
-        <div class="infra-item">
-            <span class="status">● ONLINE</span>
-            <strong>Asus VivoBook 15 (X540MA)</strong>
-            <div class="specs">
-                CPU: Intel Celeron N4000<br>
-                RAM: 4GB DDR4<br>
-                Disk: Kingston RBUSC SSD
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>About Project Orbit</h2>
-        <p style="color: var(--text-sub); line-height: 1.6; text-align: center;">I am developing <strong>Orbit</strong> – a lightweight container management suite. This project focuses on simplifying Docker orchestration for both home-lab enthusiasts and professional environments.</p>
-    </div>
-
-    <div class="card">
-        <h2>How your support helps</h2>
-        <ul class="goals-list">
-            <li>
-                <div style="font-size: 1.2rem;">🚀</div>
-                <div>
-                    <strong>Orbit Development</strong>
-                    <span>Funding software architecture, API deployment, and feature development time.</span>
-                </div>
-            </li>
-            <li>
-                <div style="font-size: 1.2rem;">💾</div>
-                <div>
-                    <strong>Hardware Upgrades</strong>
-                    <span>Replacing budget SSDs with 1TB+ units and expanding HP RAM to 16GB/32GB.</span>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Support my work</h2>
-        <div class="support-links">
-            
-            <a href="https://github.com/sponsors/TobiMessi" target="_blank" class="support-btn">
-                <img src="https://img.shields.io/badge/Sponsor-TobiMessi-ea4aaa?style=for-the-badge&logo=github-sponsors&logoColor=white" alt="GitHub Sponsors">
-            </a>
-            
-            <a href="https://www.buymeacoffee.com/TobiK0" target="_blank" class="support-btn">
-                <img src="https://img.shields.io/badge/Buy_Me_A_Coffee-Support-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee">
-            </a>
-
-            <div style="text-align: center; margin-top: 10px;">
-                <p style="font-size: 0.8rem; color: var(--text-sub); margin-bottom: 10px;">Mobile Quick Support:</p>
-                <img src="qr-code.png" alt="Support QR" class="qr-img">
-            </div>
-
-        </div>
-    </div>
-
-    <footer>
-        1 Gbps Fiber • Linux Mint 22.2 • Docker Ecosystem • Project Orbit 2026
-    </footer>
-</div>
-
-</body>
-</html>
+        /* Support Section */
+        .support-links { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .btn-img { height: 40px; transition: 0.2s; }
+        .btn-img:hover { transform: scale(1.05);
