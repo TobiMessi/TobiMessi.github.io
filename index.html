@@ -14,6 +14,7 @@
             flex-direction: column;
             align-items: center;
         }
+        /* Baner z Patreona */
         .hero-banner {
             width: 100%;
             max-width: 1000px;
@@ -46,13 +47,22 @@
             overflow: hidden;
             border-radius: 8px;
         }
+        /* Twój kod QR */
+        .qr-image {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid #30363d;
+            margin-top: 10px;
+        }
         h1 { color: #58a6ff; margin-top: 30px; }
         strong { color: #FFDD00; }
+        iframe { max-width: 100%; }
     </style>
 </head>
 <body>
 
-<img src="https://files.oaiusercontent.com/file-uPqM5v0j78nL6n5v8n9v8n" alt="TobiMessi Banner" class="hero-banner">
+<img src="banner.png" alt="TobiMessi Support Banner" class="hero-banner">
 
 <div class="container">
     <h1>TobiMessi</h1>
@@ -76,10 +86,15 @@
         <div style="margin-top: 20px;">
             <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="TobiK0" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
         </div>
+
+        <div style="margin-top: 25px;">
+            <p style="font-size: 0.9em; color: #8b949e;">Scan to support via Mobile:</p>
+            <img src="qr-code.png" alt="Support QR Code" class="qr-image">
+        </div>
     </div>
 
     <p style="margin-top: 40px; font-size: 0.8em; color: #8b949e;">
-        Hosted on GitHub Pages | Infrastructure by HP Enterprise
+        Hosted on GitHub Pages | Infrastructure powered by HP Enterprise hardware
     </p>
 </div>
 
