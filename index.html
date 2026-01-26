@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TobiMessi | Infrastructure & Orbit Dev</title>
     
-    <link rel="icon" href="qr-code.jpg?v=2" type="image/jpeg">
-    <link rel="apple-touch-icon" href="qr-code.jpg?v=2">
-    
-    <link rel="shortcut icon" href="qr-code.jpg?v=2" type="image/x-icon">
-    <link rel="icon" href="qr-code.jpg?v=2" type="image/x-icon">
+    <link rel="icon" type="image/jpeg" href="qr-code.jpg">
+    <link rel="shortcut icon" href="qr-code.jpg">
 
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f0f2f5; color: #1c1e21; display: flex; justify-content: center; padding: 20px; line-height: 1.5; }
@@ -32,7 +29,10 @@
         .btn-support { display: inline-block; padding: 12px 24px; margin: 10px 5px; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; }
         .btn-coffee { background: #FFDD00; color: #000; }
         
-        .qr-img { width: 140px; border: 1px solid #ddd; padding: 5px; background: #fff; margin-top: 10px; border-radius: 10px; }
+        /* Naprawa wyświetlania QR */
+        .qr-container { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; text-align: center; }
+        .qr-img { width: 160px; height: 160px; border: 1px solid #ddd; padding: 5px; background: #fff; border-radius: 10px; display: block; margin: 10px auto; }
+        
         @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -51,8 +51,8 @@
     <div class="focus-box">
         <h3>Current Focus: Orbit Docker Image</h3>
         <p style="margin-bottom: 0; font-size: 0.95rem;">
-            Right now, I am heavily focused on developing and optimizing my <strong>custom Docker image</strong> for the Orbit project. 
-            The goal is to provide a rock-solid, high-performance base for container orchestration that works seamlessly across different hardware nodes.
+            I am heavily focused on optimizing my <strong>custom Docker image</strong> for the Orbit project. 
+            The goal is a high-performance base for orchestration across hardware nodes.
         </p>
     </div>
 
@@ -60,7 +60,7 @@
         <div class="node">
             <span class="status">● ONLINE</span><br>
             <strong style="display:block; margin-top:5px;">HP Compaq Pro 6300 SFF</strong>
-            <small style="color: #606770;">i5-3470 | 8GB RAM | ADATA SU900 SSD</small>
+            <small style="color: #606770;">i5-3470 | 8GB RAM | ADATA SSD</small>
         </div>
         <div class="node">
             <span class="status">● ONLINE</span><br>
@@ -71,18 +71,13 @@
 
     <div class="card text-center">
         <h2 style="margin-top: 0; color: #0066cc;">Support the Project</h2>
-        <p style="color: #606770; font-size: 0.95rem;">
-            Help me scale the infrastructure and develop the <strong>Orbit Application</strong>. 
-            All funds are used for server upgrades (RAM/SSD) and development costs.
-        </p>
-        
         <div style="margin: 20px 0;">
-            <a href="https://github.com/sponsors/TobiMessi" class="btn-social btn-gh" style="padding: 12px 24px;">Sponsor on GitHub</a>
+            <a href="https://github.com/sponsors/TobiMessi" class="btn-social btn-gh">Sponsor on GitHub</a>
             <a href="https://www.buymeacoffee.com/TobiK0" class="btn-support btn-coffee">Buy Me a Coffee</a>
         </div>
 
-        <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 20px;">
-            <p style="font-size: 0.8rem; color: #606770; margin-bottom: 15px;">Quick Mobile Support:</p>
+        <div class="qr-container">
+            <p style="font-size: 0.85rem; color: #606770;">Quick Mobile Support:</p>
             <img src="qr-code.jpg" alt="Support QR" class="qr-img">
         </div>
     </div>
