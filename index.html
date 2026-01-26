@@ -3,34 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TobiMessi Infrastructure</title>
+    <title>TobiMessi | Infrastructure & Orbit Dev</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f0f2f5; color: #1c1e21; display: flex; justify-content: center; padding: 20px; line-height: 1.5; }
-        .wrapper { max-width: 600px; width: 100%; }
-        .card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); text-align: center; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .node { background: white; border: 1px solid #ddd; padding: 15px; border-radius: 12px; text-align: left; }
-        .status { color: #28a745; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; }
-        .btn { display: inline-block; padding: 12px 24px; margin: 8px 4px; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; transition: 0.2s; }
-        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        .wrapper { max-width: 650px; width: 100%; }
+        .card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .text-center { text-align: center; }
+        
+        /* Profile Header */
+        header { text-align: center; margin-bottom: 30px; }
+        .btn-social { display: inline-block; padding: 10px 20px; margin: 5px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; transition: 0.2s; }
         .btn-gh { background: #24292e; }
         .btn-reddit { background: #FF4500; }
+        
+        /* Nodes Grid */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .node { background: white; border: 1px solid #ddd; padding: 15px; border-radius: 12px; }
+        .status { color: #28a745; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; }
+
+        /* Focus Section */
+        .focus-box { border-left: 4px solid #0066cc; padding-left: 15px; background: #f8fbff; padding: 15px; border-radius: 0 12px 12px 0; }
+        .focus-box h3 { margin-top: 0; color: #0066cc; font-size: 1.1rem; }
+
+        /* Support Buttons */
+        .btn-support { display: inline-block; padding: 12px 24px; margin: 10px 5px; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; }
         .btn-coffee { background: #FFDD00; color: #000; }
-        img { max-width: 100%; height: auto; border-radius: 8px; }
+        
+        .qr-img { width: 140px; border: 1px solid #ddd; padding: 5px; background: #fff; margin-top: 10px; border-radius: 10px; }
         @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
-    <header style="text-align: center; margin-bottom: 30px;">
-        <h1 style="margin-bottom: 5px;">TobiMessi</h1>
-        <p style="color: #606770; margin-bottom: 20px;">Infrastructure & Project Orbit Developer</p>
+    <header>
+        <h1 style="margin-bottom: 5px; font-size: 2.5rem;">TobiMessi</h1>
+        <p style="color: #606770; margin-bottom: 20px;">Infrastructure Architect & Docker Developer</p>
         <div>
-            <a href="https://github.com/TobiMessi" class="btn btn-gh">GitHub</a>
-            <a href="https://www.reddit.com/user/TobiMessi201/" class="btn btn-reddit">Reddit</a>
+            <a href="https://github.com/TobiMessi" class="btn-social btn-gh">GitHub Profile</a>
+            <a href="https://www.reddit.com/user/TobiMessi201/" class="btn-social btn-reddit">Reddit Profile</a>
         </div>
     </header>
+
+    <div class="card focus-box">
+        <h3>Current Focus: Orbit Docker Image</h3>
+        <p style="margin-bottom: 0; font-size: 0.95rem;">
+            Right now, I am heavily focused on developing and optimizing my **custom Docker image** for the Orbit project. 
+            The goal is to provide a rock-solid, high-performance base for container orchestration that works seamlessly across different hardware nodes.
+        </p>
+    </div>
 
     <div class="grid">
         <div class="node">
@@ -45,24 +66,26 @@
         </div>
     </div>
 
-    <div class="card">
-        <h2 style="margin-top: 0; color: #0066cc;">Support Orbit Project</h2>
-        <p style="color: #606770;">Your donations help me upgrade the home-lab infrastructure and fund the development of the Orbit container management app.</p>
+    <div class="card text-center">
+        <h2 style="margin-top: 0; color: #0066cc;">Support the Infrastructure</h2>
+        <p style="color: #606770; font-size: 0.95rem;">
+            Maintaining a 24/7 home-lab and developing open-source software takes time and resources. 
+            All contributions go directly towards hardware upgrades and Orbit development.
+        </p>
         
-        <div style="margin: 25px 0;">
-            <a href="https://github.com/sponsors/TobiMessi" class="btn btn-gh">Sponsor on GitHub</a>
-            
-            <a href="https://www.buymeacoffee.com/TobiK0" class="btn btn-coffee">Buy Me a Coffee</a>
+        <div style="margin: 20px 0;">
+            <a href="https://github.com/sponsors/TobiMessi" class="btn-social btn-gh" style="padding: 12px 24px;">Sponsor on GitHub</a>
+            <a href="https://www.buymeacoffee.com/TobiK0" class="btn-support btn-coffee">Buy Me a Coffee</a>
         </div>
 
-        <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
-            <p style="font-size: 0.85rem; color: #606770; margin-bottom: 15px;">Mobile Quick Support (QR Code):</p>
-            <img src="qr-code.png" alt="Support QR" style="width: 150px; border: 1px solid #ddd; padding: 5px; background: #fff;">
+        <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 20px;">
+            <p style="font-size: 0.8rem; color: #606770; margin-bottom: 10px;">Quick Mobile Support:</p>
+            <img src="qr-code.png" alt="Support QR" class="qr-img">
         </div>
     </div>
 
-    <footer style="text-align: center; color: #888; font-size: 0.8rem; margin-top: 40px;">
-        1 Gbps Fiber • Linux Mint 22.2 • Project Orbit 2026
+    <footer style="text-align: center; color: #888; font-size: 0.8rem; margin-top: 30px;">
+        1 Gbps Fiber • Linux Mint 22.2 • Orbit Project 2026
     </footer>
 </div>
 
