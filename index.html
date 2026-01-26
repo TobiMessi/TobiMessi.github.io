@@ -25,13 +25,13 @@
         .container { max-width: 700px; width: 100%; }
         header { text-align: center; margin-bottom: 25px; }
         
-        /* Social Media Icons */
-        .socials { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; }
-        .socials a { text-decoration: none; color: #fff; padding: 8px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; transition: 0.3s; }
+        /* Social Media */
+        .socials { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .socials a { text-decoration: none; color: #fff; padding: 10px 18px; border-radius: 12px; font-size: 0.85rem; font-weight: bold; transition: 0.2s; }
         .btn-github { background: #24292e; }
         .btn-discord { background: #5865F2; }
         .btn-twitter { background: #1DA1F2; }
-        .socials a:hover { opacity: 0.8; transform: translateY(-2px); }
+        .socials a:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
         .card {
             background: var(--card);
@@ -40,18 +40,20 @@
             padding: 25px;
             margin-bottom: 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            text-align: center;
         }
         
         .infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .infra-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 15px; text-align: left; }
-        .status { color: #2ecc71; font-size: 0.7rem; font-weight: bold; }
+        .infra-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 15px; }
+        .status { color: #2ecc71; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
 
-        /* Poprawione kontenery na iframe/skrypty */
-        .widget-box { margin: 20px 0; min-height: 40px; display: flex; justify-content: center; align-items: center; }
-        .qr-img { width: 130px; border-radius: 10px; border: 1px solid #ddd; margin-top: 15px; }
+        /* Support Buttons - Safe Version */
+        .support-wrapper { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .support-link-img { height: 50px; border-radius: 8px; transition: 0.2s; }
+        .support-link-img:hover { transform: scale(1.03); }
+        
+        .qr-img { width: 140px; border-radius: 12px; border: 1px solid #ddd; padding: 5px; background: #fff; margin-top: 10px; }
 
-        footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: #a0aec0; }
+        footer { text-align: center; margin-top: 40px; font-size: 0.8rem; color: #a0aec0; }
         @media (max-width: 600px) { .infra-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -59,53 +61,25 @@
 
 <div class="container">
     <header>
-        <h1>TobiMessi</h1>
-        <p>Infrastructure & Orbit Project Developer</p>
+        <h1 style="font-size: 2.5rem; margin-bottom: 5px;">TobiMessi</h1>
+        <p style="color: var(--text-sub);">Infrastructure & Orbit Project Developer</p>
     </header>
 
     <div class="socials">
-        <a href="https://github.com/TobiMessi" class="btn-github">GitHub</a>
-        <a href="#" class="btn-discord">Discord</a> <a href="#" class="btn-twitter">X (Twitter)</a> </div>
+        <a href="https://github.com/TobiMessi" class="btn-github">GitHub Profile</a>
+        <a href="https://discord.com" class="btn-discord">Join Discord</a>
+        <a href="https://x.com" class="btn-twitter">Follow on X</a>
+    </div>
 
     <div class="infra-grid">
         <div class="infra-item">
-            <span class="status">● ONLINE</span><br>
-            <strong>HP Elite 8300 SFF</strong>
-            <p style="font-size: 0.75rem; color: var(--text-sub);">i5-3470 • 8GB RAM • 240GB SSD</p>
+            <span class="status">● Online</span><br>
+            <strong style="display: block; margin-top: 5px;">HP Elite 8300 SFF</strong>
+            <p style="font-size: 0.8rem; color: var(--text-sub); line-height: 1.5;">
+                i5-3470 • 8GB RAM<br>ADATA SU900 SSD
+            </p>
         </div>
         <div class="infra-item">
-            <span class="status">● ONLINE</span><br>
-            <strong>Asus VivoBook 15</strong>
-            <p style="font-size: 0.75rem; color: var(--text-sub);">Celeron N4000 • 4GB RAM • 240GB SSD</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>Support & Donation</h2>
-        <p style="font-size: 0.9rem; color: var(--text-sub);">All funds are used for server upgrades and Orbit app development.</p>
-
-        <div class="widget-box">
-            <iframe src="https://github.com/sponsors/TobiMessi/card" title="Sponsor TobiMessi" height="225" width="600" style="border: 0; max-width: 100%;"></iframe>
-        </div>
-
-        <div class="widget-box">
-            <iframe src="https://github.com/sponsors/TobiMessi/button" title="Sponsor TobiMessi" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
-        </div>
-
-        <div class="widget-box">
-            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="TobiK0" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
-        </div>
-
-        <div>
-            <p style="font-size: 0.8rem; color: var(--text-sub);">Mobile Support:</p>
-            <img src="qr-code.png" class="qr-img" alt="QR Code">
-        </div>
-    </div>
-
-    <footer>
-        1 Gbps Fiber • Linux Mint 22.2 • Orbit 2026
-    </footer>
-</div>
-
-</body>
-</html>
+            <span class="status">● Online</span><br>
+            <strong style="display: block; margin-top: 5px;">Asus VivoBook 15</strong>
+            <p style="font-size: 0.8rem; color: var(--text-sub); line-height: 1.5
