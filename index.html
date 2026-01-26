@@ -35,15 +35,14 @@
             margin-bottom: 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
-        .card h2 { margin-top: 0; font-size: 1.25rem; color: var(--accent); margin-bottom: 15px; }
+        .card h2 { margin-top: 0; font-size: 1.25rem; color: var(--accent); margin-bottom: 15px; text-align: center; }
         
         .infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
         .infra-item { 
             background: var(--card); 
             border: 1px solid var(--border); 
             border-radius: 12px; 
-            padding: 20px; 
-            text-align: left;
+            padding: 20px;
         }
         .status { color: var(--green); font-size: 0.65rem; font-weight: bold; margin-bottom: 10px; display: block; }
         .specs { font-size: 0.8rem; color: var(--text-sub); line-height: 1.4; margin-top: 8px; }
@@ -59,21 +58,22 @@
         .goals-list strong { color: #000; display: block; font-size: 0.95rem; }
         .goals-list span { font-size: 0.9rem; color: var(--text-sub); line-height: 1.5; }
 
-        /* Poprawiona sekcja wsparcia */
-        .support-container {
+        /* Niezawodna Sekcja Wsparcia */
+        .support-links {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 25px;
+            gap: 20px;
             padding: 10px 0;
         }
-        .support-item {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            min-height: 40px; /* Rezerwuje miejsce, by przycisk nie znikał */
+        .support-btn {
+            transition: transform 0.2s;
+            display: block;
         }
-        .qr-img { width: 130px; border: 1px solid #ddd; border-radius: 10px; padding: 5px; background: #fff; }
+        .support-btn:hover {
+            transform: scale(1.05);
+        }
+        .qr-img { width: 140px; border: 1px solid #ddd; border-radius: 12px; padding: 5px; background: #fff; margin-top: 10px; }
 
         footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: #a0aec0; }
 
@@ -114,7 +114,7 @@
 
     <div class="card">
         <h2>About Project Orbit</h2>
-        <p style="color: var(--text-sub); line-height: 1.6;">I am developing <strong>Orbit</strong> – a lightweight container management suite. This project focuses on simplifying Docker orchestration for both home-lab enthusiasts and professional environments.</p>
+        <p style="color: var(--text-sub); line-height: 1.6; text-align: center;">I am developing <strong>Orbit</strong> – a lightweight container management suite. This project focuses on simplifying Docker orchestration for both home-lab enthusiasts and professional environments.</p>
     </div>
 
     <div class="card">
@@ -124,11 +124,43 @@
                 <div style="font-size: 1.2rem;">🚀</div>
                 <div>
                     <strong>Orbit Development</strong>
-                    <span>Funding the software architecture, API deployment, and dedicated development time for new features.</span>
+                    <span>Funding software architecture, API deployment, and feature development time.</span>
                 </div>
             </li>
             <li>
                 <div style="font-size: 1.2rem;">💾</div>
                 <div>
                     <strong>Hardware Upgrades</strong>
-                    <span>Upgrading existing nodes with larger SSDs (1TB+) and expanding HP RAM capacity to 16GB
+                    <span>Replacing budget SSDs with 1TB+ units and expanding HP RAM to 16GB/32GB.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Support my work</h2>
+        <div class="support-links">
+            
+            <a href="https://github.com/sponsors/TobiMessi" target="_blank" class="support-btn">
+                <img src="https://img.shields.io/badge/Sponsor-TobiMessi-ea4aaa?style=for-the-badge&logo=github-sponsors&logoColor=white" alt="GitHub Sponsors">
+            </a>
+            
+            <a href="https://www.buymeacoffee.com/TobiK0" target="_blank" class="support-btn">
+                <img src="https://img.shields.io/badge/Buy_Me_A_Coffee-Support-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee">
+            </a>
+
+            <div style="text-align: center; margin-top: 10px;">
+                <p style="font-size: 0.8rem; color: var(--text-sub); margin-bottom: 10px;">Mobile Quick Support:</p>
+                <img src="qr-code.png" alt="Support QR" class="qr-img">
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        1 Gbps Fiber • Linux Mint 22.2 • Docker Ecosystem • Project Orbit 2026
+    </footer>
+</div>
+
+</body>
+</html>
