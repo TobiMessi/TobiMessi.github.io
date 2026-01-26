@@ -3,100 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TobiMessi | Project Orbit</title>
+    <title>TobiMessi | Infrastructure & Dev</title>
     <style>
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --accent: #58a6ff;
+            --yellow: #f0e042;
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             margin: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
         }
-        /* Baner z Patreona */
-        .hero-banner {
+        .wrapper {
+            max-width: 600px;
             width: 100%;
-            max-width: 1000px;
-            height: auto;
-            border-bottom: 2px solid #30363d;
         }
-        .container {
-            max-width: 650px;
-            width: 90%;
+        .profile-header {
             text-align: center;
-            padding: 20px;
+            margin-bottom: 40px;
         }
-        .tech-stack {
-            background: #161b22;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #30363d;
-            margin: 20px 0;
-            text-align: left;
+        .profile-header h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            color: var(--accent);
         }
-        .sponsor-section {
-            background: #21262d;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #FFDD00;
-            margin-top: 10px;
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
         }
-        .iframe-container {
-            margin: 15px 0;
-            overflow: hidden;
-            border-radius: 8px;
+        .card:hover { border-color: #8b949e; }
+        .card h2 { margin-top: 0; font-size: 1.2rem; color: var(--accent); }
+        .card p { line-height: 1.6; font-size: 0.95rem; color: #8b949e; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .status-dot { height: 10px; width: 10px; background-color: #238636; border-radius: 50%; display: inline-block; margin-right: 5px; }
+
+        /* Styl dla przycisków wsparcia */
+        .sponsor-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            margin-top: 20px;
         }
-        /* Twój kod QR */
-        .qr-image {
-            width: 150px;
-            height: auto;
-            border-radius: 10px;
-            border: 2px solid #30363d;
-            margin-top: 10px;
-        }
-        h1 { color: #58a6ff; margin-top: 30px; }
-        strong { color: #FFDD00; }
-        iframe { max-width: 100%; }
+        .mini-qr { width: 100px; opacity: 0.7; transition: 0.3s; }
+        .mini-qr:hover { opacity: 1; }
+        
+        iframe { border-radius: 12px; }
     </style>
 </head>
 <body>
 
-<img src="banner.png" alt="TobiMessi Support Banner" class="hero-banner">
-
-<div class="container">
-    <h1>TobiMessi</h1>
-    
-    <div class="tech-stack">
-        <h3>Project Orbit & Infrastructure</h3>
-        <p>Managing a production cluster on <strong>HP Enterprise</strong> and <strong>Asus</strong> hardware. Optimized for Docker orchestration and high-speed fiber networking.</p>
+<div class="wrapper">
+    <div class="profile-header">
+        <h1>TobiMessi</h1>
+        <p>Full-stack Dev • Self-Hosting Enthusiast • Creator of Orbit</p>
     </div>
 
-    <div class="sponsor-section">
-        <h2>Official Support Links</h2>
+    <div class="card">
+        <h2>About Me & My Projects</h2>
+        <p>I'm a developer building <strong>Project Orbit</strong>, a lightweight container management tool. I focus on automation and high-performance server architecture.</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h2><span class="status-dot"></span> HP Server</h2>
+            <p style="font-size: 0.8rem;">Production Node. Docker & Orbit environment.</p>
+        </div>
+        <div class="card">
+            <h2><span class="status-dot"></span> Asus Node</h2>
+            <p style="font-size: 0.8rem;">Monitoring & RSS services. 24/7 uptime.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Support the Infrastructure</h2>
+        <p>All contributions help maintain the 24/7 home-lab and electricity costs for Project Orbit development.</p>
         
-        <div class="iframe-container">
-            <iframe src="https://github.com/sponsors/TobiMessi/card" title="Sponsor TobiMessi" height="225" width="600" style="border: 0;"></iframe>
-        </div>
-
-        <div class="iframe-container">
-            <iframe src="https://github.com/sponsors/TobiMessi/button" title="Sponsor TobiMessi" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
-        </div>
-
-        <div style="margin-top: 20px;">
+        <div class="sponsor-grid">
+            <iframe src="https://github.com/sponsors/TobiMessi/button" title="Sponsor TobiMessi" height="32" width="114" style="border: 0;"></iframe>
+            
             <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="TobiK0" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
-        </div>
-
-        <div style="margin-top: 25px;">
-            <p style="font-size: 0.9em; color: #8b949e;">Scan to support via Mobile:</p>
-            <img src="qr-code.png" alt="Support QR Code" class="qr-image">
+            
+            <p style="font-size: 0.8rem; margin-bottom: 5px;">Or scan for mobile support:</p>
+            <img src="qr-code.png" class="mini-qr" alt="QR">
         </div>
     </div>
 
-    <p style="margin-top: 40px; font-size: 0.8em; color: #8b949e;">
-        Hosted on GitHub Pages | Infrastructure powered by HP Enterprise hardware
-    </p>
+    <footer style="text-align: center; font-size: 0.8rem; color: #484f58; margin-top: 20px;">
+        <p>1 Gbps Fiber • Linux/Docker • JetBrains IDE</p>
+    </footer>
 </div>
 
+</body>
+</html>
 </body>
 </html>
