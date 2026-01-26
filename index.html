@@ -3,111 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TobiMessi | Infrastructure & Dev</title>
+    <title>TobiMessi | Infrastructure & Orbit</title>
     <style>
         :root {
-            --bg: #0d1117;
-            --card: #161b22;
-            --border: #30363d;
-            --text: #c9d1d9;
-            --accent: #58a6ff;
-            --yellow: #f0e042;
+            --bg: #f8f9fa; /* Jasne, nowoczesne tło */
+            --card: #ffffff; /* Białe karty */
+            --border: #e1e4e8;
+            --text-main: #24292e;
+            --text-sub: #586069;
+            --accent: #0366d6; /* Profesjonalny niebieski */
+            --highlight: #28a745; /* Zielony akcent sukcesu */
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             background-color: var(--bg);
-            color: var(--text);
+            color: var(--text-main);
             margin: 0;
             display: flex;
             justify-content: center;
             padding: 40px 20px;
         }
-        .wrapper {
-            max-width: 600px;
-            width: 100%;
-        }
-        .profile-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .profile-header h1 {
-            font-size: 2rem;
-            margin-bottom: 5px;
-            color: var(--accent);
-        }
+        .container { max-width: 650px; width: 100%; }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { margin: 0; font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; }
+        
         .card {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
+            border-radius: 16px;
+            padding: 30px;
             margin-bottom: 20px;
-            transition: transform 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Delikatny cień */
         }
-        .card:hover { border-color: #8b949e; }
-        .card h2 { margin-top: 0; font-size: 1.2rem; color: var(--accent); }
-        .card p { line-height: 1.6; font-size: 0.95rem; color: #8b949e; }
+        .card h2 { margin-top: 0; color: var(--text-main); font-size: 1.3rem; border-bottom: 2px solid var(--bg); padding-bottom: 10px; }
+        .card p { line-height: 1.6; color: var(--text-sub); margin-bottom: 15px; }
         
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .status-dot { height: 10px; width: 10px; background-color: #238636; border-radius: 50%; display: inline-block; margin-right: 5px; }
+        .infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .infra-item { 
+            background: var(--card); 
+            border: 1px solid var(--border); 
+            border-radius: 16px; 
+            padding: 20px; 
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .status { color: var(--highlight); font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; }
 
-        /* Styl dla przycisków wsparcia */
-        .sponsor-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .mini-qr { width: 100px; opacity: 0.7; transition: 0.3s; }
-        .mini-qr:hover { opacity: 1; }
+        .goals-list { padding-left: 20px; color: var(--text-sub); }
+        .goals-list li { margin-bottom: 10px; }
+        .goals-list strong { color: var(--text-main); }
+
+        .support-section { text-align: center; }
+        .actions { display: flex; flex-direction: column; align-items: center; gap: 20px; }
         
-        iframe { border-radius: 12px; }
+        .qr-small { 
+            width: 120px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border); 
+            padding: 5px; 
+            background: white;
+        }
+        
+        footer { text-align: center; margin-top: 40px; font-size: 0.85rem; color: var(--text-sub); }
     </style>
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="profile-header">
+<div class="container">
+    <header>
         <h1>TobiMessi</h1>
-        <p>Full-stack Dev • Self-Hosting Enthusiast • Creator of Orbit</p>
-    </div>
+        <p style="color: var(--text-sub);">Infrastructure Architect & Orbit Creator</p>
+    </header>
 
-    <div class="card">
-        <h2>About Me & My Projects</h2>
-        <p>I'm a developer building <strong>Project Orbit</strong>, a lightweight container management tool. I focus on automation and high-performance server architecture.</p>
-    </div>
-
-    <div class="grid">
-        <div class="card">
-            <h2><span class="status-dot"></span> HP Server</h2>
-            <p style="font-size: 0.8rem;">Production Node. Docker & Orbit environment.</p>
+    <div class="infra-grid">
+        <div class="infra-item">
+            <div class="status">● ACTIVE</div>
+            <strong>HP Enterprise Cluster</strong>
+            <p style="font-size: 0.8rem; margin-top: 5px; color: var(--text-sub);">Primary Production</p>
         </div>
-        <div class="card">
-            <h2><span class="status-dot"></span> Asus Node</h2>
-            <p style="font-size: 0.8rem;">Monitoring & RSS services. 24/7 uptime.</p>
+        <div class="infra-item">
+            <div class="status">● ACTIVE</div>
+            <strong>Asus Server</strong>
+            <p style="font-size: 0.8rem; margin-top: 5px; color: var(--text-sub);">Management Node</p>
         </div>
     </div>
 
     <div class="card">
-        <h2>Support the Infrastructure</h2>
-        <p>All contributions help maintain the 24/7 home-lab and electricity costs for Project Orbit development.</p>
-        
-        <div class="sponsor-grid">
-            <iframe src="https://github.com/sponsors/TobiMessi/button" title="Sponsor TobiMessi" height="32" width="114" style="border: 0;"></iframe>
+        <h2>Mission: Project Orbit</h2>
+        <p>I am developing <strong>Orbit</strong> — a professional, lightweight container management suite. It aims to bridge the gap between complex orchestration and ease of use for home-lab enthusiasts.</p>
+    </div>
+
+    <div class="card">
+        <h2>Funding & Development Goals</h2>
+        <p>Support is used to build a robust development environment:</p>
+        <ul class="goals-list">
+            <li><strong>Hardware Upgrades:</strong> Scaling the HP Enterprise server for Orbit stress-testing.</li>
+            <li><strong>Development Costs:</strong> Funding the architecture and API deployment for the Orbit app.</li>
+            <li><strong>Infrastructure:</strong> Maintaining 24/7 availability and Gigabit fiber connectivity.</li>
+        </ul>
+    </div>
+
+    <div class="card support-section">
+        <h2>Support the Projects</h2>
+        <div class="actions">
+            <iframe src="https://github.com/sponsors/TobiMessi/button" title="Sponsor TobiMessi" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
             
             <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="TobiK0" data-color="#FFDD00" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
-            
-            <p style="font-size: 0.8rem; margin-bottom: 5px;">Or scan for mobile support:</p>
-            <img src="qr-code.png" class="mini-qr" alt="QR">
+
+            <div>
+                <p style="font-size: 0.8rem; color: var(--text-sub); margin-bottom: 10px;">Mobile Quick Support:</p>
+                <img src="qr-code.png" class="qr-small" alt="QR Support">
+            </div>
         </div>
     </div>
 
-    <footer style="text-align: center; font-size: 0.8rem; color: #484f58; margin-top: 20px;">
-        <p>1 Gbps Fiber • Linux/Docker • JetBrains IDE</p>
+    <footer>
+        <p>Built with Passion • Powered by HP Enterprise • Managed via JetBrains</p>
     </footer>
 </div>
 
-</body>
-</html>
 </body>
 </html>
