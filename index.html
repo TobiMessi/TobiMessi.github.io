@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TobiMessi | Learning Infrastructure</title>
     
-    <link rel="icon" type="image/png" href="qr-code.png?v=patreon_update">
-    <link rel="shortcut icon" type="image/png" href="qr-code.png?v=patreon_update">
+    <link rel="icon" type="image/png" href="qr-code.png?v=fixed_buttons">
+    <link rel="shortcut icon" type="image/png" href="qr-code.png?v=fixed_buttons">
 
     <style>
         body { 
@@ -34,10 +34,20 @@
         header { text-align: center; margin-bottom: 35px; }
         h1 { margin: 0 0 10px 0; font-size: 2.5rem; letter-spacing: -1px; color: #111; }
         
-        .btn-group { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .btn-group { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            flex-wrap: wrap; 
+            margin-top: 15px; 
+        }
+
+        /* KLUCZOWA POPRAWKA: Stała szerokość przycisków */
         .btn { 
             display: inline-block; 
-            padding: 10px 24px; 
+            padding: 12px 0; /* Górny/dolny padding, 0 na boki bo min-width trzyma rozmiar */
+            min-width: 180px; /* Wszystkie przyciski będą miały min. 180px szerokości */
+            text-align: center; 
             border-radius: 8px; 
             text-decoration: none; 
             font-weight: 600; 
@@ -45,13 +55,15 @@
             transition: all 0.2s ease;
             font-size: 0.9rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-sizing: border-box;
         }
+        
         .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); opacity: 0.9; }
         
         .btn-gh { background: #24292e; }
         .btn-reddit { background: #FF4500; }
         .btn-coffee { background: #FFDD00; color: #000; }
-        .btn-patreon { background: #FF424D; } /* Oficjalny kolor Patreon */
+        .btn-patreon { background: #FF424D; }
         
         .focus-box { 
             background: #f0f7ff; 
