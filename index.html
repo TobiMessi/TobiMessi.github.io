@@ -37,16 +37,17 @@
         .btn-group { 
             display: flex; 
             justify-content: center; 
-            gap: 10px; 
+            gap: 15px; 
             flex-wrap: wrap; 
             margin-top: 15px; 
         }
 
-        /* KLUCZOWA POPRAWKA: Stała szerokość przycisków */
         .btn { 
+            /* To wymusza identyczny rozmiar dla każdego przycisku */
+            width: 190px; 
+            
             display: inline-block; 
-            padding: 12px 0; /* Górny/dolny padding, 0 na boki bo min-width trzyma rozmiar */
-            min-width: 180px; /* Wszystkie przyciski będą miały min. 180px szerokości */
+            padding: 12px 0;
             text-align: center; 
             border-radius: 8px; 
             text-decoration: none; 
@@ -56,6 +57,7 @@
             font-size: 0.9rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             box-sizing: border-box;
+        }
         }
         
         .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); opacity: 0.9; }
