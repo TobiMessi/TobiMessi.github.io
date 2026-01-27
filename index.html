@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TobiMessi | Learning Infrastructure</title>
     
-    <link rel="icon" type="image/png" href="qr-code.png?v=final_stats">
-    <link rel="shortcut icon" type="image/png" href="qr-code.png?v=final_stats">
+    <link rel="icon" type="image/png" href="qr-code.png?v=final_stats_fix">
+    <link rel="shortcut icon" type="image/png" href="qr-code.png?v=final_stats_fix">
 
     <style>
         body { 
@@ -75,18 +75,20 @@
         .specs { margin-top: 10px; font-size: 0.85rem; color: #555; }
         .spec-line { display: block; margin-bottom: 4px; }
 
-        /* Styl dla sekcji statystyk */
+        /* Poprawiona sekcja statystyk */
         .stats-container {
             text-align: center;
             margin: 30px 0;
-            padding: 20px 0;
+            padding-top: 30px;
             border-top: 1px solid #eaeaea;
         }
         .stats-img {
             max-width: 100%;
             height: auto;
-            margin-bottom: 15px;
-            border-radius: 8px;
+            margin: 10px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .support-card { 
@@ -150,8 +152,10 @@
     </div>
 
     <div class="stats-container">
-        <h3 style="color: #111; margin-bottom: 20px; font-size: 1.1rem;">Development Activity</h3>
+        <h3 style="color: #111; margin-bottom: 15px; font-size: 1.1rem;">Development Activity</h3>
+        
         <img src="https://github-readme-stats.vercel.app/api?username=TobiMessi&show_icons=true&theme=transparent&hide_border=true" alt="GitHub Stats" class="stats-img">
+        
         <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TobiMessi&layout=compact&theme=transparent&hide_border=true" alt="Top Languages" class="stats-img">
     </div>
 
