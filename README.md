@@ -10,7 +10,7 @@ I am a **self-taught infrastructure enthusiast** and **Docker learner**. Current
 ### 💻 My Home-Lab Setup
 | Device | CPU | RAM | Storage |
 | :--- | :--- | :--- | :--- |
-| **HP Compaq Pro 6300 SFF** | i5-3470 | 8GB | ADATA SU900 SSD 256GB |
+| **HP Compaq Pro 6300 SFF** | i5-3470 | 16GB | ADATA SU900 SSD 256GB |
 | **Asus VivoBook 15** | Celeron N4000 | 4GB | Kingston A400 SSD 256GB |
 
 ### 🛠 Tech Stack (Learning in Progress)
