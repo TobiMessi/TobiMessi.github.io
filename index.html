@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TobiMessi | Learning Infrastructure</title>
-    
+
     <link rel="icon" type="image/png" href="qr-code.png?v=fixed_buttons">
     <link rel="shortcut icon" type="image/png" href="qr-code.png?v=fixed_buttons">
 
@@ -30,10 +30,10 @@
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
-        
+
         header { text-align: center; margin-bottom: 35px; }
         h1 { margin: 0 0 10px 0; font-size: 2.5rem; letter-spacing: -1px; color: #111; }
-        
+
         .btn-group { 
             display: flex; 
             justify-content: center; 
@@ -43,9 +43,7 @@
         }
 
         .btn { 
-            /* To wymusza identyczny rozmiar dla każdego przycisku */
             width: 190px; 
-            
             display: inline-block; 
             padding: 12px 0;
             text-align: center; 
@@ -58,15 +56,16 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             box-sizing: border-box;
         }
-        }
-        
+
         .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); opacity: 0.9; }
-        
+
         .btn-gh { background: #24292e; }
         .btn-reddit { background: #FF4500; }
+        .btn-yt { background: #FF0000; }
+        .btn-x { background: #000000; } /* Styl dla X / Twitter */
         .btn-coffee { background: #FFDD00; color: #000; }
         .btn-patreon { background: #FF424D; }
-        
+
         .focus-box { 
             background: #f0f7ff; 
             border-left: 5px solid #0066cc; 
@@ -86,31 +85,16 @@
         }
         .node:hover { border-color: #0066cc; transform: translateY(-2px); }
         .status { color: #28a745; font-weight: bold; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
-        
+
         .specs { margin-top: 10px; font-size: 0.85rem; color: #555; }
         .spec-line { display: block; margin-bottom: 4px; }
-
-        .stats-container {
-            text-align: center;
-            margin: 30px 0;
-            padding-top: 30px;
-            border-top: 1px solid #eaeaea;
-        }
-        .stats-img {
-            max-width: 100%;
-            height: auto;
-            margin: 10px 0;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
 
         .support-card { 
             text-align: center; 
             border-top: 1px solid #eaeaea; 
             padding-top: 30px; 
         }
-        
+
         .qr-img { 
             width: 160px; 
             height: auto; 
@@ -120,9 +104,9 @@
             border-radius: 12px; 
             margin-top: 15px; 
         }
-        
+
         footer { text-align: center; color: #888; font-size: 0.8rem; margin-top: 50px; }
-        
+
         @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -134,6 +118,8 @@
         <p style="color: #555; margin-bottom: 20px; font-size: 1.1rem;">Self-Taught Infrastructure Enthusiast & Docker Learner</p>
         <div class="btn-group">
             <a href="https://github.com/TobiMessi" class="btn btn-gh">GitHub Profile</a>
+            <a href="https://www.youtube.com/channel/UCisFPSU_Y8hznpqrcewcJAg?app=desktop" class="btn btn-yt">YouTube Channel</a>
+            <a href="https://x.com/DevLabStudy" class="btn btn-x">Follow on X</a>
             <a href="https://www.reddit.com/user/TobiMessi201/" class="btn btn-reddit">Reddit Profile</a>
         </div>
     </header>
@@ -170,11 +156,13 @@
         <p style="color: #555; margin-bottom: 25px;">
             Every donation helps me buy new parts for my home-lab and provides more time to learn and develop the <strong>Orbit Application</strong>.
         </p>
-        
+
         <div class="btn-group">
             <a href="https://github.com/sponsors/TobiMessi" class="btn btn-gh">GitHub Sponsor</a>
             <a href="https://www.patreon.com/TobiMessi" class="btn btn-patreon">Patreon</a>
             <a href="https://www.buymeacoffee.com/TobiK0" class="btn btn-coffee">Buy Me a Coffee</a>
+            <a href="https://www.youtube.com/channel/UCisFPSU_Y8hznpqrcewcJAg?app=desktop" class="btn btn-yt">Subscribe on YouTube</a>
+            <a href="https://x.com/DevLabStudy" class="btn btn-x">Follow on X</a>
         </div>
 
         <div style="margin-top: 30px;">
