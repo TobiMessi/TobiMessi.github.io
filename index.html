@@ -121,23 +121,23 @@
    style="
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ffdd00;
-    color: #000;
+    background-color: #4b0082; /* Głęboki fiolet (Indigo) - pasuje do kosmosu/Orbit */
+    color: #ffffff; /* Białe litery */
     text-decoration: none;
     border-radius: 8px;
-    font-weight: bold;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Tu jest klucz do czcionki */
-    transition: transform 0.2s, background-color 0.2s;
+    font-weight: 600; /* Standardowe pogrubienie */
+    font-family: inherit; /* Pobiera czcionkę z nadrzędnego elementu, będzie identyczna jak w innych przyciskach */
+    transition: all 0.2s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     border: none;
     cursor: pointer;
-    font-size: 14px; /* Dopasuj wielkość do reszty przycisków */
+    font-size: 14px;
+    vertical-align: middle;
    "
-   onmouseover="this.style.backgroundColor='#e6c700'; this.style.transform='scale(1.05)';"
-   onmouseout="this.style.backgroundColor='#ffdd00'; this.style.transform='scale(1)';"
+   onmouseover="this.style.backgroundColor='#310055'; this.style.transform='scale(1.05)';"
+   onmouseout="this.style.backgroundColor='#4b0082'; this.style.transform='scale(1)';"
 >
    Blog Projektu Orbit™
-</a>
 </a>
         </div>
     </header>
