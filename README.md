@@ -1,6 +1,6 @@
-# Hi there, I'm DevLabStudy 👋
+# Hi there, I'm DevLabStudy© 👋
 
-I am a **self-taught infrastructure enthusiast** and **Docker learner**. Currently, I am focused on building my home-lab and developing the **Orbit Project**, where I explore the world of containerization and distributed systems.
+I am a **self-taught infrastructure enthusiast** and **Docker learner**. Currently, I am focused on building my home-lab and developing the **Orbit™ Project**, where I explore the world of containerization and distributed systems.
 
 ### 🚀 Current Focus
 - **Docker Optimization:** Learning how to build lightweight and secure custom images.
@@ -23,7 +23,7 @@ I am a **self-taught infrastructure enthusiast** and **Docker learner**. Current
 
 ### 🤝 Support My Journey
 If you find my work or my learning journey interesting, feel free to support me:
-- [**Sponsor me on GitHub**](https://github.com/sponsors/TobiMessi)
+- [**Sponsor me on GitHub**](https://github.com/sponsors/DevLabStudy)
 - [**Buy Me a Coffee**](https://www.buymeacoffee.com/TobiK0)
 - [**Support me on Patreon**](https://www.patreon.com/DevStudyLab?utm_campaign=creatorshare_creator) 
 
