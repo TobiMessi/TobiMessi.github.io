@@ -69,8 +69,7 @@
         .btn-reddit { background: #FF4500 !important; }
         .btn-yt { background: #FF0000 !important; }
         .btn-x { background: #000000 !important; }
-        /* Poprawiona klasa TikTok */
-        .btn-tiktok { background: #010101 !important; }
+        .btn-tiktok { background: #010101 !important; color: #ffffff !important; }
         .btn-coffee { background: #FFDD00 !important; color: #000 !important; }
         .btn-patreon { background: #FF424D !important; }
         .btn-orbit { background: #4b0082 !important; }
@@ -106,7 +105,8 @@
 
         footer { text-align: center; color: #888; font-size: 0.8rem; margin-top: 50px; }
 
-        @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
+        /* Media query poprawione dla 3 elementów */
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -151,12 +151,21 @@
                 <span class="spec-line" style="color: #1a1d21; font-weight: 500;">Kingston A400 SSD 256GB</span>
             </div>
         </div>
+
+        <div class="node">
+            <span class="status" style="color: #0066cc;">Cloud Node</span><br>
+            <strong style="display:block; margin-top:8px; font-size: 1.05rem;">DigitalOcean VPS (FRA1)</strong>
+            <div class="specs">
+                <span class="spec-line">1 vCPU - 2GB RAM (Upgrade)</span>
+                <span class="spec-line" style="color: #1a1d21; font-weight: 500;">Ubuntu 24.04 LTS - 10GB SSD</span>
+            </div>
+        </div>
     </div>
 
     <div class="support-card">
         <h2 style="margin-top: 0; color: #0066cc;">Support My Journey</h2>
         <p style="color: #555; margin-bottom: 25px;">
-            Every donation helps me buy new parts for my home-lab and provides more time to learn and develop the <strong>Orbit™ Application</strong>.
+            Every donation helps me buy new parts for my home-lab and provides more time to learn and develop the <strong>Orbit Application</strong>.
         </p>
 
         <div class="btn-group">
