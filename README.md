@@ -1,11 +1,15 @@
+<div align="center">
+
 # Hi there, I'm DevLabStudy© 👋
 
 I am a **Self-Taught Infrastructure & Systems Enthusiast**. My journey focuses on building a resilient home-lab environment and exploring the world of containerization through practical, hands-on hardware management.
 
+---
+
 ### 🚀 Current Projects & Focus
-- **Orbit™ Project:** Developing a custom-built base for container orchestration and home-lab automation.
-- **Dockerized Infrastructure:** Building and optimizing lightweight images for home-server services.
-- **Hybrid Cloud:** Bridging local nodes with remote cloud instances to create a secure, distributed network.
+**Orbit™ Project** | **Dockerized Infrastructure** | **Hybrid Cloud**
+
+</div>
 
 ### 💻 My Home-Lab Setup (Infrastructure)
 
@@ -23,12 +27,16 @@ I am a **Self-Taught Infrastructure & Systems Enthusiast**. My journey focuses o
 
 ---
 
+<div align="center">
+
 ### 🤝 Support the Orbit™ Journey
 
-[![GitHub Sponsor](https://img.shields.io/badge/GitHub_Sponsor-24292e?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/DevLabStudy)
-[![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/DevStudyLab)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/devlabstudy)
+| | | |
+| :---: | :---: | :---: |
+| [![GitHub Sponsor](https://img.shields.io/badge/GitHub_Sponsor-24292e?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/DevLabStudy) | [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/DevStudyLab) | [![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/devlabstudy) |
 
----
+<br>
 
 *“Building a bridge between local hardware and cloud scalability, one container at a time.”*
+
+</div>
