@@ -10,8 +10,9 @@ I am a **self-taught infrastructure enthusiast** and **Docker learner**. Current
 ### 💻 My Home-Lab Setup
 | Device | CPU | RAM | Storage |
 | :--- | :--- | :--- | :--- |
-| **HP Compaq Pro 6300 SFF** | i5-3470 | 16GB | ADATA SU900 SSD 256GB + Hitachi Travelstar 5K250-160 HDD 160GB + HGST HTS541010A9E680 HDD 1TB|
+| **HP Compaq Pro 6300 SFF** | i5-3470 | 16GB | ADATA SU900 SSD 256GB + Hitachi Travelstar 5K250-160 HDD 160GB + HGST HTS541010A9E680 HDD 1TB |
 | **Asus VivoBook 15** | Celeron N4000 | 4GB | Kingston A400 SSD 256GB |
+| **Cloud Node DigitalOcean VPS | 1 intel vCPU | 2GB | 10GB SSD |
 
 ### 🛠 Tech Stack (Learning in Progress)
 - **OS:** Linux Mint 22.3
