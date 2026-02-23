@@ -24,10 +24,10 @@ I am a **Self-Taught Infrastructure & Systems Enthusiast**. My journey focuses o
 ---
 
 ### 🤝 Support the Orbit™ Journey
-If you find my homelab experiments or the Orbit™ Project interesting, feel free to follow my progress:
-- [**Sponsor me on GitHub**](https://github.com/sponsors/DevLabStudy)
-- [**Buy Me a Coffee**](https://www.buymeacoffee.com/devlabstudy)
-- [**Patreon**](https://www.patreon.com/DevStudyLab)
+
+[![GitHub Sponsor](https://img.shields.io/badge/GitHub_Sponsor-24292e?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/DevLabStudy)
+[![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/DevStudyLab)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/devlabstudy)
 
 ---
 
