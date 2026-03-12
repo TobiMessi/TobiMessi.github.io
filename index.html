@@ -106,6 +106,44 @@
         footer { text-align: center; color: #888; font-size: 0.8rem; margin-top: 50px; }
 
         @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+
+        /* --- Automatyczny Dark Mode --- */
+        @media (prefers-color-scheme: dark) {
+            body { 
+                background: linear-gradient(135deg, #121418 0%, #0a0b0d 100%); 
+                color: #e4e6eb; 
+            }
+            .wrapper { 
+                background: rgba(30, 32, 36, 0.95);
+                box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            }
+            h1, h2, h3, strong { 
+                color: #ffffff !important; 
+            }
+            p, .specs, footer { 
+                color: #b0b3b8 !important; 
+            }
+            .focus-box { 
+                background: #182433; 
+                border-left-color: #4da6ff; 
+            }
+            .focus-box h3 { 
+                color: #4da6ff !important; 
+            }
+            .node { 
+                background: #242526; 
+                border-color: #3e4042; 
+            }
+            .node:hover { 
+                border-color: #4da6ff; 
+            }
+            .support-card { 
+                border-top-color: #3e4042; 
+            }
+            .status-vps {
+                color: #4da6ff;
+            }
+        }
     </style>
 </head>
 <body>
