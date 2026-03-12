@@ -96,10 +96,18 @@
             color: white !important; 
             transition: all 0.2s ease;
             box-shadow: var(--shadow-sm);
-            min-width: 110px;
             text-align: center;
             box-sizing: border-box;
         }
+        
+        /* SZTYWNE SZEROKOŚCI DLA IDEALNEJ SYMETRII */
+        .nav-links .btn {
+            width: 125px; 
+        }
+        .support-links .btn {
+            width: 165px; 
+        }
+
         .btn:hover { transform: translateY(-2px); opacity: 0.9; }
 
         .btn-gh { background: #24292e; }
@@ -119,6 +127,7 @@
             margin: 20px auto; 
             max-width: 300px;
             border-radius: 8px;
+            width: auto; /* Ten przycisk ma być dopasowany do tekstu */
         }
 
         /* --- GŁÓWNY KONTENER --- */
@@ -257,7 +266,8 @@
             .nav-links { justify-content: center; }
             .hero h1 { font-size: 1.8rem; }
             .container { margin-top: 20px; }
-            .btn { min-width: 140px; }
+            /* Na małych ekranach ujednolicamy szerokość wszystkich przycisków */
+            .nav-links .btn, .support-links .btn { width: 140px; } 
         }
     </style>
 </head>
