@@ -97,19 +97,26 @@
             box-shadow: var(--shadow-sm);
             text-align: center;
             box-sizing: border-box;
-            white-space: nowrap; /* Zakaz łamania tekstu */
+            white-space: nowrap; 
+            padding: 8px 16px;
         }
         
-        /* SZTYWNE SZEROKOŚCI DLA IDEALNEJ SYMETRII (Flexbox override) */
+        /* BRUTALNA SIŁA CSS - Wymuszenie identycznych rozmiarów */
         .nav-links .btn {
-            flex: 0 0 130px; /* Sztywna szerokość bez możliwości zmiany */
-            width: 130px;
-            padding: 8px 0; /* Usunięcie bocznych paddingów, aby tekst się zmieścił */
+            width: 140px !important;
+            min-width: 140px !important;
+            max-width: 140px !important;
+            flex: none !important; /* Blokuje elastyczność Flexboxa */
+            padding-left: 0 !important;
+            padding-right: 0 !important;
         }
         .support-links .btn {
-            flex: 0 0 170px;
-            width: 170px;
-            padding: 8px 0;
+            width: 170px !important;
+            min-width: 170px !important;
+            max-width: 170px !important;
+            flex: none !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
         }
 
         .btn:hover { transform: translateY(-2px); opacity: 0.9; }
@@ -124,15 +131,15 @@
         
         .btn-orbit { 
             background: #4b0082; 
-            padding: 12px 24px; 
+            padding: 12px 24px !important; 
             font-size: 1rem; 
             display: inline-block; 
             text-align: center; 
             margin: 20px auto; 
-            max-width: 300px;
+            max-width: 300px !important;
             border-radius: 8px;
-            width: auto;
-            white-space: normal; /* Ten przycisk może mieć normalny tekst */
+            width: auto !important;
+            white-space: normal !important; 
         }
 
         /* --- GŁÓWNY KONTENER --- */
@@ -271,11 +278,6 @@
             .nav-links { justify-content: center; }
             .hero h1 { font-size: 1.8rem; }
             .container { margin-top: 20px; }
-            /* Na małych ekranach ujednolicamy szerokość wszystkich przycisków i przywracamy flex */
-            .nav-links .btn, .support-links .btn { 
-                flex: 0 0 140px; 
-                width: 140px; 
-            } 
         }
     </style>
 </head>
