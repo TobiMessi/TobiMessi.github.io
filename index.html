@@ -88,7 +88,6 @@
         /* --- PRZYCISKI (Sleek design) --- */
         .btn { 
             display: inline-block; 
-            padding: 8px 16px;
             border-radius: 8px; 
             text-decoration: none; 
             font-weight: 600; 
@@ -98,14 +97,19 @@
             box-shadow: var(--shadow-sm);
             text-align: center;
             box-sizing: border-box;
+            white-space: nowrap; /* Zakaz łamania tekstu */
         }
         
-        /* SZTYWNE SZEROKOŚCI DLA IDEALNEJ SYMETRII */
+        /* SZTYWNE SZEROKOŚCI DLA IDEALNEJ SYMETRII (Flexbox override) */
         .nav-links .btn {
-            width: 125px; 
+            flex: 0 0 130px; /* Sztywna szerokość bez możliwości zmiany */
+            width: 130px;
+            padding: 8px 0; /* Usunięcie bocznych paddingów, aby tekst się zmieścił */
         }
         .support-links .btn {
-            width: 165px; 
+            flex: 0 0 170px;
+            width: 170px;
+            padding: 8px 0;
         }
 
         .btn:hover { transform: translateY(-2px); opacity: 0.9; }
@@ -127,7 +131,8 @@
             margin: 20px auto; 
             max-width: 300px;
             border-radius: 8px;
-            width: auto; /* Ten przycisk ma być dopasowany do tekstu */
+            width: auto;
+            white-space: normal; /* Ten przycisk może mieć normalny tekst */
         }
 
         /* --- GŁÓWNY KONTENER --- */
@@ -266,8 +271,11 @@
             .nav-links { justify-content: center; }
             .hero h1 { font-size: 1.8rem; }
             .container { margin-top: 20px; }
-            /* Na małych ekranach ujednolicamy szerokość wszystkich przycisków */
-            .nav-links .btn, .support-links .btn { width: 140px; } 
+            /* Na małych ekranach ujednolicamy szerokość wszystkich przycisków i przywracamy flex */
+            .nav-links .btn, .support-links .btn { 
+                flex: 0 0 140px; 
+                width: 140px; 
+            } 
         }
     </style>
 </head>
@@ -289,7 +297,7 @@
             <h1>Self-Taught Infrastructure Enthusiast</h1>
             <p>Building, learning, and optimizing home-lab environments, Linux systems, and Docker containers.</p>
             
-            <a href="https://blog.devlabstudy.ovh/" target="_blank" class="btn btn-orbit">Read Project Orbit™ Blog</a>
+            <a href="https://blog.devlabstudy.ovh/" target="_blank" class="btn btn-orbit">Read my blog</a>
         </section>
 
         <div class="focus-box">
