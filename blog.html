@@ -1,26 +1,115 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blog | DevLabStudy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | DevLabStudy©</title>
+
+    <link rel="icon" type="image/png" href="qr-code.png?v=fixed_buttons">
+    <link rel="shortcut icon" type="image/png" href="qr-code.png?v=fixed_buttons">
+
     <style>
-        body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
-        a { color: #2563eb; text-decoration: none; }
-        ul { list-style-type: none; padding: 0; }
-        li { margin-bottom: 10px; }
+        /* --- BAZA I ZMIENNE KOLORÓW (Light Mode) --- */
+        :root {
+            --bg-body: #f4f7fa;
+            --bg-nav: #ffffff;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent-blue: #2563eb;
+            --accent-green: #10b981;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 10px 25px rgba(0,0,0,0.05);
+            --radius: 12px;
+        }
+
+        /* --- TRYB CIEMNY (Dark Mode) --- */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-body: #0f172a;
+                --bg-nav: #1e293b;
+                --bg-card: #1e293b;
+                --text-main: #f8fafc;
+                --text-muted: #94a3b8;
+                --border-color: #334155;
+                --accent-blue: #3b82f6;
+                --accent-green: #10b981;
+                --shadow-sm: 0 4px 6px rgba(0,0,0,0.3);
+                --shadow-md: 0 10px 25px rgba(0,0,0,0.4);
+            }
+            .btn { box-shadow: none !important; border: 1px solid var(--border-color); }
+            .btn-gh { background: #111827 !important; }
+            .btn-x { background: #000000 !important; }
+            .btn-tiktok { background: #111827 !important; }
+            .focus-box { background: rgba(59, 130, 246, 0.1) !important; }
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background: var(--bg-body); 
+            color: var(--text-main); 
+            margin: 0; padding: 0; line-height: 1.6; -webkit-font-smoothing: antialiased;
+        }
+
+        .navbar { background: var(--bg-nav); border-bottom: 1px solid var(--border-color); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
+        .nav-brand { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; color: var(--text-main); text-decoration: none; }
+        .nav-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+        
+        .btn { display: inline-block; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; color: white !important; transition: all 0.2s ease; box-shadow: var(--shadow-sm); text-align: center; box-sizing: border-box; white-space: nowrap; padding: 8px 16px; }
+        .nav-links .btn { width: 140px !important; min-width: 140px !important; max-width: 140px !important; flex: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+        .btn-gh { background: #24292e; } .btn-reddit { background: #FF4500; } .btn-yt { background: #FF0000; } .btn-x { background: #000000; } .btn-tiktok { background: #010101; }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .section-title { font-size: 1.8rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 25px; color: var(--text-main); }
+        
+        /* Style dla listy postów */
+        .post-list { list-style: none; padding: 0; margin: 0; }
+        .post-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; box-shadow: var(--shadow-sm); transition: all 0.2s ease; }
+        .post-item:hover { border-color: var(--accent-blue); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .post-title { font-size: 1.3rem; font-weight: 700; margin: 0 0 10px 0; }
+        .post-title a { color: var(--text-main); text-decoration: none; }
+        .post-title a:hover { color: var(--accent-blue); }
+        .post-meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px; }
+        .post-excerpt { color: var(--text-main); opacity: 0.8; font-size: 0.95rem; margin: 0; }
+
+        footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin: 50px 0 30px 0; padding-top: 20px; border-top: 1px solid var(--border-color); }
+        
+        @media (max-width: 768px) { .navbar { flex-direction: column; gap: 15px; padding: 15px; } .nav-links { justify-content: center; } }
     </style>
 </head>
 <body>
-    <a href="/">&larr; Wróć do Dashboardu</a>
-    <h1>Wpisy z laboratorium</h1>
-    
-    <ul>
-      {% for post in site.posts %}
-        <li>
-          <span style="color: #64748b;">{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; 
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
+
+    <nav class="navbar">
+        <a href="/" class="nav-brand">DevLabStudy©</a>
+        <div class="nav-links">
+            <a href="https://github.com/DevLabStudy" class="btn btn-gh">GitHub</a>
+            <a href="https://www.youtube.com/channel/UCisFPSU_Y8hznpqrcewcJAg?app=desktop" class="btn btn-yt">YouTube</a>
+            <a href="https://x.com/DevLabStudy" class="btn btn-x">X / Twitter</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1 class="section-title">DevLab Notes & Blog</h1>
+        
+        <ul class="post-list">
+            {% for post in site.posts %}
+            <li class="post-item">
+                <div class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</div>
+                <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+
+    <footer>
+        <p>1 Gbps Fiber - Linux Mint 22.3 - Orbit™ Project 2026</p>
+    </footer>
+
 </body>
 </html>
