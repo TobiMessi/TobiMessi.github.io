@@ -12,7 +12,6 @@ layout: null
     <link rel="shortcut icon" type="image/png" href="qr-code.png?v=fixed_buttons">
 
     <style>
-        /* --- BAZA I ZMIENNE KOLORÓW (Light Mode) --- */
         :root {
             --bg-body: #f4f7fa;
             --bg-nav: #ffffff;
@@ -27,7 +26,6 @@ layout: null
             --radius: 12px;
         }
 
-        /* --- TRYB CIEMNY (Dark Mode) --- */
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-body: #0f172a;
@@ -67,7 +65,6 @@ layout: null
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
         .section-title { font-size: 1.8rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 25px; color: var(--text-main); }
         
-        /* Style dla listy postów */
         .post-list { list-style: none; padding: 0; margin: 0; }
         .post-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; box-shadow: var(--shadow-sm); transition: all 0.2s ease; }
         .post-item:hover { border-color: var(--accent-blue); transform: translateY(-2px); box-shadow: var(--shadow-md); }
