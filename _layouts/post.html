@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }} | DevLabStudy</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+        a { color: #2563eb; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <a href="/">&larr; Wróć do Dashboardu</a>
+    <h1>{{ page.title }}</h1>
+    <p><em>{{ page.date | date: "%Y-%m-%d" }}</em></p>
+    
+    <article>
+        {{ content }}
+    </article>
+</body>
+</html>
