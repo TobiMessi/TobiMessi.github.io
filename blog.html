@@ -11,23 +11,24 @@ permalink: /blog
     <link rel="icon" type="image/png" href="/qr-code.png">
     <style>
         :root {
-            --bg-body: #0f172a; --bg-nav: rgba(15, 23, 42, 0.85); --bg-card: #1e293b;
-            --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
+            --bg-body: #050505; --bg-nav: rgba(5, 5, 5, 0.7); --bg-card: #111;
+            --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: rgba(255, 255, 255, 0.1);
             --accent-blue: #3b82f6; --radius: 12px;
         }
         body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.6; }
 
-        /* --- UNIWERSALNY NAVBAR --- */
-        .navbar { background: var(--bg-nav); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; margin-right: 40px; }
-        .nav-center { display: flex; gap: 25px; align-items: center; }
+        /* PERFEKCYJNY NAVBAR */
+        .navbar { background: var(--bg-nav); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+        .nav-left { flex: 1; display: flex; justify-content: flex-start; }
+        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; }
+        .nav-center { flex: 2; display: flex; justify-content: center; gap: 30px; }
         .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
         .nav-center a:hover, .nav-center a.active { color: var(--accent-blue); }
-
+        .nav-right { flex: 1; display: flex; justify-content: flex-end; }
         .dropdown { position: relative; display: inline-block; padding: 10px 0; }
         .dropbtn { color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: 0.3s; cursor: pointer; }
-        .dropdown:hover .dropbtn { color: var(--accent-blue); }
-        .dropdown-content { display: none; position: absolute; left: 0; top: 100%; background-color: var(--bg-card); min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; z-index: 1; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; }
+        .dropdown:hover .dropbtn { color: var(--text-main); }
+        .dropdown-content { display: none; position: absolute; right: 0; top: 100%; background-color: #111; min-width: 180px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; z-index: 1; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; }
         .dropdown:hover .dropdown-content { display: block; opacity: 1; transform: translateY(0); }
         .dropdown-content a { color: var(--text-main) !important; padding: 12px 20px; text-decoration: none; display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid var(--border-color); transition: background 0.2s; }
         .dropdown-content a:last-child { border-bottom: none; }
@@ -38,14 +39,19 @@ permalink: /blog
         .post-item:hover { border-color: var(--accent-blue); transform: translateY(-3px); }
         .post-title a { color: var(--text-main); text-decoration: none; font-size: 1.4rem; font-weight: 700; }
         
-        @media (max-width: 768px) { .navbar { flex-direction: column; padding: 15px; gap: 15px; } .nav-brand { margin-right: 0; } .nav-center { flex-wrap: wrap; justify-content: center; } }
+        @media (max-width: 768px) { .navbar { flex-direction: column; padding: 15px; gap: 15px; } .nav-left, .nav-center, .nav-right { justify-content: center; width: 100%; } .nav-center { flex-wrap: wrap; } }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="/" class="nav-brand">DevLabStudy</a>
+        <div class="nav-left"><a href="/" class="nav-brand">DevLabStudy</a></div>
         <div class="nav-center">
             <a href="/">Hub</a>
+            <a href="/blog" class="active">Blog</a>
+            <a href="/homelab">HomeLab</a>
+            <a href="/orbit">Orbit™</a>
+        </div>
+        <div class="nav-right">
             <div class="dropdown">
                 <span class="dropbtn">Community</span>
                 <div class="dropdown-content">
@@ -56,9 +62,6 @@ permalink: /blog
                     <a href="https://www.reddit.com/user/devlabstudy">Reddit <span>↗</span></a>
                 </div>
             </div>
-            <a href="/blog" class="active">Blog</a>
-            <a href="/homelab">HomeLab</a>
-            <a href="/orbit">Orbit™</a>
         </div>
     </nav>
 
