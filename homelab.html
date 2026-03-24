@@ -7,23 +7,24 @@
     <link rel="icon" type="image/png" href="/qr-code.png">
     <style>
         :root {
-            --bg-body: #0f172a; --bg-nav: rgba(15, 23, 42, 0.85); --bg-card: #1e293b;
-            --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
+            --bg-body: #050505; --bg-nav: rgba(5, 5, 5, 0.7); --bg-card: #111;
+            --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: rgba(255, 255, 255, 0.1);
             --accent-green: #10b981; --accent-blue: #3b82f6; --radius: 16px;
         }
         body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.6; }
 
-        /* --- UNIWERSALNY NAVBAR --- */
-        .navbar { background: var(--bg-nav); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; margin-right: 40px; }
-        .nav-center { display: flex; gap: 25px; align-items: center; }
+        /* PERFEKCYJNY NAVBAR */
+        .navbar { background: var(--bg-nav); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+        .nav-left { flex: 1; display: flex; justify-content: flex-start; }
+        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; }
+        .nav-center { flex: 2; display: flex; justify-content: center; gap: 30px; }
         .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
         .nav-center a:hover, .nav-center a.active { color: var(--accent-green); }
-
+        .nav-right { flex: 1; display: flex; justify-content: flex-end; }
         .dropdown { position: relative; display: inline-block; padding: 10px 0; }
         .dropbtn { color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: 0.3s; cursor: pointer; }
-        .dropdown:hover .dropbtn { color: var(--accent-green); }
-        .dropdown-content { display: none; position: absolute; left: 0; top: 100%; background-color: var(--bg-card); min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; z-index: 1; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; }
+        .dropdown:hover .dropbtn { color: var(--text-main); }
+        .dropdown-content { display: none; position: absolute; right: 0; top: 100%; background-color: #111; min-width: 180px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; z-index: 1; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; }
         .dropdown:hover .dropdown-content { display: block; opacity: 1; transform: translateY(0); }
         .dropdown-content a { color: var(--text-main) !important; padding: 12px 20px; text-decoration: none; display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid var(--border-color); transition: background 0.2s; }
         .dropdown-content a:last-child { border-bottom: none; }
@@ -33,23 +34,28 @@
         .hero { text-align: center; margin-bottom: 50px; }
         .hero h1 { font-size: 2.8rem; margin-bottom: 10px; background: linear-gradient(to right, #10b981, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
-        .section-title { font-size: 1.6rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 30px; }
+        
         .nodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; }
         .node-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 30px; border-radius: var(--radius); position: relative; transition: all 0.3s; }
-        .node-card:hover { border-color: var(--accent-green); transform: translateY(-5px); }
+        .node-card:hover { border-color: var(--accent-green); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(16,185,129,0.15); }
         .status-badge { position: absolute; top: 30px; right: 30px; background: rgba(16, 185, 129, 0.1); color: var(--accent-green); padding: 5px 12px; border-radius: 20px; font-weight: 800; font-size: 0.7rem; border: 1px solid rgba(16, 185, 129, 0.2); }
-        .node-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; display: block; }
+        .node-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; display: block; padding-right: 60px; }
         .spec-line { display: flex; align-items: center; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; }
         .spec-label { color: var(--text-muted); width: 80px; font-weight: 600; }
 
-        @media (max-width: 768px) { .navbar { flex-direction: column; padding: 15px; gap: 15px; } .nav-brand { margin-right: 0; } .nav-center { flex-wrap: wrap; justify-content: center; } }
+        @media (max-width: 768px) { .navbar { flex-direction: column; padding: 15px; gap: 15px; } .nav-left, .nav-center, .nav-right { justify-content: center; width: 100%; } .nav-center { flex-wrap: wrap; } }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="/" class="nav-brand">DevLabStudy</a>
+        <div class="nav-left"><a href="/" class="nav-brand">DevLabStudy</a></div>
         <div class="nav-center">
             <a href="/">Hub</a>
+            <a href="/blog">Blog</a>
+            <a href="/homelab" class="active">HomeLab</a>
+            <a href="/orbit">Orbit™</a>
+        </div>
+        <div class="nav-right">
             <div class="dropdown">
                 <span class="dropbtn">Community</span>
                 <div class="dropdown-content">
@@ -60,9 +66,6 @@
                     <a href="https://www.reddit.com/user/devlabstudy">Reddit <span>↗</span></a>
                 </div>
             </div>
-            <a href="/blog">Blog</a>
-            <a href="/homelab" class="active">HomeLab</a>
-            <a href="/orbit">Orbit™</a>
         </div>
     </nav>
 
@@ -71,45 +74,59 @@
             <h1>Infrastructure & HomeLab</h1>
             <p>Building, learning, and optimizing distributed server environments.</p>
         </section>
-        <h2 class="section-title"><span>🖥️</span> Node Inventory</h2>
+        
         <div class="nodes-grid">
             <div class="node-card">
                 <span class="status-badge">Online</span>
                 <span class="node-name">HP Compaq Pro 6300 SFF</span>
                 <div class="spec-line"><span class="spec-label">CPU</span><span>i5-3470 (4 Cores)</span></div>
                 <div class="spec-line"><span class="spec-label">RAM</span><span>16GB DDR3</span></div>
-                <div class="spec-line"><span class="spec-label">Storage</span><span>2x SSD + 2x HDD (Total 2TB+)</span></div>
+                <div class="spec-line"><span class="spec-label">Storage</span><span>256GB SSD + 250GB SSD + 1TB HDD + 500GB HDD</span></div>
             </div>
+            
             <div class="node-card">
                 <span class="status-badge">Online</span>
                 <span class="node-name">Packard Bell (pve-laptop)</span>
                 <div class="spec-line"><span class="spec-label">CPU</span><span>i5-2410M</span></div>
                 <div class="spec-line"><span class="spec-label">RAM</span><span>8GB</span></div>
+                <div class="spec-line"><span class="spec-label">GPU</span><span>GT 540M</span></div>
+                <div class="spec-line"><span class="spec-label">Storage</span><span>120GB SSD</span></div>
                 <div class="spec-line"><span class="spec-label">OS</span><span>Proxmox VE</span></div>
             </div>
+            
             <div class="node-card">
                 <span class="status-badge">Online</span>
                 <span class="node-name">Motherboard Node</span>
                 <div class="spec-line"><span class="spec-label">CPU</span><span>i3-5005U</span></div>
                 <div class="spec-line"><span class="spec-label">RAM</span><span>8GB</span></div>
+                <div class="spec-line"><span class="spec-label">GPU</span><span>GeForce 920M</span></div>
+                <div class="spec-line"><span class="spec-label">Storage</span><span>128GB Flash OS</span></div>
             </div>
+            
             <div class="node-card">
                 <span class="status-badge">Online</span>
                 <span class="node-name">Asus Legacy Node</span>
                 <div class="spec-line"><span class="spec-label">CPU</span><span>Core 2 Duo T6500</span></div>
                 <div class="spec-line"><span class="spec-label">RAM</span><span>4GB</span></div>
+                <div class="spec-line"><span class="spec-label">GPU</span><span>GT 120M</span></div>
+                <div class="spec-line"><span class="spec-label">Storage</span><span>500GB HDD + 160GB HDD</span></div>
             </div>
+            
             <div class="node-card">
                 <span class="status-badge">Online</span>
                 <span class="node-name">Asus VivoBook 15</span>
                 <div class="spec-line"><span class="spec-label">CPU</span><span>Celeron N4000</span></div>
                 <div class="spec-line"><span class="spec-label">RAM</span><span>4GB</span></div>
+                <div class="spec-line"><span class="spec-label">Storage</span><span>256GB SSD</span></div>
             </div>
+            
             <div class="node-card">
                 <span class="status-badge" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Cloud Node</span>
                 <span class="node-name">VPS Cloud Instance</span>
                 <div class="spec-line"><span class="spec-label">CPU</span><span>1 vCore</span></div>
                 <div class="spec-line"><span class="spec-label">RAM</span><span>2GB</span></div>
+                <div class="spec-line"><span class="spec-label">Storage</span><span>10GB SSD</span></div>
+                <div class="spec-line"><span class="spec-label">OS</span><span>Ubuntu 24.04 LTS</span></div>
             </div>
         </div>
     </main>
