@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit™ Project | DevLabStudy</title>
+
+    <link rel="icon" type="image/png" href="qr-code.png?v=fixed_buttons">
+    <link rel="shortcut icon" type="image/png" href="qr-code.png?v=fixed_buttons">
+
+    <style>
+        /* Te same zmienne dla spójności */
+        :root {
+            --bg-body: #f4f7fa; --bg-nav: #ffffff; --bg-card: #ffffff;
+            --text-main: #1e293b; --text-muted: #64748b; --border-color: #e2e8f0;
+            --accent-purple: #4b0082; --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --radius: 12px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-body: #0f172a; --bg-nav: #1e293b; --bg-card: #1e293b;
+                --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
+                --accent-purple: #8b5cf6; --shadow-sm: 0 4px 6px rgba(0,0,0,0.3);
+            }
+        }
+
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        
+        .navbar { background: var(--bg-nav); border-bottom: 1px solid var(--border-color); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
+        .nav-brand { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text-muted); font-weight: 600; }
+        .nav-links a:hover { color: var(--text-main); }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        
+        .hero-orbit { text-align: center; padding: 60px 20px; background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border-color); margin-bottom: 40px; box-shadow: var(--shadow-sm); border-top: 5px solid var(--accent-purple); }
+        .hero-orbit h1 { font-size: 2.8rem; margin: 0 0 15px 0; color: var(--text-main); }
+        .hero-orbit p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+        
+        .content-card { background: var(--bg-card); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border-color); margin-bottom: 30px; box-shadow: var(--shadow-sm); }
+        .content-card h2 { color: var(--accent-purple); margin-top: 0; }
+        
+        footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin: 50px 0 30px 0; padding-top: 20px; border-top: 1px solid var(--border-color); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="nav-brand">DevLabStudy©</a>
+        <div class="nav-links">
+            <a href="/">Hub</a>
+            <a href="/blog.html">Blog</a>
+            <a href="/homelab.html">HomeLab</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero-orbit">
+            <h1>Projekt Orbit™</h1>
+            <p>Zarządzanie, optymalizacja i nowa jakość w środowiskach kontenerowych.</p>
+        </section>
+
+        <div class="content-card">
+            <h2>Skąd wziął się pomysł? (Origin Story)</h2>
+            <p>
+                Projekt Orbit narodził się z rzeczywistej potrzeby zarządzania rozbudowanym środowiskiem HomeLab, składającym się z wielu różnorodnych węzłów (od starszych laptopów po instancje chmurowe VPS). Standardowe narzędzia były albo zbyt "ciężkie", albo nie spełniały wszystkich wymagań.
+            </p>
+            <p>
+                Głównym założeniem było stworzenie środowiska, które będzie natywnie opierać się na ultra-zoptymalizowanych obrazach Docker, minimalizując zużycie zasobów do niezbędnego minimum.
+            </p>
+        </div>
+
+        <div class="content-card">
+            <h2>Roadmapa / Plany na przyszłość</h2>
+            <ul>
+                <li><strong>Faza 1:</strong> Optymalizacja i odchudzanie bazowych obrazów Docker.</li>
+                <li><strong>Faza 2:</strong> Zbudowanie stabilnej architektury rozproszonej pomiędzy węzłem w chmurze a lokalnym HomeLabem.</li>
+                <li><strong>Faza 3:</strong> [TBD - Miejsce na rozwój funkcjonalności aplikacji]</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>Orbit™ Project 2026</p>
+    </footer>
+
+</body>
+</html>
