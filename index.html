@@ -3,197 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevLabStudy© | Hub</title>
+    <title>DevLabStudy | Hub</title>
     <link rel="icon" type="image/png" href="/qr-code.png">
     <style>
         :root {
-            --bg-body: #0f172a; --bg-nav: rgba(15, 23, 42, 0.8); --bg-card: #1e293b;
+            --bg-body: #0f172a; --bg-nav: rgba(15, 23, 42, 0.85); --bg-card: #1e293b;
             --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
             --accent-blue: #3b82f6; --accent-purple: #8b5cf6; --accent-green: #10b981;
-            --radius-lg: 24px; --radius-md: 16px;
+            --radius-lg: 24px;
         }
         
-        body { 
-            font-family: 'Inter', -apple-system, sans-serif; background: var(--bg-body); color: var(--text-main); 
-            margin: 0; padding: 0; min-height: 100vh; -webkit-font-smoothing: antialiased;
-        }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
-        /* --- NAVBAR (Zgodnie z Twoimi wytycznymi) --- */
-        .navbar { 
-            background: var(--bg-nav); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); 
-            padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; 
-            position: sticky; top: 0; z-index: 100;
-        }
-        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; width: 200px; }
+        /* --- UNIWERSALNY NAVBAR --- */
+        .navbar { background: var(--bg-nav); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; margin-right: 40px; }
         
-        /* Środek - linki główne */
-        .nav-center { display: flex; gap: 30px; justify-content: center; flex-grow: 1; }
+        .nav-center { display: flex; gap: 25px; align-items: center; }
         .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
         .nav-center a:hover, .nav-center a.active { color: var(--accent-blue); }
 
-        /* Prawa strona - Rozsuwane menu Social Media */
-        .nav-right { width: 200px; display: flex; justify-content: flex-end; }
-        .dropdown { position: relative; display: inline-block; }
-        .dropbtn { 
-            background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); border: 1px solid rgba(59, 130, 246, 0.3); 
-            padding: 10px 20px; border-radius: 12px; cursor: default; font-weight: 700; font-size: 0.9rem; transition: 0.3s;
-        }
-        .dropdown:hover .dropbtn { background: var(--accent-blue); color: #fff; }
+        /* Dropdown Community (Rozsuwane menu) */
+        .dropdown { position: relative; display: inline-block; padding: 10px 0; }
+        .dropbtn { color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: 0.3s; cursor: pointer; }
+        .dropdown:hover .dropbtn { color: var(--accent-blue); }
         
-        /* Zawartość menu rozsuwanego */
-        .dropdown-content { 
-            display: none; position: absolute; right: 0; top: 110%; background-color: var(--bg-card); 
-            min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 16px; border: 1px solid var(--border-color); 
-            overflow: hidden; z-index: 1; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease;
-        }
+        .dropdown-content { display: none; position: absolute; left: 0; top: 100%; background-color: var(--bg-card); min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; z-index: 1; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; }
         .dropdown:hover .dropdown-content { display: block; opacity: 1; transform: translateY(0); }
-        .dropdown-content a { 
-            color: var(--text-main); padding: 12px 20px; text-decoration: none; display: flex; align-items: center; justify-content: space-between;
-            font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid var(--border-color); transition: background 0.2s;
-        }
+        .dropdown-content a { color: var(--text-main) !important; padding: 12px 20px; text-decoration: none; display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid var(--border-color); transition: background 0.2s; }
         .dropdown-content a:last-child { border-bottom: none; }
-        
-        /* Kolory social mediów przy najechaniu */
         .dropdown-content a:hover { background: rgba(255,255,255,0.05); padding-left: 25px; }
-        .gh:hover { color: #8b949e !important; } .yt:hover { color: #ff0000 !important; }
-        .x:hover { color: #a8a8a8 !important; } .tt:hover { color: #ff0050 !important; }
-        .rd:hover { color: #ff4500 !important; }
-
-        /* --- BENTO GRID (Nowy wygląd strony głównej) --- */
+        
+        /* BENTO GRID (Strona główna) */
         .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
-        
-        .bento-grid { 
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; grid-auto-rows: minmax(180px, auto);
-        }
-        
-        .bento-card { 
-            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); 
-            padding: 30px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
+        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; grid-auto-rows: minmax(180px, auto); }
+        .bento-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 30px; display: flex; flex-direction: column; justify-content: center; position: relative; transition: transform 0.3s ease, border-color 0.3s ease; }
         .bento-card:hover { transform: translateY(-5px); border-color: #475569; }
-        
-        /* Duży kafelek powitalny */
         .span-2 { grid-column: span 2; }
+        
         .welcome-title { font-size: 2.8rem; font-weight: 800; margin: 0 0 10px 0; letter-spacing: -1px; }
         .welcome-title span { background: linear-gradient(to right, #3b82f6, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .welcome-desc { color: var(--text-muted); font-size: 1.1rem; max-width: 80%; line-height: 1.6; margin: 0; }
 
-        /* Kafelki nawigacyjne (Blog, HomeLab, Orbit) */
         .nav-card { text-decoration: none; color: var(--text-main); justify-content: flex-start; }
-        .nav-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
         .card-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
         .card-desc { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
         
-        /* Kolory akcentów dla kafelków */
-        .border-blue:hover { border-color: var(--accent-blue); }
-        .border-green:hover { border-color: var(--accent-green); }
-        .border-purple:hover { border-color: var(--accent-purple); }
-
-        /* Kafelek ze statystykami */
         .stats-box { display: flex; justify-content: space-around; text-align: center; width: 100%; }
         .stat { display: flex; flex-direction: column; }
         .stat-num { font-size: 2.5rem; font-weight: 800; color: var(--text-main); }
         .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 
-        /* Responsywność */
-        @media (max-width: 900px) {
-            .bento-grid { grid-template-columns: repeat(2, 1fr); }
-            .nav-center { display: none; } /* Na małych ekranach ukrywamy środek, żeby się nie zepsuło */
-        }
-        @media (max-width: 600px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .span-2 { grid-column: span 1; }
-            .navbar { padding: 15px; }
-            .nav-brand { font-size: 1.2rem; }
-        }
+        @media (max-width: 900px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } .navbar { flex-direction: column; padding: 15px; gap: 15px; } .nav-brand { margin-right: 0; } .nav-center { flex-wrap: wrap; justify-content: center; } }
+        @media (max-width: 600px) { .bento-grid { grid-template-columns: 1fr; } .span-2 { grid-column: span 1; } }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="/" class="nav-brand">DevLabStudy©</a>
-        
+        <a href="/" class="nav-brand">DevLabStudy</a>
         <div class="nav-center">
             <a href="/" class="active">Hub</a>
+            
+            <div class="dropdown">
+                <span class="dropbtn">Community</span>
+                <div class="dropdown-content">
+                    <a href="https://github.com/DevLabStudy">GitHub <span>↗</span></a>
+                    <a href="https://www.youtube.com/@devlabstudy">YouTube <span>↗</span></a>
+                    <a href="https://x.com/DevLabStudy">X / Twitter <span>↗</span></a>
+                    <a href="https://www.tiktok.com/@devlabstudy">TikTok <span>↗</span></a>
+                    <a href="https://www.reddit.com/user/devlabstudy">Reddit <span>↗</span></a>
+                </div>
+            </div>
+
             <a href="/blog">Blog</a>
             <a href="/homelab">HomeLab</a>
             <a href="/orbit">Orbit™</a>
-        </div>
-
-        <div class="nav-right">
-            <div class="dropdown">
-                <div class="dropbtn">Connect ▾</div>
-                <div class="dropdown-content">
-                    <a href="https://github.com/DevLabStudy" class="gh">GitHub <span>↗</span></a>
-                    <a href="https://www.youtube.com/@devlabstudy" class="yt">YouTube <span>↗</span></a>
-                    <a href="https://x.com/DevLabStudy" class="x">X / Twitter <span>↗</span></a>
-                    <a href="https://www.tiktok.com/@devlabstudy" class="tt">TikTok <span>↗</span></a>
-                    <a href="https://www.reddit.com/user/devlabstudy" class="rd">Reddit <span>↗</span></a>
-                </div>
-            </div>
         </div>
     </nav>
 
     <main class="container">
         <div class="bento-grid">
-            
             <div class="bento-card span-2" style="background: linear-gradient(145deg, #1e293b, #0f172a);">
                 <h1 class="welcome-title">Building <span>Infrastructure.</span></h1>
                 <p class="welcome-desc">Self-taught tech enthusiast. Exploring the limits of old hardware with ultra-optimized Docker images and Proxmox virtualization.</p>
             </div>
-
             <div class="bento-card" style="align-items: center; border-top: 4px solid var(--accent-green);">
                 <div style="width: 12px; height: 12px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 15px var(--accent-green); margin-bottom: 15px;"></div>
                 <div style="font-size: 0.9rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Network Status</div>
                 <div style="font-size: 1.8rem; font-weight: 800; margin-top: 5px;">1 Gbps</div>
                 <div style="font-size: 0.85rem; color: var(--accent-green); margin-top: 5px;">Fiber Online</div>
             </div>
-
-            <a href="/blog" class="bento-card nav-card border-blue">
+            <a href="/blog" class="bento-card nav-card" style="border-top: 4px solid var(--accent-blue);">
                 <div class="card-icon">📚</div>
                 <div class="card-title">Knowledge Base</div>
                 <p class="card-desc">Read my latest articles, research, and Docker optimization notes.</p>
             </a>
-
-            <a href="/homelab" class="bento-card nav-card border-green">
+            <a href="/homelab" class="bento-card nav-card" style="border-top: 4px solid var(--accent-green);">
                 <div class="card-icon">🖥️</div>
                 <div class="card-title">HomeLab Status</div>
                 <p class="card-desc">Check the live status of my Proxmox cluster and hardware specs.</p>
             </a>
-
-            <a href="/orbit" class="bento-card nav-card border-purple">
+            <a href="/orbit" class="bento-card nav-card" style="border-top: 4px solid var(--accent-purple);">
                 <div class="card-icon">🚀</div>
                 <div class="card-title">Orbit™ Project</div>
                 <p class="card-desc">Discover my custom container orchestration project for edge devices.</p>
             </a>
-
             <div class="bento-card span-2" style="flex-direction: row; align-items: center;">
                 <div class="stats-box">
-                    <div class="stat">
-                        <span class="stat-num">6</span>
-                        <span class="stat-label">Active Nodes</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-num">1</span>
-                        <span class="stat-label">VPS Server</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-num">3+</span>
-                        <span class="stat-label">Terabytes Storage</span>
-                    </div>
+                    <div class="stat"><span class="stat-num">6</span><span class="stat-label">Active Nodes</span></div>
+                    <div class="stat"><span class="stat-num">1</span><span class="stat-label">VPS Server</span></div>
+                    <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Terabytes Storage</span></div>
                 </div>
             </div>
-
             <div class="bento-card" style="text-align: center; justify-content: center;">
                 <div style="font-size: 2rem; margin-bottom: 10px;">🐧</div>
                 <div style="font-weight: 700; font-size: 1.1rem;">Linux Mint 22.3</div>
                 <div style="font-size: 0.85rem; color: var(--text-muted);">Main Workstation OS</div>
             </div>
-
         </div>
     </main>
-
 </body>
 </html>
