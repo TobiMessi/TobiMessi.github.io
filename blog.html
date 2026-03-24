@@ -8,7 +8,7 @@ permalink: /blog
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | DevLabStudy</title>
-    <link rel="icon" type="image/png" href="/qr-code.png">
+    <link rel="icon" type="image/jpeg" href="/profileIcon_g3ffyg7edeeg1.jpeg">
     <style>
         :root {
             --bg-body: #050505; --bg-nav: rgba(5, 5, 5, 0.7); --bg-card: #111;
@@ -64,18 +64,8 @@ permalink: /blog
             </div>
         </div>
     </nav>
-
     <main class="container">
         <h1 style="border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">Articles & Research</h1>
-        <ul style="list-style: none; padding: 0;">
-            {% for post in site.posts %}
-            <li class="post-item">
-                <div style="font-size: 0.9rem; color: var(--text-muted);">{{ post.date | date: "%B %d, %Y" }}</div>
-                <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-                <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-            </li>
-            {% endfor %}
-        </ul>
-    </main>
+        </main>
 </body>
 </html>
