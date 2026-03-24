@@ -4,51 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orbit™ Project | DevLabStudy</title>
-    <link rel="icon" type="image/png" href="/qr-code.png?v=fixed_buttons">
+    <link rel="icon" type="image/png" href="/qr-code.png">
     <style>
         :root {
-            --bg-body: #f4f7fa; --bg-nav: #ffffff; --bg-card: #ffffff;
-            --text-main: #1e293b; --text-muted: #64748b; --border-color: #e2e8f0;
-            --accent-purple: #4b0082; --radius: 12px;
+            --bg-body: #0f172a; --bg-card: #1e293b; --accent-purple: #8b5cf6;
+            --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
         }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-body: #0f172a; --bg-nav: #1e293b; --bg-card: #1e293b;
-                --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
-                --accent-purple: #8b5cf6;
-            }
-        }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
-        .navbar { background: var(--bg-nav); border-bottom: 1px solid var(--border-color); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--text-muted); font-weight: 600; }
-        .nav-links a.active { color: var(--accent-purple); }
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        .hero-orbit { text-align: center; padding: 60px 20px; background: var(--bg-card); border-radius: var(--radius); border-top: 5px solid var(--accent-purple); margin-bottom: 40px; }
-        .content-card { background: var(--bg-card); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border-color); margin-bottom: 30px; }
-        footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 50px; padding: 20px; border-top: 1px solid var(--border-color); }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.6; }
+        .navbar { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
+        .nav-brand { font-weight: 800; text-decoration: none; color: var(--text-main); font-size: 1.2rem; }
+        .nav-links a { margin-left: 25px; text-decoration: none; color: var(--text-muted); font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-purple); }
+
+        .container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+        .hero { text-align: center; margin-bottom: 60px; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        
+        .card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 40px; border-radius: 24px; margin-bottom: 30px; }
+        .tech-tag { display: inline-block; background: rgba(139, 92, 246, 0.1); color: var(--accent-purple); padding: 5px 15px; border-radius: 10px; font-size: 0.8rem; font-weight: 700; margin: 5px; border: 1px solid var(--accent-purple); }
+        
+        .progress-bar { width: 100%; height: 10px; background: #334155; border-radius: 5px; margin: 20px 0; overflow: hidden; }
+        .progress-fill { width: 35%; height: 100%; background: var(--accent-purple); box-shadow: 0 0 15px var(--accent-purple); }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <a href="/" class="nav-brand">DevLabStudy©</a>
         <div class="nav-links">
-            <a href="/">Hub</a>
             <a href="/blog">Blog</a>
             <a href="/homelab">HomeLab</a>
-            <a href="/orbit" class="active">Orbit™</a>
+            <a href="/orbit" style="color: var(--accent-purple);">Orbit™</a>
         </div>
     </nav>
+
     <main class="container">
-        <section class="hero-orbit">
-            <h1>Orbit™ Project</h1>
-            <p>Next-gen management and optimization for containerized environments.</p>
-        </section>
-        <div class="content-card">
-            <h2>About the Project</h2>
-            <p>Orbit was born from the need to manage a diverse HomeLab environment efficiently, focusing on ultra-lightweight Docker images.</p>
+        <div class="hero">
+            <h1>Orbit Project</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted);">Lightweight, distributed container orchestration for the edge.</p>
+        </div>
+
+        <div class="card">
+            <h2>The Mission</h2>
+            <p>Orbit is designed to run modern workloads on "forgotten" hardware. Using highly optimized Docker images and a custom communication layer, it turns old laptops and cheap VPS instances into a powerful, unified cluster.</p>
+        </div>
+
+        <div class="card">
+            <h2>Technical Stack</h2>
+            <div style="margin-top: 20px;">
+                <span class="tech-tag">Docker Engine</span>
+                <span class="tech-tag">Python Core</span>
+                <span class="tech-tag">Redis Bus</span>
+                <span class="tech-tag">Ubuntu Server</span>
+                <span class="tech-tag">WireGuard VPN</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Current Progress</h2>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Faza: <b>Alpha Development</b> (Communication layer testing)</p>
         </div>
     </main>
-    <footer><p>Orbit™ Project 2026</p></footer>
 </body>
 </html>
