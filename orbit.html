@@ -7,62 +7,91 @@
     <link rel="icon" type="image/png" href="/qr-code.png">
     <style>
         :root {
-            --bg-body: #0f172a; --bg-card: #1e293b; --accent-purple: #8b5cf6;
+            --bg-body: #0f172a; --bg-nav: rgba(15, 23, 42, 0.85); --bg-card: #1e293b;
             --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
+            --accent-purple: #8b5cf6; --accent-blue: #3b82f6;
         }
         body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.6; }
-        .navbar { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
-        .nav-brand { font-weight: 800; text-decoration: none; color: var(--text-main); font-size: 1.2rem; }
-        .nav-links a { margin-left: 25px; text-decoration: none; color: var(--text-muted); font-weight: 600; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent-purple); }
+
+        /* --- UNIWERSALNY NAVBAR --- */
+        .navbar { background: var(--bg-nav); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; margin-right: 40px; }
+        .nav-center { display: flex; gap: 25px; align-items: center; }
+        .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-center a:hover, .nav-center a.active { color: var(--accent-purple); }
+
+        .dropdown { position: relative; display: inline-block; padding: 10px 0; }
+        .dropbtn { color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: 0.3s; cursor: pointer; }
+        .dropdown:hover .dropbtn { color: var(--accent-purple); }
+        .dropdown-content { display: none; position: absolute; left: 0; top: 100%; background-color: var(--bg-card); min-width: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; z-index: 1; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; }
+        .dropdown:hover .dropdown-content { display: block; opacity: 1; transform: translateY(0); }
+        .dropdown-content a { color: var(--text-main) !important; padding: 12px 20px; text-decoration: none; display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid var(--border-color); transition: background 0.2s; }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background: rgba(255,255,255,0.05); padding-left: 25px; }
 
         .container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
         .hero { text-align: center; margin-bottom: 60px; }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; letter-spacing: -2px; }
         
         .card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 40px; border-radius: 24px; margin-bottom: 30px; }
-        .tech-tag { display: inline-block; background: rgba(139, 92, 246, 0.1); color: var(--accent-purple); padding: 5px 15px; border-radius: 10px; font-size: 0.8rem; font-weight: 700; margin: 5px; border: 1px solid var(--accent-purple); }
+        .card h2 { color: var(--accent-purple); border-bottom: 1px solid rgba(139, 92, 246, 0.2); padding-bottom: 10px; margin-bottom: 20px; }
         
-        .progress-bar { width: 100%; height: 10px; background: #334155; border-radius: 5px; margin: 20px 0; overflow: hidden; }
-        .progress-fill { width: 35%; height: 100%; background: var(--accent-purple); box-shadow: 0 0 15px var(--accent-purple); }
+        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .tech-tag { background: rgba(139, 92, 246, 0.1); color: var(--accent-purple); padding: 8px 18px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; border: 1px solid rgba(139, 92, 246, 0.3); }
+
+        .btn-github { display: inline-block; background: var(--accent-purple); color: white; text-decoration: none; padding: 15px 30px; border-radius: 12px; font-weight: 700; margin-top: 30px; transition: 0.3s; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); text-align: center; font-size: 1.1rem; }
+        .btn-github:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6); }
+
+        @media (max-width: 768px) { .navbar { flex-direction: column; padding: 15px; gap: 15px; } .nav-brand { margin-right: 0; } .nav-center { flex-wrap: wrap; justify-content: center; } }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="/" class="nav-brand">DevLabStudy©</a>
-        <div class="nav-links">
+        <a href="/" class="nav-brand">DevLabStudy</a>
+        <div class="nav-center">
+            <a href="/">Hub</a>
+            <div class="dropdown">
+                <span class="dropbtn">Community</span>
+                <div class="dropdown-content">
+                    <a href="https://github.com/DevLabStudy">GitHub <span>↗</span></a>
+                    <a href="https://www.youtube.com/@devlabstudy">YouTube <span>↗</span></a>
+                    <a href="https://x.com/DevLabStudy">X / Twitter <span>↗</span></a>
+                    <a href="https://www.tiktok.com/@devlabstudy">TikTok <span>↗</span></a>
+                    <a href="https://www.reddit.com/user/devlabstudy">Reddit <span>↗</span></a>
+                </div>
+            </div>
             <a href="/blog">Blog</a>
             <a href="/homelab">HomeLab</a>
-            <a href="/orbit" style="color: var(--accent-purple);">Orbit™</a>
+            <a href="/orbit" class="active">Orbit™</a>
         </div>
     </nav>
 
     <main class="container">
         <div class="hero">
-            <h1>Orbit Project</h1>
-            <p style="font-size: 1.2rem; color: var(--text-muted);">Lightweight, distributed container orchestration for the edge.</p>
+            <h1>Orbit™ Project</h1>
+            <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">Lightweight, distributed container orchestration designed for the edge.</p>
+        </div>
+
+        <div class="card" style="text-align: center;">
+            <h2>Project Repository</h2>
+            <p style="color: var(--text-muted);">The entire source code, scripts, and documentation for Orbit™ are openly available on GitHub. Feel free to explore, clone, or contribute!</p>
+            <a href="https://github.com/DevLabStudy/orbit" class="btn-github">View Orbit™ Repository on GitHub</a>
         </div>
 
         <div class="card">
             <h2>The Mission</h2>
-            <p>Orbit is designed to run modern workloads on "forgotten" hardware. Using highly optimized Docker images and a custom communication layer, it turns old laptops and cheap VPS instances into a powerful, unified cluster.</p>
+            <p>Orbit is designed to run modern, complex workloads on "forgotten" hardware. By combining ultra-optimized Docker images, a custom Python communication layer, and a minimal Redis bus, it turns old laptops and cheap VPS instances into a powerful, unified cluster.</p>
         </div>
 
         <div class="card">
-            <h2>Technical Stack</h2>
-            <div style="margin-top: 20px;">
-                <span class="tech-tag">Docker Engine</span>
-                <span class="tech-tag">Python Core</span>
-                <span class="tech-tag">Redis Bus</span>
-                <span class="tech-tag">Ubuntu Server</span>
-                <span class="tech-tag">WireGuard VPN</span>
+            <h2>Core Technologies</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">🐋 Docker Engine</span>
+                <span class="tech-tag">🐍 Python Core v3.12+</span>
+                <span class="tech-tag">📊 Redis Bus</span>
+                <span class="tech-tag">🐧 Ubuntu Server / Mint</span>
+                <span class="tech-tag">🔒 WireGuard VPN</span>
             </div>
-        </div>
-
-        <div class="card">
-            <h2>Current Progress</h2>
-            <div class="progress-bar"><div class="progress-fill"></div></div>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Faza: <b>Alpha Development</b> (Communication layer testing)</p>
         </div>
     </main>
 </body>
