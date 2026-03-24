@@ -9,11 +9,10 @@
     <link rel="shortcut icon" type="image/png" href="qr-code.png?v=fixed_buttons">
 
     <style>
-        /* Te same zmienne dla spójności */
         :root {
             --bg-body: #f4f7fa; --bg-nav: #ffffff; --bg-card: #ffffff;
             --text-main: #1e293b; --text-muted: #64748b; --border-color: #e2e8f0;
-            --accent-purple: #4b0082; --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --accent-purple: #4b0082; --accent-blue: #2563eb; --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
             --radius: 12px;
         }
 
@@ -21,7 +20,7 @@
             :root {
                 --bg-body: #0f172a; --bg-nav: #1e293b; --bg-card: #1e293b;
                 --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
-                --accent-purple: #8b5cf6; --shadow-sm: 0 4px 6px rgba(0,0,0,0.3);
+                --accent-purple: #8b5cf6; --accent-blue: #3b82f6; --shadow-sm: 0 4px 6px rgba(0,0,0,0.3);
             }
         }
 
@@ -29,18 +28,37 @@
         
         .navbar { background: var(--bg-nav); border-bottom: 1px solid var(--border-color); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
         .nav-brand { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
-        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text-muted); font-weight: 600; }
-        .nav-links a:hover { color: var(--text-main); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text-muted); font-weight: 600; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-purple); }
 
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         
-        .hero-orbit { text-align: center; padding: 60px 20px; background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border-color); margin-bottom: 40px; box-shadow: var(--shadow-sm); border-top: 5px solid var(--accent-purple); }
-        .hero-orbit h1 { font-size: 2.8rem; margin: 0 0 15px 0; color: var(--text-main); }
+        /* Hero Section */
+        .hero-orbit { text-align: center; padding: 80px 20px; background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border-color); margin-bottom: 40px; box-shadow: var(--shadow-sm); border-top: 5px solid var(--accent-purple); position: relative; overflow: hidden; }
+        .hero-orbit h1 { font-size: 3rem; margin: 0 0 15px 0; color: var(--text-main); letter-spacing: -1px; }
         .hero-orbit p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+        .version-badge { display: inline-block; background: rgba(139, 92, 246, 0.1); color: var(--accent-purple); padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; margin-bottom: 20px; }
         
-        .content-card { background: var(--bg-card); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border-color); margin-bottom: 30px; box-shadow: var(--shadow-sm); }
-        .content-card h2 { color: var(--accent-purple); margin-top: 0; }
+        /* Zawartość */
+        .content-card { background: var(--bg-card); padding: 40px; border-radius: var(--radius); border: 1px solid var(--border-color); margin-bottom: 30px; box-shadow: var(--shadow-sm); }
+        .content-card h2 { color: var(--accent-purple); margin-top: 0; font-size: 1.8rem; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; }
         
+        /* Siatka Funkcji */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .feature-card { background: var(--bg-body); padding: 25px; border-radius: var(--radius); border: 1px solid var(--border-color); text-align: left; }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        .feature-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--text-main); }
+        .feature-desc { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
+
+        /* Stos technologiczny */
+        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .tech-badge { background: var(--bg-body); border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+
+        /* Call to action */
+        .cta-section { text-align: center; margin-top: 50px; padding: 40px; background: rgba(139, 92, 246, 0.05); border-radius: var(--radius); border: 1px dashed var(--accent-purple); }
+        .btn-github { display: inline-block; background: #24292e; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; margin-top: 15px; transition: 0.2s; }
+        .btn-github:hover { transform: translateY(-2px); opacity: 0.9; }
+
         footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin: 50px 0 30px 0; padding-top: 20px; border-top: 1px solid var(--border-color); }
     </style>
 </head>
@@ -52,37 +70,72 @@
             <a href="/">Hub</a>
             <a href="/blog.html">Blog</a>
             <a href="/homelab.html">HomeLab</a>
+            <a href="/orbit.html" class="active">Orbit™</a>
         </div>
     </nav>
 
     <main class="container">
         <section class="hero-orbit">
+            <span class="version-badge">Status: W fazie rozwoju (Pre-Alpha)</span>
             <h1>Projekt Orbit™</h1>
-            <p>Zarządzanie, optymalizacja i nowa jakość w środowiskach kontenerowych.</p>
+            <p>Zarządzanie, optymalizacja i nowa jakość w architekturze środowisk kontenerowych dla HomeLabów i małych klastrów.</p>
         </section>
 
         <div class="content-card">
-            <h2>Skąd wziął się pomysł? (Origin Story)</h2>
+            <h2>Kluczowe założenia</h2>
             <p>
-                Projekt Orbit narodził się z rzeczywistej potrzeby zarządzania rozbudowanym środowiskiem HomeLab, składającym się z wielu różnorodnych węzłów (od starszych laptopów po instancje chmurowe VPS). Standardowe narzędzia były albo zbyt "ciężkie", albo nie spełniały wszystkich wymagań.
+                Projekt Orbit narodził się z rzeczywistej potrzeby zarządzania rozbudowanym środowiskiem, składającym się z wielu różnorodnych węzłów (od starszych laptopów po chmurowe VPS-y). Standardowe narzędzia były zbyt obciążające dla starszego sprzętu.
             </p>
-            <p>
-                Głównym założeniem było stworzenie środowiska, które będzie natywnie opierać się na ultra-zoptymalizowanych obrazach Docker, minimalizując zużycie zasobów do niezbędnego minimum.
-            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <div class="feature-title">Ultra Lekkość</div>
+                    <p class="feature-desc">Natywne oparcie na maksymalnie zoptymalizowanych obrazach Docker, aby oszczędzać RAM i CPU.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🌐</span>
+                    <div class="feature-title">Multi-Node Architektura</div>
+                    <p class="feature-desc">Płynna współpraca pomiędzy lokalnymi maszynami w domu a zewnętrznymi węzłami VPS w chmurze.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <div class="feature-title">Izolacja & Bezpieczeństwo</div>
+                    <p class="feature-desc">Zwiększona kontrola nad uprawnieniami kontenerów i minimalizacja powierzchni ataku sieciowego.</p>
+                </div>
+            </div>
         </div>
 
         <div class="content-card">
-            <h2>Roadmapa / Plany na przyszłość</h2>
+            <h2>Stos Technologiczny</h2>
+            <p>Do budowy i testów infrastruktury Orbit™ wykorzystuję sprawdzone, stabilne technologie open-source:</p>
+            <div class="tech-stack">
+                <span class="tech-badge">🐋 Docker / Compose</span>
+                <span class="tech-badge">🐧 Linux (Ubuntu / Mint)</span>
+                <span class="tech-badge">🖥️ Proxmox VE</span>
+                <span class="tech-badge">⚙️ Bash Scripting</span>
+                <span class="tech-badge">🕸️ Cloudflare (DNS/Proxy)</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2>Roadmapa Rozwoju</h2>
             <ul>
-                <li><strong>Faza 1:</strong> Optymalizacja i odchudzanie bazowych obrazów Docker.</li>
-                <li><strong>Faza 2:</strong> Zbudowanie stabilnej architektury rozproszonej pomiędzy węzłem w chmurze a lokalnym HomeLabem.</li>
-                <li><strong>Faza 3:</strong> [TBD - Miejsce na rozwój funkcjonalności aplikacji]</li>
+                <li style="margin-bottom: 10px;"><strong>Faza 1 (Aktualna):</strong> Badania i optymalizacja bazowych obrazów Docker dla starych procesorów.</li>
+                <li style="margin-bottom: 10px;"><strong>Faza 2:</strong> Zbudowanie stabilnego tunelu komunikacyjnego pomiędzy węzłem chmurowym a siecią domową (HomeLab).</li>
+                <li style="margin-bottom: 10px;"><strong>Faza 3:</strong> Automatyzacja wdrażania za pomocą dedykowanych skryptów startowych.</li>
             </ul>
+        </div>
+
+        <div class="cta-section">
+            <h3 style="margin-top: 0; color: var(--accent-purple);">Pobierz i przetestuj Orbit™</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0;">Wszystkie skrypty optymalizacyjne, Dockerfile oraz dokumentacja są dostępne publicznie. Zapraszam do testowania na własnych węzłach HomeLab.</p>
+            <a href="https://github.com/DevLabStudy/orbit" class="btn-github">Zobacz Repozytorium Orbit™ na GitHub</a>
         </div>
     </main>
 
     <footer>
-        <p>Orbit™ Project 2026</p>
+        <p>1 Gbps Fiber - Linux Mint 22.3 - Orbit™ Project 2026</p>
     </footer>
 
 </body>
