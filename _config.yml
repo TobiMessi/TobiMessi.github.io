@@ -1,4 +1,4 @@
-name: DevLabStudy Blog
-description: Infrastructure, HomeLab, Docker and more.
+name: "DevLabStudy Blog"
+description: "Infrastructure, HomeLab, Docker and more."
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
