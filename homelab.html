@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevLabStudy© | HomeLab & Infrastructure</title>
-
-    <link rel="icon" type="image/png" href="qr-code.png?v=fixed_buttons">
-    <link rel="shortcut icon" type="image/png" href="qr-code.png?v=fixed_buttons">
-
+    <link rel="icon" type="image/png" href="/qr-code.png?v=fixed_buttons">
     <style>
-        /* --- BAZA I ZMIENNE KOLORÓW --- */
         :root {
             --bg-body: #f4f7fa; --bg-nav: #ffffff; --bg-card: #ffffff;
             --text-main: #1e293b; --text-muted: #64748b; --border-color: #e2e8f0;
@@ -17,7 +13,6 @@
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.1); --shadow-md: 0 10px 25px rgba(0,0,0,0.05);
             --radius: 12px;
         }
-
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-body: #0f172a; --bg-nav: #1e293b; --bg-card: #1e293b;
@@ -25,175 +20,47 @@
                 --accent-blue: #3b82f6; --accent-green: #10b981;
                 --shadow-sm: 0 4px 6px rgba(0,0,0,0.3); --shadow-md: 0 10px 25px rgba(0,0,0,0.4);
             }
-            .btn { box-shadow: none !important; border: 1px solid var(--border-color); }
-            .btn-gh { background: #111827 !important; }
-            .btn-patreon { background: #111827 !important; }
-            .focus-box { background: rgba(59, 130, 246, 0.1) !important; }
         }
-
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            background: var(--bg-body); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- NOWY NAVBAR --- */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; -webkit-font-smoothing: antialiased; }
         .navbar { background: var(--bg-nav); border-bottom: 1px solid var(--border-color); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
-        .nav-brand { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; color: var(--text-main); text-decoration: none; }
-        
-        /* Menu wewnętrzne */
+        .nav-brand { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
         .nav-internal-links { display: flex; gap: 20px; align-items: center; }
         .nav-internal-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; transition: color 0.2s; }
         .nav-internal-links a:hover, .nav-internal-links a.active { color: var(--accent-blue); }
-
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-
         .hero { text-align: center; margin-bottom: 50px; }
         .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
         .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-
-        .focus-box { background: #eff6ff; border-left: 5px solid var(--accent-blue); padding: 25px 30px; border-radius: var(--radius); margin: 30px auto 50px auto; max-width: 800px; box-shadow: var(--shadow-sm); }
-        .focus-box h3 { margin-top: 0; color: var(--accent-blue); font-size: 1.2rem; margin-bottom: 10px; }
-
-        .section-title { font-size: 1.4rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 25px; color: var(--text-main); }
-
-        /* --- SIATKA SERWERÓW --- */
-        .nodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 50px; align-items: stretch; }
-        .node-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow-sm); transition: all 0.2s ease; position: relative; display: flex; flex-direction: column; }
-        .node-card:hover { border-color: var(--accent-blue); transform: translateY(-4px); box-shadow: var(--shadow-md); }
-        .status-badge { position: absolute; top: 25px; right: 25px; background: rgba(16, 185, 129, 0.1); color: var(--accent-green); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .status-vps { background: rgba(37, 99, 235, 0.1); color: var(--accent-blue); }
-        .node-name { display: block; font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; color: var(--text-main); padding-right: 60px;}
-        .specs { font-size: 0.9rem; color: var(--text-muted); margin-top: auto; }
-        .spec-line { display: flex; align-items: center; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--border-color); }
-        .spec-line:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .spec-icon { margin-right: 10px; font-weight: bold; color: var(--text-main); opacity: 0.7; width: 65px; display: inline-block; }
-
-        /* --- PRZYCISKI SUPPORT / SOCIAL --- */
-        .btn { display: inline-block; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85rem; color: white !important; transition: all 0.2s ease; box-shadow: var(--shadow-sm); text-align: center; box-sizing: border-box; white-space: nowrap; padding: 10px 20px; }
-        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
-        .btn-gh { background: #24292e; } .btn-coffee { background: #FFDD00; color: #000 !important; } .btn-patreon { background: #FF424D; }
-
-        .support-section { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 40px; text-align: center; margin-top: 50px; box-shadow: var(--shadow-sm); }
-        .support-links { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
-
-        footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin: 50px 0 30px 0; padding-top: 20px; border-top: 1px solid var(--border-color); }
-
-        @media (max-width: 768px) { .navbar { flex-direction: column; gap: 15px; padding: 15px; } .nav-internal-links { justify-content: center; flex-wrap: wrap; } }
+        .section-title { font-size: 1.4rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 25px; }
+        .nodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .node-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 25px; border-radius: var(--radius); position: relative; transition: 0.2s; }
+        .node-card:hover { border-color: var(--accent-blue); transform: translateY(-4px); }
+        .status-badge { position: absolute; top: 25px; right: 25px; background: rgba(16, 185, 129, 0.1); color: var(--accent-green); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; }
+        .node-name { display: block; font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; }
+        .spec-line { display: flex; align-items: center; margin-bottom: 8px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; font-size: 0.9rem; }
+        .spec-icon { width: 65px; font-weight: bold; opacity: 0.7; }
+        footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 50px; padding: 20px; border-top: 1px solid var(--border-color); }
     </style>
 </head>
 <body>
-
     <nav class="navbar">
         <a href="/" class="nav-brand">DevLabStudy©</a>
-        
         <div class="nav-internal-links">
             <a href="/">Hub</a>
-            <a href="/blog.html">Blog</a>
-            <a href="/homelab.html" class="active" style="color: var(--accent-blue);">HomeLab</a>
-            <a href="/orbit.html">Orbit™</a>
+            <a href="/blog">Blog</a>
+            <a href="/homelab" class="active">HomeLab</a>
+            <a href="/orbit">Orbit™</a>
         </div>
     </nav>
-
     <main class="container">
         <section class="hero">
-            <h1>Infrastructure & HomeLab</h1>
-            <p>Buduję, uczę się i optymalizuję środowiska serwerowe, systemy Linux oraz kontenery Docker.</p>
+            <h1>HomeLab & Infrastructure</h1>
+            <p>Building, learning, and optimizing server environments, Linux systems, and Docker containers.</p>
         </section>
-
-        <div class="focus-box">
-            <h3>Current Journey: Docker Optimization</h3>
-            <p>
-                Obecnie zgłębiam temat <strong>optymalizacji obrazów Docker</strong>. Moim celem jest nauka budowania wydajnych, bezpiecznych i lekkich obrazów dla projektu <strong>Orbit™</strong>, testując je na węzłach w moim domowym laboratorium.
-            </p>
-        </div>
-
-        <h2 class="section-title">HomeLab Nodes & Infrastructure</h2>
+        <h2 class="section-title">Nodes Status</h2>
         <div class="nodes-grid">
-            
-            <div class="node-card">
-                <span class="status-badge">Online</span>
-                <span class="node-name">HP Compaq Pro 6300 SFF</span>
-                <div class="specs">
-                    <div class="spec-line"><span class="spec-icon">CPU:</span> i5-3470 (4 Cores)</div>
-                    <div class="spec-line"><span class="spec-icon">RAM:</span> 16GB DDR3</div>
-                    <div class="spec-line"><span class="spec-icon">Storage:</span> 256GB SSD + 250GB SSD + 1TB HDD + 500GB HDD</div>
-                </div>
             </div>
-
-            <div class="node-card">
-                <span class="status-badge">Online</span>
-                <span class="node-name">Packard Bell (pve-laptop)</span>
-                <div class="specs">
-                    <div class="spec-line"><span class="spec-icon">CPU:</span> i5-2410M</div>
-                    <div class="spec-line"><span class="spec-icon">RAM:</span> 8GB</div>
-                    <div class="spec-line"><span class="spec-icon">GPU:</span> GT 540M</div>
-                    <div class="spec-line"><span class="spec-icon">Storage:</span> 120GB SSD</div>
-                </div>
-            </div>
-
-            <div class="node-card">
-                <span class="status-badge">Online</span>
-                <span class="node-name">Motherboard Node</span>
-                <div class="specs">
-                    <div class="spec-line"><span class="spec-icon">CPU:</span> i3-5005U</div>
-                    <div class="spec-line"><span class="spec-icon">RAM:</span> 8GB</div>
-                    <div class="spec-line"><span class="spec-icon">GPU:</span> GeForce 920M</div>
-                    <div class="spec-line"><span class="spec-icon">Storage:</span> Pendrive 128GB (OS)</div>
-                </div>
-            </div>
-
-            <div class="node-card">
-                <span class="status-badge">Online</span>
-                <span class="node-name">Asus Legacy</span>
-                <div class="specs">
-                    <div class="spec-line"><span class="spec-icon">CPU:</span> Core 2 Duo T6500</div>
-                    <div class="spec-line"><span class="spec-icon">RAM:</span> 4GB</div>
-                    <div class="spec-line"><span class="spec-icon">GPU:</span> GT 120M</div>
-                    <div class="spec-line"><span class="spec-icon">Storage:</span> 500GB HDD + 160GB HDD</div>
-                </div>
-            </div>
-
-            <div class="node-card">
-                <span class="status-badge">Online</span>
-                <span class="node-name">Asus VivoBook 15</span>
-                <div class="specs">
-                    <div class="spec-line"><span class="spec-icon">CPU:</span> Celeron N4000</div>
-                    <div class="spec-line"><span class="spec-icon">RAM:</span> 4GB</div>
-                    <div class="spec-line"><span class="spec-icon">Storage:</span> 256GB SSD</div>
-                </div>
-            </div>
-
-            <div class="node-card">
-                <span class="status-badge status-vps">Cloud Node</span>
-                <span class="node-name">VPS Cloud</span>
-                <div class="specs">
-                    <div class="spec-line"><span class="spec-icon">CPU:</span> 1 vCore</div>
-                    <div class="spec-line"><span class="spec-icon">RAM:</span> 2GB</div>
-                    <div class="spec-line"><span class="spec-icon">OS:</span> Ubuntu 24.04 LTS</div>
-                    <div class="spec-line"><span class="spec-icon">Storage:</span> 10GB SSD</div>
-                </div>
-            </div>
-
-        </div>
-
-        <section class="support-section">
-            <h2 style="margin-top: 0; color: var(--accent-blue);">Support My Journey</h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
-                Każde wsparcie pomaga mi w zakupie nowych części do laboratorium, opłacaniu domen i serwerów VPS oraz daje więcej czasu na rozwój projektu <strong>Orbit™</strong>.
-            </p>
-
-            <div class="support-links">
-                <a href="https://github.com/sponsors/DevLabStudy" class="btn btn-gh">GitHub Sponsor</a>
-                <a href="https://www.patreon.com/DevLabStudy" class="btn btn-patreon">Patreon</a>
-                <a href="https://www.buymeacoffee.com/devlabstudy" class="btn btn-coffee">Buy Me a Coffee</a>
-            </div>
-        </section>
-
     </main>
-
-    <footer>
-        <p>1 Gbps Fiber - Linux Mint 22.3 - Orbit™ Project 2026</p>
-    </footer>
-
+    <footer><p>Orbit™ Project 2026</p></footer>
 </body>
 </html>
