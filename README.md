@@ -15,7 +15,7 @@ I am a **Self-Taught Infrastructure & Systems Enthusiast**. My journey focuses o
 
 | Device | Role | CPU | RAM | Storage |
 | :--- | :--- | :--- | :--- | :--- |
-| **HP Compaq 6300 SFF** | **Main Server** | i5-3470 (Xeon Ready) | 16GB | 256GB SSD + 1TB HDD + 160GB HDD |
+| **HP Compaq 6300 SFF** | **Main Server** | i5-3470 (Xeon Ready) | 16GB | 256GB SSD + 1TB HDD + 160GB HDD + 500GB HDD|
 | **DigitalOcean VPS** | **Cloud Gateway** | 1 Intel vCPU | 2GB | 10GB NVMe SSD |
 | **Asus VivoBook 15** | **Management Node** | Celeron N4000 | 4GB | 256GB SSD |
 
