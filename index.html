@@ -27,12 +27,13 @@ layout: null
             background-size: 32px 32px;
         }
 
-        /* Navbar */
+        /* Navbar (Identyczny z HomeLab) */
         .nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 40px; border-bottom: 1px solid var(--border);
             backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100;
         }
+        .nav-links { display: flex; align-items: center; }
         .nav-links a { color: #64748b; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); }
 
@@ -88,18 +89,16 @@ layout: null
 
     <nav class="nav">
         <a href="/" style="font-weight: 900; color: #fff; text-decoration: none; font-size: 1.2rem;">DEVLAB STUDY</a>
-        <div style="display: flex; align-items: center;">
-            <div class="nav-links" style="margin-right: 20px;">
-                <a href="/blog">Blog</a>
-                <a href="/homelab">HomeLab</a>
-                <a href="/orbit">Orbit™</a>
-            </div>
-            <div class="dropdown">
+        <div class="nav-links">
+            <a href="/">Hub</a>
+            <a href="/blog">Blog</a>
+            <a href="/homelab">HomeLab</a>
+            <a href="/orbit">Orbit™</a>
+            <div class="dropdown" style="margin-left: 20px;">
                 <button class="dropbtn">Community ▾</button>
                 <div class="dropdown-content">
                     <a href="https://github.com/DevLabStudy">GitHub</a>
                     <a href="https://youtube.com/@devlabstudy">YouTube</a>
-                    <a href="https://tiktok.com/@devlabstudy">TikTok</a>
                     <a href="https://x.com/DevLabStudy">X / Twitter</a>
                     <a href="https://www.reddit.com/user/devlabstudy">Reddit</a>
                 </div>
