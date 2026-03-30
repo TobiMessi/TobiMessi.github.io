@@ -12,12 +12,13 @@ layout: null
     <style>
         :root {
             --bg-body: #050505;
-            --bg-nav: rgba(5, 5, 5, 0.85);
-            --bg-card: #111;
+            --bg-nav: rgba(5, 5, 5, 0.9);
+            --bg-card: #0e0e0e;
             --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.1);
+            --text-muted: #64748b;
+            --border-color: rgba(255, 255, 255, 0.08);
             --accent-blue: #3b82f6;
+            --accent-green: #4ade80;
             --radius: 12px;
         }
 
@@ -27,226 +28,148 @@ layout: null
             background-size: cover;
             color: var(--text-main);
             margin: 0;
-            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Nawigacja */
+        /* Navbar */
         .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: var(--bg-nav);
-            backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--bg-nav); backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
-            padding: 15px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 12px 40px; display: flex; align-items: center; justify-content: space-between;
         }
-
-        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; }
-        .nav-center { display: flex; gap: 30px; }
-        .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        .nav-brand { font-size: 1.4rem; font-weight: 900; text-decoration: none; color: #fff; letter-spacing: -1px; }
+        .nav-center { display: flex; gap: 25px; }
+        .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
         .nav-center a:hover, .nav-center a.active { color: var(--accent-blue); }
 
-        /* Dashboard Wrapper */
-        .dashboard {
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 0 20px;
-            font-family: 'JetBrains Mono', monospace;
-        }
+        /* Dropdown Community */
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { background: rgba(255,255,255,0.05); color: #fff; padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer; font-weight: 700; font-size: 0.85rem; }
+        .dropdown-content { display: none; position: absolute; right: 0; background: #0e0e0e; min-width: 180px; border: 1px solid var(--border-color); border-radius: 10px; z-index: 1001; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .dropdown-content a { color: #ccc; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .dropdown-content a:hover { background: rgba(255,255,255,0.05); color: var(--accent-blue); }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        /* Header Dash */
-        .dash-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: rgba(10, 10, 10, 0.8);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+        /* Dashboard */
+        .dashboard { max-width: 1400px; margin: 30px auto; padding: 0 20px; font-family: 'JetBrains Mono', monospace; }
+        .dash-header { background: rgba(15,15,15,0.8); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        
+        .grid-container { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+        .card { background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 20px; }
+        
+        .hero-project { 
+            height: 480px; background: url('/assets/images/IMG_20260304_153435_hdr.jpg') center/cover; 
+            display: flex; align-items: flex-end; border: 1px solid var(--border-color);
         }
+        .hero-overlay { width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.98)); padding: 40px; border-radius: 0 0 var(--radius) var(--radius); }
 
-        /* Layout Grids */
-        .grid-container {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-        }
+        .btn-blue { background: var(--accent-blue); color: #000; padding: 10px 24px; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: 0.9rem; transition: 0.3s; }
+        .btn-blue:hover { filter: brightness(1.2); transform: translateY(-2px); }
 
-        .card {
-            background: rgba(17, 17, 17, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
+        .status-bar { height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; margin: 8px 0; }
+        .status-fill { height: 100%; border-radius: 3px; }
 
-        .hero-project {
-            grid-column: span 1;
-            height: 450px;
-            background: url('/assets/images/IMG_20260304_153435_hdr.jpg') center/cover;
-            display: flex;
-            align-items: flex-end;
-            border: 1px solid var(--border-color);
-        }
+        .ad-slot { background: rgba(255,255,255,0.02); border: 2px dashed #222; border-radius: var(--radius); color: #333; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; text-transform: uppercase; margin: 20px 0; }
 
-        .hero-overlay {
-            width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.95));
-            padding: 30px;
-        }
-
-        .status-bar {
-            height: 6px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 3px;
-            margin: 10px 0;
-        }
-
-        .status-fill {
-            height: 100%;
-            background: var(--accent-blue);
-            border-radius: 3px;
-        }
-
-        .ad-slot {
-            background: rgba(255,255,255,0.02);
-            border: 2px dashed #333;
-            border-radius: var(--radius);
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #444;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 20px 0;
-        }
-
-        @media (max-width: 1024px) {
-            .grid-container { grid-template-columns: 1fr; }
-            .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
-        }
+        @media (max-width: 1024px) { .grid-container { grid-template-columns: 1fr; } .navbar { padding: 15px; } }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="/" class="nav-brand">DevLabStudy</a>
+        <a href="/" class="nav-brand">DEVLAB STUDY</a>
         <div class="nav-center">
-            <a href="/" class="active">Hub</a>
-            <a href="/blog">Blog</a>
-            <a href="/homelab">HomeLab</a>
-            <a href="/orbit">Orbit™</a>
+            <a href="/" class="active">HUB</a>
+            <a href="/blog">BLOG</a>
+            <a href="/homelab">HOMELAB</a>
+            <a href="/orbit">ORBIT™</a>
         </div>
-        <div style="width: 100px;"></div> </nav>
+        <div class="dropdown">
+            <button class="dropbtn">Community ▾</button>
+            <div class="dropdown-content">
+                <a href="https://github.com/DevLabStudy">GitHub</a>
+                <a href="https://www.youtube.com/@devlabstudy">YouTube</a>
+                <a href="https://x.com/DevLabStudy">X / Twitter</a>
+                <a href="https://www.reddit.com/user/devlabstudy">Reddit</a>
+            </div>
+        </div>
+    </nav>
 
     <main class="dashboard">
         
         <header class="dash-header">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <span style="font-size: 1.8rem;">🖥️</span>
-                <div>
-                    <h1 style="margin: 0; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Command Center v3.0</h1>
-                    <p style="margin: 0; font-size: 0.75rem; color: var(--text-muted);">HOST: devlab-main | IP: 192.168.1.100 | OS: Mint/Proxmox</p>
-                </div>
+            <div>
+                <h1 style="margin: 0; font-size: 1rem; color: var(--accent-blue);">[ COMMAND_CENTER_V3 ]</h1>
+                <p style="margin: 0; font-size: 0.7rem; color: var(--text-muted);">OS: LINUX MINT | PROXMOX NODE: ACTIVE</p>
             </div>
-            <div style="text-align: right; line-height: 1.2;">
-                <span style="color: #4ade80; font-weight: bold; font-size: 0.85rem;">● SYSTEM ONLINE</span><br>
-                <span style="color: var(--text-muted); font-size: 0.7rem;">UPTIME: 34D 12H 45M</span>
+            <div style="text-align: right; font-size: 0.75rem;">
+                <span style="color: var(--accent-green);">● SYSTEM ONLINE</span><br>
+                <span style="opacity: 0.5;">UPTIME: 34:12:45:09</span>
             </div>
         </header>
 
         <div class="grid-container">
             
-            <div>
+            <section>
                 <div class="card hero-project">
                     <div class="hero-overlay">
-                        <span style="background: var(--accent-blue); color: #000; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">ACTIVE MISSION</span>
-                        <h2 style="margin: 10px 0; font-size: 1.8rem; font-weight: 900; line-height: 1.1;">Serwerownia na Drzewie</h2>
-                        <p style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 20px; max-width: 500px;">Budowa infrastruktury IT 5 metrów nad ziemią. Pełna integracja Proxmoxa z siecią bezprzewodową w ekstremalnych warunkach.</p>
-                        <a href="/blog" style="display: inline-block; border: 2px solid var(--accent-blue); color: var(--accent-blue); padding: 10px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: 0.3s;" onmouseover="this.style.background='var(--accent-blue)'; this.style.color='#000';" onmouseout="this.style.background='transparent'; this.style.color='var(--accent-blue)';">ACCESS LOGS →</a>
+                        <div style="color: var(--accent-blue); font-weight: 800; font-size: 0.7rem; margin-bottom: 10px;">> FEATURED_MISSION</div>
+                        <h2 style="font-size: 2.2rem; margin: 0 0 15px 0; font-weight: 900;">Serwerownia na Drzewie</h2>
+                        <p style="color: #94a3b8; margin-bottom: 25px; max-width: 550px;">Budowa bazy IT 5 metrów nad ziemią. Testy zasięgu, zasilania i stabilności serwerów w ekstremalnym środowisku DIY.</p>
+                        <a href="/blog" class="btn-blue">ACCESS_LOGS</a>
                     </div>
                 </div>
 
-                <div class="ad-slot">Miejsce na Reklamę AdSense (In-Feed)</div>
+                <div class="ad-slot" style="height: 100px;">AdSense Placeholder [In-Feed]</div>
 
                 <div class="card">
-                    <h3 style="margin-top: 0; font-size: 0.9rem; color: var(--accent-blue); text-transform: uppercase;">Recent System Logs:</h3>
-                    <div style="display: flex; flex-direction: column; gap: 12px;">
-                        {% for post in site.posts limit:4 %}
-                        <a href="{{ post.url }}" style="display: flex; justify-content: space-between; text-decoration: none; color: var(--text-main); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
-                            <span><b style="color: var(--accent-blue);">></b> {{ post.title }}</span>
-                            <span style="color: var(--text-muted); font-size: 0.8rem;">[{{ post.date | date: "%d.%m.%y" }}]</span>
-                        </a>
-                        {% endfor %}
-                    </div>
+                    <h3 style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 20px;">LATEST_ENTRIES</h3>
+                    {% for post in site.posts limit:4 %}
+                    <a href="{{ post.url }}" style="display: flex; justify-content: space-between; text-decoration: none; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.03);">
+                        <span style="color: #eee;"><b style="color: var(--accent-blue);">></b> {{ post.title }}</span>
+                        <span style="color: var(--text-muted); font-size: 0.75rem;">{{ post.date | date: "%d.%m.%y" }}</span>
+                    </a>
+                    {% endfor %}
                 </div>
-            </div>
+            </section>
 
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                
+            <aside style="display: flex; flex-direction: column; gap: 20px;">
                 <div class="card">
-                    <h3 style="margin-top: 0; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;">Infrastructure Status</h3>
-                    
-                    <div style="margin-bottom: 20px;">
-                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 5px;">
-                            <span>node-hp-primary</span>
-                            <span style="color: #4ade80;">45%</span>
-                        </div>
-                        <div class="status-bar"><div class="status-fill" style="width: 45%; background: #4ade80;"></div></div>
+                    <h3 style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px;">RESOURCE_MONITOR</h3>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 4px;"><span>CPU_NODE_HP</span><span>42%</span></div>
+                        <div class="status-bar"><div class="status-fill" style="width: 42%; background: var(--accent-green);"></div></div>
                     </div>
-
-                    <div style="margin-bottom: 20px;">
-                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 5px;">
-                            <span>node-laptop-cluster</span>
-                            <span style="color: var(--accent-blue);">12%</span>
-                        </div>
-                        <div class="status-bar"><div class="status-fill" style="width: 12%;"></div></div>
-                    </div>
-
-                    <div style="margin-bottom: 0;">
-                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 5px;">
-                            <span>network-throughput</span>
-                            <span style="color: #fbbf24;">68%</span>
-                        </div>
-                        <div class="status-bar"><div class="status-fill" style="width: 68%; background: #fbbf24;"></div></div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 4px;"><span>STORAGE_NAS</span><span>68%</span></div>
+                        <div class="status-bar"><div class="status-fill" style="width: 68%; background: var(--accent-blue);"></div></div>
                     </div>
                 </div>
 
                 <div class="card" style="text-align: center;">
-                    <h3 style="margin-top: 0; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Deployed Stack</h3>
-                    <div style="font-size: 2.2rem; margin: 15px 0;">
-                        🐧 🐳 🛡️ ⚡
-                    </div>
-                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0;">Mint | Docker | WireGuard | Proxmox | ESP32</p>
+                    <h3 style="font-size: 0.8rem; color: var(--text-muted);">TECH_STACK</h3>
+                    <div style="font-size: 2rem; margin: 15px 0;">🐧 🐳 🛡️ ⚡</div>
+                    <p style="font-size: 0.65rem; color: var(--text-muted);">PROXMOX | DOCKER | WIREGUARD | ESP32</p>
                 </div>
 
-                <a href="https://buycoffee.to/devlabstudy" style="text-decoration: none;">
-                    <div class="card" style="background: var(--accent-blue); color: #000; text-align: center; border: none; cursor: pointer; transition: 0.3s;">
-                        <span style="font-size: 2rem;">☕</span>
-                        <h3 style="margin: 10px 0 5px 0; font-weight: 800; font-size: 1rem;">WSPIERAJ PROJEKT</h3>
-                        <p style="margin: 0; font-size: 0.75rem; font-weight: bold; opacity: 0.8;">Zafunduj kawę serwerom!</p>
+                <div class="card" style="background: rgba(59, 130, 246, 0.1); border-color: var(--accent-blue);">
+                    <h3 style="font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 15px;">SUPPORT_DEVELOPMENT</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="https://patreon.com/DevLabStudy" style="background: #e11d48; color: #fff; text-decoration: none; padding: 10px; border-radius: 6px; font-weight: 800; font-size: 0.8rem; text-align: center;">PATREON / PATRONITE</a>
+                        <a href="https://www.buymeacoffee.com/DevLabStudy" style="background: #FFDD00; color: #000; text-decoration: none; padding: 10px; border-radius: 6px; font-weight: 800; font-size: 0.8rem; text-align: center;">BUY ME A COFFEE</a>
                     </div>
-                </a>
+                </div>
 
-                <div class="ad-slot" style="height: 250px;">Ad Unit (Vertical)</div>
-
-            </div>
+                <div class="ad-slot" style="height: 300px;">AdSense Placeholder [Skyscraper]</div>
+            </aside>
+            
         </div>
     </main>
 
-    <footer style="text-align: center; padding: 40px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; border-top: 1px solid var(--border-color); margin-top: 40px;">
-        <p>> DevLab Environment v3.0 | Built on Linux Mint | Hosted by GitHub</p>
-        <p style="font-size: 0.7rem; opacity: 0.5;">&copy; 2026 DevLabStudy. Wszelkie prawa zastrzeżone.</p>
+    <footer style="text-align: center; padding: 60px; font-family: 'JetBrains Mono'; font-size: 0.7rem; color: #334155; border-top: 1px solid var(--border-color);">
+        <p>> ROOT@DEVLAB:~# SYSTEM_STABLE_STATUS_CONFIRMED</p>
+        <p>&copy; 2026 DEVLAB STUDY. NO RIGHTS RESERVED. COPYLEFT.</p>
     </footer>
 
 </body>
