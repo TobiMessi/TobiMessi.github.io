@@ -1,86 +1,253 @@
+---
+layout: null
+---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevLabStudy | Hub</title>
+    <title>DevLab Environment | Command Center</title>
     <link rel="icon" type="image/jpeg" href="/profileIcon_g3ffyg7edeeg1.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-nav: rgba(5, 5, 5, 0.85); --text-main: #f8fafc; --text-muted: #94a3b8; 
-            --border-color: rgba(255, 255, 255, 0.1); --accent-blue: #3b82f6;
-        }
-        
-        body { 
-            font-family: 'Inter', -apple-system, sans-serif; margin: 0; min-height: 100vh;
-            background: #000 url('/background.png') no-repeat center center fixed; 
-            background-size: cover; color: var(--text-main); overflow-x: hidden;
+            --bg-body: #050505;
+            --bg-nav: rgba(5, 5, 5, 0.85);
+            --bg-card: #111;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-blue: #3b82f6;
+            --radius: 12px;
         }
 
-        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-body) url('/background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        /* --- PERFEKCYJNY NAVBAR --- */
-        .navbar { position: sticky; top: 0; z-index: 100; background: var(--bg-nav); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; }
-        
-        .nav-left { flex: 1; display: flex; justify-content: flex-start; }
+        /* Nawigacja */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-nav);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; }
-        
-        .nav-center { flex: 2; display: flex; justify-content: center; gap: 30px; }
-        .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-center { display: flex; gap: 30px; }
+        .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
         .nav-center a:hover, .nav-center a.active { color: var(--accent-blue); }
 
-        .nav-right { flex: 1; display: flex; justify-content: flex-end; }
-        .dropdown { position: relative; display: inline-block; padding: 10px 0; }
-        .dropbtn { color: var(--text-main); font-weight: 700; font-size: 0.95rem; cursor: pointer; background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border-color); transition: 0.3s; }
-        .dropdown:hover .dropbtn { background: rgba(255,255,255,0.2); }
-        
-        /* Dropdown wycentrowany do prawej strony */
-        .dropdown-content { display: none; position: absolute; right: 0; top: 100%; background-color: #111; min-width: 180px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; z-index: 1; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; }
-        .dropdown:hover .dropdown-content { display: block; opacity: 1; transform: translateY(0); }
-        .dropdown-content a { color: var(--text-main) !important; padding: 12px 20px; text-decoration: none; display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid var(--border-color); transition: background 0.2s; }
-        .dropdown-content a:last-child { border-bottom: none; }
-        .dropdown-content a:hover { background: rgba(255,255,255,0.1); padding-left: 25px; }
+        /* Dashboard Wrapper */
+        .dashboard {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+            font-family: 'JetBrains Mono', monospace;
+        }
 
-        .hero-content { position: relative; z-index: 2; text-align: center; margin-top: 25vh; padding: 0 20px; }
-        .hero-title { font-size: 4rem; font-weight: 900; margin: 0; letter-spacing: -2px; text-shadow: 0 4px 20px rgba(0,0,0,0.8); }
-        .hero-subtitle { font-size: 1.2rem; color: #cbd5e1; margin-top: 15px; font-weight: 500; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        /* Header Dash */
+        .dash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+        }
 
-        @media (max-width: 768px) { .navbar { flex-direction: column; gap: 15px; } .nav-left, .nav-center, .nav-right { justify-content: center; width: 100%; flex-wrap: wrap; } }
+        /* Layout Grids */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-project {
+            grid-column: span 1;
+            height: 450px;
+            background: url('/assets/images/IMG_20260304_153435_hdr.jpg') center/cover;
+            display: flex;
+            align-items: flex-end;
+            border: 1px solid var(--border-color);
+        }
+
+        .hero-overlay {
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+            padding: 30px;
+        }
+
+        .status-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            margin: 10px 0;
+        }
+
+        .status-fill {
+            height: 100%;
+            background: var(--accent-blue);
+            border-radius: 3px;
+        }
+
+        .ad-slot {
+            background: rgba(255,255,255,0.02);
+            border: 2px dashed #333;
+            border-radius: var(--radius);
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-container { grid-template-columns: 1fr; }
+            .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
+        }
     </style>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-
 </head>
 <body>
-    <div class="overlay"></div>
 
     <nav class="navbar">
-        <div class="nav-left">
-            <a href="/" class="nav-brand">DevLabStudy</a>
-        </div>
+        <a href="/" class="nav-brand">DevLabStudy</a>
         <div class="nav-center">
             <a href="/" class="active">Hub</a>
             <a href="/blog">Blog</a>
             <a href="/homelab">HomeLab</a>
             <a href="/orbit">Orbit™</a>
         </div>
-        <div class="nav-right">
-            <div class="dropdown">
-                <span class="dropbtn">Community ▾</span>
-                <div class="dropdown-content">
-                    <a href="https://github.com/DevLabStudy">GitHub <span>↗</span></a>
-                    <a href="https://www.youtube.com/@devlabstudy">YouTube <span>↗</span></a>
-                    <a href="https://x.com/DevLabStudy">X / Twitter <span>↗</span></a>
-                    <a href="https://www.tiktok.com/@devlabstudy">TikTok <span>↗</span></a>
-                    <a href="https://www.reddit.com/user/devlabstudy">Reddit <span>↗</span></a>
+        <div style="width: 100px;"></div> </nav>
+
+    <main class="dashboard">
+        
+        <header class="dash-header">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span style="font-size: 1.8rem;">🖥️</span>
+                <div>
+                    <h1 style="margin: 0; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Command Center v3.0</h1>
+                    <p style="margin: 0; font-size: 0.75rem; color: var(--text-muted);">HOST: devlab-main | IP: 192.168.1.100 | OS: Mint/Proxmox</p>
                 </div>
             </div>
-        </div>
-    </nav>
+            <div style="text-align: right; line-height: 1.2;">
+                <span style="color: #4ade80; font-weight: bold; font-size: 0.85rem;">● SYSTEM ONLINE</span><br>
+                <span style="color: var(--text-muted); font-size: 0.7rem;">UPTIME: 34D 12H 45M</span>
+            </div>
+        </header>
 
-    <main class="hero-content">
-        <h1 class="hero-title">DevLab Environment</h1>
-        <p class="hero-subtitle">System Administration • Docker Optimization • Edge Computing</p>
+        <div class="grid-container">
+            
+            <div>
+                <div class="card hero-project">
+                    <div class="hero-overlay">
+                        <span style="background: var(--accent-blue); color: #000; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">ACTIVE MISSION</span>
+                        <h2 style="margin: 10px 0; font-size: 1.8rem; font-weight: 900; line-height: 1.1;">Serwerownia na Drzewie</h2>
+                        <p style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 20px; max-width: 500px;">Budowa infrastruktury IT 5 metrów nad ziemią. Pełna integracja Proxmoxa z siecią bezprzewodową w ekstremalnych warunkach.</p>
+                        <a href="/blog" style="display: inline-block; border: 2px solid var(--accent-blue); color: var(--accent-blue); padding: 10px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: 0.3s;" onmouseover="this.style.background='var(--accent-blue)'; this.style.color='#000';" onmouseout="this.style.background='transparent'; this.style.color='var(--accent-blue)';">ACCESS LOGS →</a>
+                    </div>
+                </div>
+
+                <div class="ad-slot">Miejsce na Reklamę AdSense (In-Feed)</div>
+
+                <div class="card">
+                    <h3 style="margin-top: 0; font-size: 0.9rem; color: var(--accent-blue); text-transform: uppercase;">Recent System Logs:</h3>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        {% for post in site.posts limit:4 %}
+                        <a href="{{ post.url }}" style="display: flex; justify-content: space-between; text-decoration: none; color: var(--text-main); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+                            <span><b style="color: var(--accent-blue);">></b> {{ post.title }}</span>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">[{{ post.date | date: "%d.%m.%y" }}]</span>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                
+                <div class="card">
+                    <h3 style="margin-top: 0; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;">Infrastructure Status</h3>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 5px;">
+                            <span>node-hp-primary</span>
+                            <span style="color: #4ade80;">45%</span>
+                        </div>
+                        <div class="status-bar"><div class="status-fill" style="width: 45%; background: #4ade80;"></div></div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 5px;">
+                            <span>node-laptop-cluster</span>
+                            <span style="color: var(--accent-blue);">12%</span>
+                        </div>
+                        <div class="status-bar"><div class="status-fill" style="width: 12%;"></div></div>
+                    </div>
+
+                    <div style="margin-bottom: 0;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 5px;">
+                            <span>network-throughput</span>
+                            <span style="color: #fbbf24;">68%</span>
+                        </div>
+                        <div class="status-bar"><div class="status-fill" style="width: 68%; background: #fbbf24;"></div></div>
+                    </div>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <h3 style="margin-top: 0; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Deployed Stack</h3>
+                    <div style="font-size: 2.2rem; margin: 15px 0;">
+                        🐧 🐳 🛡️ ⚡
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0;">Mint | Docker | WireGuard | Proxmox | ESP32</p>
+                </div>
+
+                <a href="https://buycoffee.to/devlabstudy" style="text-decoration: none;">
+                    <div class="card" style="background: var(--accent-blue); color: #000; text-align: center; border: none; cursor: pointer; transition: 0.3s;">
+                        <span style="font-size: 2rem;">☕</span>
+                        <h3 style="margin: 10px 0 5px 0; font-weight: 800; font-size: 1rem;">WSPIERAJ PROJEKT</h3>
+                        <p style="margin: 0; font-size: 0.75rem; font-weight: bold; opacity: 0.8;">Zafunduj kawę serwerom!</p>
+                    </div>
+                </a>
+
+                <div class="ad-slot" style="height: 250px;">Ad Unit (Vertical)</div>
+
+            </div>
+        </div>
     </main>
+
+    <footer style="text-align: center; padding: 40px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; border-top: 1px solid var(--border-color); margin-top: 40px;">
+        <p>> DevLab Environment v3.0 | Built on Linux Mint | Hosted by GitHub</p>
+        <p style="font-size: 0.7rem; opacity: 0.5;">&copy; 2026 DevLabStudy. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
 </body>
 </html>
