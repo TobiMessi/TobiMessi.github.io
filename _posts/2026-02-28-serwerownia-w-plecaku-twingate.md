@@ -1,16 +1,18 @@
 ---
 layout: post
-title: "Serwerownia w plecaku – test Twingate podczas podróży autobusem"
+title: "Inwestycja w Hardware: Dlaczego Homelab potrzebuje nowej lutownicy i multimetru?"
 ---
 
-Siedząc w autobusie powrotnym, z dala od mojego głównego stanowiska z Linux Mint, przeprowadziłem najważniejszy test mojego setupu: pełne zdalne zarządzanie przez **Twingate**.
+Zwykle piszę o tym, co dzieje się wewnątrz systemu **Linux Mint**, ale każdy admin wie, że w końcu przychodzi moment, kiedy trzeba zdjąć obudowę z serwera. Mój warsztat wzbogacił się właśnie o dwa kluczowe narzędzia: nową stację lutowniczą i precyzyjny multimetr.
 
-### Jak to wyglądało w praktyce?
+### Dlaczego to ważne dla projektu?
 
-* **Dostęp Zero Trust:** Bez wystawiania portów na świat i bez topornych VPN-ów. Jeden klik w telefonie i miałem pełny dostęp do mojego klastra.
-* **Zarządzanie kontenerami:** Sprawdzenie statusu Portainera i szybki restart jednego z serwisów przy użyciu SSH na telefonie przebiegło bezbłędnie, nawet przy przeskakiwaniu między nadajnikami LTE.
-* **Bezpieczeństwo:** Świadomość, że mam dostęp do swoich plików i logów w bezpieczny sposób, daje ogromny komfort psychiczny podczas każdego wyjazdu.
+* **Precyzja:** Przy miniaturowych projektach opartych na ESP32 czy naprawach płyt głównych, stara lutownica to zbyt duże ryzyko. Nowy sprzęt to lepsza kontrola temperatury i bezpieczeństwo delikatnych ścieżek.
+* **Diagnostyka:** Multimetr to dla elektronika to samo, co `htop` lub `docker logs` dla programisty. Pozwala "zobaczyć" to, co niewidoczne gołym okiem – spadki napięć czy zwarcia, które potrafią położyć nawet najlepszy klaster.
+* **Rozwój:** Nowy sprzęt otwiera mi drzwi do bardziej zaawansowanych modyfikacji hardware'owych, o których będę pisał w najbliższym czasie.
 
 ### Wnioski:
 
-Homelab nie musi być uwiązany do kabla ethernetowego w Twoim pokoju. Dzięki odpowiednim narzędziom, Twoje centrum dowodzenia jedzie zawsze z Tobą.
+Dobry software potrzebuje sprawnego hardware'u. Unboxing tych narzędzi to dla mnie początek nowego rozdziału w budowaniu domowego laboratorium.
+
+<iframe width="315" height="560" src="https://www.youtube.com/embed/mLzDuEJF2WA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
