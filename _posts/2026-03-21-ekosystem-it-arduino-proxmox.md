@@ -10,7 +10,7 @@ W dzisiejszym świecie chmura jest wszędzie, ale nic nie daje takiej satysfakcj
 Wszystko zaczyna się od małych płytek. W moim arsenale królują obecnie dwa typy układów:
 
 * **Klasyczne Arduino:** Niezastąpione do szybkich prototypów i nauki podstaw elektroniki.
-* **ESP32 (z USB-C i OLED):** To mój aktualny faworyt. Dzięki wbudowanemu Wi-Fi i Bluetooth, płytka ta idealnie nadaje się do projektów IoT. Dodatkowy wyświetlacz pozwala na podgląd parametrów bez podłączania komputera.
+* **ESP32 (z USB-C):** To mój aktualny faworyt. Dzięki wbudowanemu Wi-Fi i Bluetooth, płytka ta idealnie nadaje się do projektów IoT. Dodatkowy wyświetlacz pozwala na podgląd parametrów bez podłączania komputera.
 
 Aktualnie wykorzystuję je do monitorowania otoczenia (czujniki temperatury DS18B20) oraz sterowania oświetleniem LED, które niedawno przeszło "mały remont".
 
