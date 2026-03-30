@@ -3,7 +3,7 @@ layout: post
 title: "Starcie z rzeczywistością: 17 Mb/s u dziadków kontra mój domowy stack sieciowy"
 ---
 
-![Test łącza - Speedtest](image_b23fe7.png)
+![Test łącza - Speedtest](/assets/images/image_b23fe7.png)
 
 Wyjazd w teren to zawsze brutalny test dla moich przyzwyczajeń. Na co dzień w moim homelabie korzystam z dobrodziejstw **Unbound** i **Pi-hole**, co sprawia, że internet "po prostu działa" szybko i bez reklam. U dziadków zderzyłem się z łączem 17 Mb/s i standardowymi DNS-ami dostawcy.
 
@@ -17,4 +17,4 @@ Wyjazd w teren to zawsze brutalny test dla moich przyzwyczajeń. Na co dzień w 
 
 Możesz mieć światłowód, ale bez optymalizacji po stronie DNS i tak nie wykorzystasz jego potencjału. Wracam do domu z jeszcze większym zapałem do tuningu moich kontenerów.
 
-![Wykres zapytań DNS](image_b23fed.png)
+![Wykres zapytań DNS](/assets/images/image_b23fed.png)
