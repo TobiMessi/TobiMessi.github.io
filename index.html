@@ -6,166 +6,228 @@ layout: null
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevLab STUDY | Command Center</title>
+    <title>DevLabStudy | Command Center</title>
     <link rel="icon" type="image/jpeg" href="/profileIcon_g3ffyg7edeeg1.jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-body: #050505;
-            --bg-nav: rgba(5, 5, 5, 0.9);
+            --bg-nav: #050505;
             --bg-card: #0e0e0e;
             --text-main: #f0f0f0;
             --text-muted: #64748b;
             --border-color: rgba(255, 255, 255, 0.08);
             --accent-blue: #3b82f6;
             --accent-green: #4ade80;
-            --accent-pink: #e11d48;
-            --accent-coffee: #FFDD00;
         }
 
         body {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Inter', sans-serif; /* Główny tekst jak na blogu */
             background: var(--bg-body);
             color: var(--text-main);
             margin: 0;
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.01) 1px, transparent 0);
-            background-size: 40px 40px;
         }
 
-        /* Navbar */
+        /* Navbar - IDEALNE ODWZOROWANIE */
         .navbar {
-            position: sticky; top: 0; z-index: 1000;
-            background: var(--bg-nav); backdrop-filter: blur(20px);
+            background: var(--bg-nav);
             border-bottom: 1px solid var(--border-color);
-            padding: 12px 40px; display: flex; align-items: center; justify-content: space-between;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .nav-brand { font-size: 1.2rem; font-weight: 800; text-decoration: none; color: #fff; text-transform: uppercase; }
-        .nav-center { display: flex; gap: 20px; }
-        .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 400; font-size: 0.85rem; transition: 0.3s; }
-        .nav-center a:hover, .nav-center a.active { color: var(--accent-blue); }
+        .nav-brand { 
+            font-size: 1.3rem; 
+            font-weight: 900; 
+            text-decoration: none; 
+            color: #fff; 
+            letter-spacing: -0.5px;
+        }
+        .nav-right { display: flex; align-items: center; gap: 25px; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-muted); 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            transition: 0.3s; 
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-blue); }
 
-        /* Dropdown Community */
+        /* Community Button - SZARY STYL */
         .dropdown { position: relative; display: inline-block; }
-        .dropbtn { background: none; color: #fff; padding: 6px 14px; border-radius: 4px; border: 1px solid var(--border-color); cursor: pointer; font-family: inherit; font-weight: 700; font-size: 0.8rem; }
-        .dropdown-content { display: none; position: absolute; right: 0; background: #0a0a0a; min-width: 180px; border: 1px solid var(--border-color); border-radius: 8px; z-index: 1001; }
-        .dropdown-content a { color: #ccc; padding: 10px 14px; text-decoration: none; display: block; font-size: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .dropbtn { 
+            background: #1a1a1a; 
+            color: #fff; 
+            padding: 8px 16px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border-color); 
+            cursor: pointer; 
+            font-family: inherit; 
+            font-weight: 700; 
+            font-size: 0.85rem; 
+        }
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            right: 0; 
+            background: #0e0e0e; 
+            min-width: 180px; 
+            border: 1px solid var(--border-color); 
+            border-radius: 10px; 
+            z-index: 1001; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .dropdown-content a { 
+            color: #ccc; 
+            padding: 12px 16px; 
+            text-decoration: none; 
+            display: block; 
+            font-size: 0.85rem; 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+        }
         .dropdown-content a:hover { background: rgba(255,255,255,0.05); color: var(--accent-blue); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* Hero Header (Wyśrodkowane na górze) */
+        /* Sekcja HERO */
         .hero-header {
-            max-width: 1000px; margin: 60px auto 40px auto; text-align: center; padding: 0 20px;
+            max-width: 1000px; 
+            margin: 80px auto 50px auto; 
+            text-align: center; 
+            padding: 0 20px;
         }
-        .hero-title { font-size: 3.5rem; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: -2px; line-height: 1; color: var(--text-main); }
+        .hero-title { font-size: 3.8rem; font-weight: 900; margin: 0; letter-spacing: -2px; line-height: 1; }
         .hero-title span { color: var(--accent-blue); }
-        .hero-subtitle { font-size: 1rem; color: var(--text-muted); margin-top: 15px; max-width: 700px; margin-left: auto; margin-right: auto; }
-
-        /* Dashboard Wrapper */
-        .dashboard { max-width: 1400px; margin: 0 auto 40px auto; padding: 0 20px; }
-        
-        /* Grid Layout */
-        .grid-container { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
-        .card { background: rgba(10, 10, 10, 0.8); border: 1px solid var(--border-color); padding: 25px; border-radius: 8px; position: relative; }
-        
-        /* Main Project Card */
-        .hero-project { 
-            grid-column: span 1;
-            height: 480px; 
-            background: url('/assets/images/IMG_20260304_153435_hdr.jpg') center/cover; 
-            display: flex; align-items: flex-end;
-            border-radius: 8px; border: 1px solid var(--border-color);
+        .hero-subtitle { 
+            font-size: 1.1rem; 
+            color: var(--text-muted); 
+            margin-top: 20px; 
+            max-width: 750px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            line-height: 1.6;
         }
-        .hero-overlay { width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.98)); padding: 40px; border-radius: 0 0 8px 8px; }
 
-        .btn-blue { display: inline-block; background: var(--accent-blue); color: #000; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; margin-top: 20px; }
-        .btn-blue:hover { filter: brightness(1.2); }
+        /* Dashboard */
+        .dashboard { max-width: 1300px; margin: 0 auto 60px auto; padding: 0 20px; }
+        .grid-container { display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px; }
+        
+        .card { 
+            background: rgba(15, 15, 15, 0.6); 
+            border: 1px solid var(--border-color); 
+            padding: 30px; 
+            border-radius: 16px; 
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-project { 
+            height: 450px; 
+            background: url('/assets/images/IMG_20260304_153435_hdr.jpg') center/cover; 
+            display: flex; 
+            align-items: flex-end;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+        .hero-overlay { width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.95)); padding: 40px; border-radius: 0 0 16px 16px; }
 
-        /* Sidebar & Support */
-        .support-btn { display: block; text-decoration: none; padding: 14px; border-radius: 4px; font-weight: 800; font-size: 0.85rem; text-align: center; margin-top: 10px; transition: 0.3s; text-transform: uppercase; }
-        .support-btn:hover { filter: brightness(1.1); }
+        .btn-blue { 
+            display: inline-block; 
+            background: var(--accent-blue); 
+            color: #fff; 
+            padding: 14px 30px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-weight: 800; 
+            font-size: 0.95rem; 
+            transition: 0.3s;
+        }
+        .btn-blue:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
 
-        .ad-slot { background: rgba(255,255,255,0.01); border: 2px dashed #222; border-radius: 8px; color: #333; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; text-transform: uppercase; margin: 20px 0; font-weight: bold; }
+        .support-btn { 
+            display: block; 
+            text-decoration: none; 
+            padding: 15px; 
+            border-radius: 10px; 
+            font-weight: 800; 
+            font-size: 0.9rem; 
+            text-align: center; 
+            margin-top: 12px; 
+            transition: 0.3s; 
+        }
 
         @media (max-width: 1024px) { 
-            .hero-title { font-size: 2.5rem; }
-            .grid-container { grid-template-columns: 1fr; } 
-            .navbar { padding: 15px; flex-direction: column; gap: 15px; } 
+            .navbar { padding: 15px 20px; }
+            .grid-container { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="/" class="nav-brand">DEVLAB STUDY</a>
-        <div class="nav-center">
-            <a href="/" class="active">Hub</a>
-            <a href="/blog">Blog</a>
-            <a href="/homelab">HomeLab</a>
-            <a href="/orbit">Orbit™</a>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Community ▾</button>
-            <div class="dropdown-content">
-                <a href="https://github.com/DevLabStudy" target="_blank">GitHub</a>
-                <a href="https://www.youtube.com/@devlabstudy" target="_blank">YouTube</a>
-                <a href="https://www.tiktok.com/@devlabstudy" target="_blank">TikTok</a>
-                <a href="https://x.com/DevLabStudy" target="_blank">X / Twitter</a>
-                <a href="https://www.reddit.com/user/devlabstudy" target="_blank">Reddit</a>
+        <a href="/" class="nav-brand">DevLabStudy</a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="/" class="active">Hub</a>
+                <a href="/blog">Blog</a>
+                <a href="/homelab">HomeLab</a>
+                <a href="/orbit">Orbit™</a>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Community ▾</button>
+                <div class="dropdown-content">
+                    <a href="https://github.com/DevLabStudy" target="_blank">GitHub</a>
+                    <a href="https://www.youtube.com/@devlabstudy" target="_blank">YouTube</a>
+                    <a href="https://www.tiktok.com/@devlabstudy" target="_blank">TikTok</a>
+                    <a href="https://x.com/DevLabStudy" target="_blank">X / Twitter</a>
+                    <a href="https://www.reddit.com/user/devlabstudy" target="_blank">Reddit</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <header class="hero-header">
-        <div style="color: var(--accent-blue); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;">> SYSTEM_INIT_...</div>
         <h1 class="hero-title">DevLab <span>Environment</span></h1>
-        <p class="hero-subtitle">Centrum zarządzania domową infrastrukturą IT, klastrami Proxmox i projektami DIY. Dokumentujemy ewolucję od Arduino po automatyzację na Linux Mint.</p>
+        <p class="hero-subtitle">Eksploracja domowej infrastruktury IT, klastrów Proxmox i automatyzacji. Dokumentujemy drogę od pasji do zaawansowanych rozwiązań serwerowych.</p>
     </header>
 
     <main class="dashboard">
         <div class="grid-container">
-            
             <section>
-                <div class="card hero-project">
+                <div class="hero-project">
                     <div class="hero-overlay">
-                        <div style="background: var(--accent-blue); color: #000; padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; display: inline-block; margin-bottom: 10px;">[ ACTIVE_LOG ]</div>
-                        <h2 style="font-size: 2.2rem; margin: 0 0 15px 0; font-weight: 800; text-transform: uppercase; line-height: 1.1;">Serwerownia na Drzewie</h2>
-                        <p style="color: #cbd5e1; margin: 0; max-width: 550px; font-size: 0.9rem;">Pełna dokumentacja budowy infrastruktury sieciowej i serwerowej 5 metrów nad ziemią. HP ProLiant, OpenWRT i ESP32 integracja.</p>
-                        <a href="/blog" class="btn-blue">ACCESS_DOCUMENTATION →</a>
+                        <h2 style="font-size: 2rem; margin: 0 0 10px 0; font-weight: 900; color: #fff;">Serwerownia na Drzewie</h2>
+                        <p style="color: #94a3b8; margin: 0 0 25px 0; max-width: 500px; line-height: 1.5;">Budowa bazy IT 5 metrów nad ziemią. Testy stabilności i zasięgu w ekstremalnych warunkach.</p>
+                        <a href="/blog" class="btn-blue">Eksploruj Logi →</a>
                     </div>
                 </div>
             </section>
 
             <aside style="display: flex; flex-direction: column; gap: 20px;">
                 <div class="card">
-                    <h3 style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">Recent_Entries:</h3>
-                    <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.85rem;">
-                        {% for post in site.posts limit:5 %}
-                        <a href="{{ post.url }}" style="display: flex; justify-content: space-between; text-decoration: none; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-main);">
-                            <span><b style="color: var(--accent-blue);">></b> {{ post.title }}</span>
-                            <span style="color: var(--text-muted); font-size: 0.75rem; white-space: nowrap; margin-left: 10px;">[{{ post.date | date: "%d.%m.%y" }}]</span>
-                        </a>
-                        {% endfor %}
-                    </div>
+                    <h3 style="font-size: 0.9rem; color: var(--text-muted); margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 1px;">Ostatnie Wpisy:</h3>
+                    {% for post in site.posts limit:5 %}
+                    <a href="{{ post.url }}" style="display: flex; justify-content: space-between; text-decoration: none; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-main);">
+                        <span style="font-size: 0.9rem;">{{ post.title }}</span>
+                        <span style="color: var(--text-muted); font-size: 0.8rem;">{{ post.date | date: "%d.%m" }}</span>
+                    </a>
+                    {% endfor %}
                 </div>
 
-                <div class="card" style="background: rgba(59, 130, 246, 0.05); border-color: var(--accent-blue);">
-                    <h3 style="font-size: 0.85rem; color: var(--accent-blue); margin-top: 0; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Support_Development:</h3>
-                    <a href="https://patreon.com/DevLabStudy" target="_blank" class="support-btn" style="background: var(--accent-pink); color: #fff;">PATREON</a>
-                    <a href="https://www.buymeacoffee.com/DevLabStudy" target="_blank" class="support-btn" style="background: var(--accent-coffee); color: #000;">BUY ME A COFFEE</a>
+                <div class="card" style="border-color: var(--accent-blue); background: rgba(59, 130, 246, 0.05);">
+                    <h3 style="font-size: 0.9rem; color: var(--accent-blue); margin: 0 0 15px 0; text-transform: uppercase;">Wsparcie:</h3>
+                    <a href="https://patreon.com/DevLabStudy" target="_blank" class="support-btn" style="background: #e11d48; color: #fff;">PATREON</a>
+                    <a href="https://www.buymeacoffee.com/DevLabStudy" target="_blank" class="support-btn" style="background: #FFDD00; color: #000;">BUY ME A COFFEE</a>
                 </div>
             </aside>
-            
         </div>
-
-        <div class="ad-slot" style="height: 120px; width: 100%;">MIEJSCE NA REKLAMĘ ADSENSE [BANNER]</div>
-
     </main>
 
-    <footer style="text-align: center; padding: 60px; font-size: 0.75rem; color: #333; border-top: 1px solid var(--border-color); background: #080808;">
+    <footer style="text-align: center; padding: 40px; color: #334155; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;">
         &gt; root@devlab:~# uptime _ <br>
         21:55:00 up 34 days, 12:45, 1 user, load average: 0.08, 0.03, 0.01
-        <p>&copy; 2026 DEVLAB STUDY. SYSTEM_STABLE.</p>
     </footer>
 
 </body>
