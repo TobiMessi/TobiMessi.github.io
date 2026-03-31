@@ -8,13 +8,13 @@ layout: null
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevLabStudy | Command Center</title>
     <link rel="icon" type="image/jpeg" href="/profileIcon_g3ffyg7edeeg1.jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-body: #050505;
             --bg-nav: #050505;
             --text-main: #f0f0f0;
-            --text-muted: #64748b;
+            --text-muted: #8b9bb4;
             --border-color: rgba(255, 255, 255, 0.08);
             --accent-blue: #3b82f6;
         }
@@ -30,7 +30,7 @@ layout: null
         }
 
         /* ------------------------------------ */
-        /* NAVBAR - IDEALNY UKŁAD Z OBRAZKA     */
+        /* NAVBAR - WERSJA Z INTER (JAK NA FOTO)*/
         /* ------------------------------------ */
         .navbar {
             background: var(--bg-nav);
@@ -54,28 +54,24 @@ layout: null
             font-weight: 900; 
             text-decoration: none; 
             color: #fff; 
-            letter-spacing: 1px;
-            font-family: 'JetBrains Mono', monospace; /* Techniczny font logotypu */
+            letter-spacing: -0.5px;
         }
 
-        /* ŚRODEK (Menu z kreskami) */
+        /* ŚRODEK (Menu) */
         .nav-center { 
             display: flex; 
             justify-content: center; 
             align-items: center;
-            gap: 15px; 
-            font-family: 'JetBrains Mono', monospace;
+            gap: 25px; /* Odstępy między linkami */
         }
         .nav-center a { 
             text-decoration: none; 
-            color: var(--text-main); 
-            font-weight: 400; 
+            color: var(--text-muted); 
+            font-weight: 600; 
             font-size: 0.95rem; 
             transition: 0.3s; 
-            text-transform: uppercase;
         }
         .nav-center a:hover, .nav-center a.active { color: var(--accent-blue); }
-        .nav-separator { color: var(--text-muted); font-weight: 300; }
 
         /* PRAWA STRONA (Community) */
         .nav-right { 
@@ -84,37 +80,37 @@ layout: null
         }
         .dropdown { position: relative; display: inline-block; }
         .dropbtn { 
-            background: transparent; 
+            background: #111; 
             color: #fff; 
-            padding: 6px 12px; 
+            padding: 8px 14px; 
             border-radius: 6px; 
-            border: 1px solid rgba(255, 255, 255, 0.2); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
             cursor: pointer; 
-            font-family: 'JetBrains Mono', monospace; 
-            font-weight: 400; 
+            font-family: 'Inter', sans-serif; 
+            font-weight: 600; 
             font-size: 0.9rem; 
         }
         
         .dropdown-content { 
             display: none; 
             position: absolute; 
-            right: 0; /* Rozwija się do lewej, żeby nie uciekło za ekran */
+            right: 0; 
             top: 120%;
             background: #0a0a0a; 
             min-width: 180px; 
-            border: 1px solid rgba(255, 255, 255, 0.2); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
             border-radius: 6px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            font-family: 'JetBrains Mono', monospace;
         }
         .dropdown-content a { 
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: #fff; 
-            padding: 10px 15px; 
+            padding: 12px 16px; 
             text-decoration: none; 
             font-size: 0.85rem; 
+            font-weight: 600;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
         }
         .dropdown-content a:last-child { border-bottom: none; }
@@ -173,27 +169,24 @@ layout: null
 
     <nav class="navbar">
         <div class="nav-left">
-            <a href="/" class="nav-brand">DEVLABSTUDY</a>
+            <a href="/" class="nav-brand">DevLabStudy</a>
         </div>
         
         <div class="nav-center">
-            <a href="/" class="active">HUB</a>
-            <span class="nav-separator">|</span>
-            <a href="/blog">BLOG</a>
-            <span class="nav-separator">|</span>
-            <a href="/homelab">HOMELAB</a>
-            <span class="nav-separator">|</span>
-            <a href="/orbit">ORBIT</a>
+            <a href="/" class="active">Hub</a>
+            <a href="/blog">Blog</a>
+            <a href="/homelab">HomeLab</a>
+            <a href="/orbit">Orbit™</a>
         </div>
 
         <div class="nav-right">
             <div class="dropdown">
                 <button class="dropbtn">Community ▾</button>
                 <div class="dropdown-content">
-                    <a href="https://www.tiktok.com/@devlabstudy" target="_blank"><span>Tik Tok</span> <span>&#x2197;</span></a>
-                    <a href="https://www.youtube.com/@devlabstudy" target="_blank"><span>You Tube</span> <span>&#x2197;</span></a>
                     <a href="https://github.com/DevLabStudy" target="_blank"><span>GitHub</span> <span>&#x2197;</span></a>
-                    <a href="https://patreon.com/DevLabStudy" target="_blank"><span>Patreon</span> <span>&#x2197;</span></a>
+                    <a href="https://www.youtube.com/@devlabstudy" target="_blank"><span>YouTube</span> <span>&#x2197;</span></a>
+                    <a href="https://x.com/DevLabStudy" target="_blank"><span>X / Twitter</span> <span>&#x2197;</span></a>
+                    <a href="https://www.tiktok.com/@devlabstudy" target="_blank"><span>TikTok</span> <span>&#x2197;</span></a>
                     <a href="https://www.reddit.com/user/devlabstudy" target="_blank"><span>Reddit</span> <span>&#x2197;</span></a>
                 </div>
             </div>
