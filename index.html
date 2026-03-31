@@ -13,176 +13,188 @@ layout: null
         :root {
             --bg-body: #050505;
             --bg-nav: #050505;
-            --bg-card: #0e0e0e;
             --text-main: #f0f0f0;
             --text-muted: #64748b;
             --border-color: rgba(255, 255, 255, 0.08);
             --accent-blue: #3b82f6;
-            --accent-green: #4ade80;
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* Główny tekst jak na blogu */
+            font-family: 'Inter', sans-serif;
             background: var(--bg-body);
             color: var(--text-main);
             margin: 0;
             overflow-x: hidden;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0);
+            background-size: 32px 32px;
         }
 
-        /* Navbar - IDEALNE ODWZOROWANIE */
+        /* ------------------------------------ */
+        /* NAVBAR - IDEALNY UKŁAD Z OBRAZKA     */
+        /* ------------------------------------ */
         .navbar {
             background: var(--bg-nav);
             border-bottom: 1px solid var(--border-color);
             padding: 15px 40px;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr; /* Lewo, Środek, Prawo */
             align-items: center;
-            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* LEWA STRONA (Logo) */
+        .nav-left { 
+            display: flex; 
+            justify-content: flex-start; 
         }
         .nav-brand { 
-            font-size: 1.3rem; 
+            font-size: 1.4rem; 
             font-weight: 900; 
             text-decoration: none; 
             color: #fff; 
-            letter-spacing: -0.5px;
+            letter-spacing: 1px;
+            font-family: 'JetBrains Mono', monospace; /* Techniczny font logotypu */
         }
-        .nav-right { display: flex; align-items: center; gap: 25px; }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { 
-            text-decoration: none; 
-            color: var(--text-muted); 
-            font-weight: 600; 
-            font-size: 0.9rem; 
-            transition: 0.3s; 
-        }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent-blue); }
 
-        /* Community Button - SZARY STYL */
+        /* ŚRODEK (Menu z kreskami) */
+        .nav-center { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            gap: 15px; 
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .nav-center a { 
+            text-decoration: none; 
+            color: var(--text-main); 
+            font-weight: 400; 
+            font-size: 0.95rem; 
+            transition: 0.3s; 
+            text-transform: uppercase;
+        }
+        .nav-center a:hover, .nav-center a.active { color: var(--accent-blue); }
+        .nav-separator { color: var(--text-muted); font-weight: 300; }
+
+        /* PRAWA STRONA (Community) */
+        .nav-right { 
+            display: flex; 
+            justify-content: flex-end; 
+        }
         .dropdown { position: relative; display: inline-block; }
         .dropbtn { 
-            background: #1a1a1a; 
+            background: transparent; 
             color: #fff; 
-            padding: 8px 16px; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-color); 
+            padding: 6px 12px; 
+            border-radius: 6px; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
             cursor: pointer; 
-            font-family: inherit; 
-            font-weight: 700; 
-            font-size: 0.85rem; 
+            font-family: 'JetBrains Mono', monospace; 
+            font-weight: 400; 
+            font-size: 0.9rem; 
         }
+        
         .dropdown-content { 
             display: none; 
             position: absolute; 
-            right: 0; 
-            background: #0e0e0e; 
+            right: 0; /* Rozwija się do lewej, żeby nie uciekło za ekran */
+            top: 120%;
+            background: #0a0a0a; 
             min-width: 180px; 
-            border: 1px solid var(--border-color); 
-            border-radius: 10px; 
-            z-index: 1001; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            border-radius: 6px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            font-family: 'JetBrains Mono', monospace;
         }
         .dropdown-content a { 
-            color: #ccc; 
-            padding: 12px 16px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff; 
+            padding: 10px 15px; 
             text-decoration: none; 
-            display: block; 
             font-size: 0.85rem; 
-            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
         }
-        .dropdown-content a:hover { background: rgba(255,255,255,0.05); color: var(--accent-blue); }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background: #1a1a1a; color: var(--accent-blue); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* Sekcja HERO */
-        .hero-header {
-            max-width: 1000px; 
-            margin: 80px auto 50px auto; 
-            text-align: center; 
-            padding: 0 20px;
-        }
-        .hero-title { font-size: 3.8rem; font-weight: 900; margin: 0; letter-spacing: -2px; line-height: 1; }
+        /* ------------------------------------ */
+        /* HERO & DASHBOARD                     */
+        /* ------------------------------------ */
+        .hero-header { max-width: 1000px; margin: 60px auto 40px auto; text-align: center; padding: 0 20px; }
+        .hero-title { font-size: 3.5rem; font-weight: 900; margin: 0; letter-spacing: -2px; line-height: 1; color: #fff; }
         .hero-title span { color: var(--accent-blue); }
-        .hero-subtitle { 
-            font-size: 1.1rem; 
-            color: var(--text-muted); 
-            margin-top: 20px; 
-            max-width: 750px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            line-height: 1.6;
-        }
+        .hero-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-top: 15px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.5; }
 
-        /* Dashboard */
         .dashboard { max-width: 1300px; margin: 0 auto 60px auto; padding: 0 20px; }
-        .grid-container { display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px; }
+        .grid-container { display: grid; grid-template-columns: 1.8fr 1fr; gap: 25px; }
         
         .card { 
-            background: rgba(15, 15, 15, 0.6); 
+            background: rgba(10, 10, 10, 0.7); 
             border: 1px solid var(--border-color); 
-            padding: 30px; 
-            border-radius: 16px; 
+            padding: 25px; 
+            border-radius: 12px; 
             backdrop-filter: blur(10px);
         }
         
         .hero-project { 
-            height: 450px; 
+            height: 480px; 
             background: url('/assets/images/IMG_20260304_153435_hdr.jpg') center/cover; 
             display: flex; 
             align-items: flex-end;
-            border-radius: 16px;
+            border-radius: 12px;
             border: 1px solid var(--border-color);
         }
-        .hero-overlay { width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.95)); padding: 40px; border-radius: 0 0 16px 16px; }
+        .hero-overlay { width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.95)); padding: 40px; border-radius: 0 0 12px 12px; }
 
         .btn-blue { 
-            display: inline-block; 
-            background: var(--accent-blue); 
-            color: #fff; 
-            padding: 14px 30px; 
-            border-radius: 10px; 
-            text-decoration: none; 
-            font-weight: 800; 
-            font-size: 0.95rem; 
-            transition: 0.3s;
+            display: inline-block; background: var(--accent-blue); color: #fff; 
+            padding: 12px 28px; border-radius: 8px; text-decoration: none; 
+            font-weight: 800; font-size: 0.95rem; transition: 0.3s;
         }
-        .btn-blue:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+        .btn-blue:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3); }
 
         .support-btn { 
-            display: block; 
-            text-decoration: none; 
-            padding: 15px; 
-            border-radius: 10px; 
-            font-weight: 800; 
-            font-size: 0.9rem; 
-            text-align: center; 
-            margin-top: 12px; 
-            transition: 0.3s; 
+            display: block; text-decoration: none; padding: 14px; border-radius: 8px; 
+            font-weight: 800; font-size: 0.85rem; text-align: center; margin-top: 10px; transition: 0.3s; 
         }
 
         @media (max-width: 1024px) { 
-            .navbar { padding: 15px 20px; }
+            .navbar { display: flex; flex-direction: column; gap: 15px; align-items: center; padding: 15px; }
             .grid-container { grid-template-columns: 1fr; }
-            .hero-title { font-size: 2.8rem; }
+            .hero-title { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="/" class="nav-brand">DevLabStudy</a>
+        <div class="nav-left">
+            <a href="/" class="nav-brand">DEVLABSTUDY</a>
+        </div>
+        
+        <div class="nav-center">
+            <a href="/" class="active">HUB</a>
+            <span class="nav-separator">|</span>
+            <a href="/blog">BLOG</a>
+            <span class="nav-separator">|</span>
+            <a href="/homelab">HOMELAB</a>
+            <span class="nav-separator">|</span>
+            <a href="/orbit">ORBIT</a>
+        </div>
+
         <div class="nav-right">
-            <div class="nav-links">
-                <a href="/" class="active">Hub</a>
-                <a href="/blog">Blog</a>
-                <a href="/homelab">HomeLab</a>
-                <a href="/orbit">Orbit™</a>
-            </div>
             <div class="dropdown">
                 <button class="dropbtn">Community ▾</button>
                 <div class="dropdown-content">
-                    <a href="https://github.com/DevLabStudy" target="_blank">GitHub</a>
-                    <a href="https://www.youtube.com/@devlabstudy" target="_blank">YouTube</a>
-                    <a href="https://www.tiktok.com/@devlabstudy" target="_blank">TikTok</a>
-                    <a href="https://x.com/DevLabStudy" target="_blank">X / Twitter</a>
-                    <a href="https://www.reddit.com/user/devlabstudy" target="_blank">Reddit</a>
+                    <a href="https://www.tiktok.com/@devlabstudy" target="_blank"><span>Tik Tok</span> <span>&#x2197;</span></a>
+                    <a href="https://www.youtube.com/@devlabstudy" target="_blank"><span>You Tube</span> <span>&#x2197;</span></a>
+                    <a href="https://github.com/DevLabStudy" target="_blank"><span>GitHub</span> <span>&#x2197;</span></a>
+                    <a href="https://patreon.com/DevLabStudy" target="_blank"><span>Patreon</span> <span>&#x2197;</span></a>
+                    <a href="https://www.reddit.com/user/devlabstudy" target="_blank"><span>Reddit</span> <span>&#x2197;</span></a>
                 </div>
             </div>
         </div>
@@ -198,27 +210,30 @@ layout: null
             <section>
                 <div class="hero-project">
                     <div class="hero-overlay">
-                        <h2 style="font-size: 2rem; margin: 0 0 10px 0; font-weight: 900; color: #fff;">Serwerownia na Drzewie</h2>
-                        <p style="color: #94a3b8; margin: 0 0 25px 0; max-width: 500px; line-height: 1.5;">Budowa bazy IT 5 metrów nad ziemią. Testy stabilności i zasięgu w ekstremalnych warunkach.</p>
-                        <a href="/blog" class="btn-blue">Eksploruj Logi →</a>
+                        <div style="color: var(--accent-blue); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 10px; font-family: 'JetBrains Mono', monospace;">> ACTIVE_MISSION</div>
+                        <h2 style="font-size: 2.2rem; margin: 0 0 10px 0; font-weight: 900; color: #fff;">Serwerownia na Drzewie</h2>
+                        <p style="color: #94a3b8; margin: 0 0 25px 0; max-width: 500px; line-height: 1.5;">Budowa infrastruktury IT 5 metrów nad ziemią. Pełna integracja Proxmoxa w ekstremalnych warunkach.</p>
+                        <a href="/blog" class="btn-blue">ACCESS LOGS →</a>
                     </div>
                 </div>
             </section>
 
             <aside style="display: flex; flex-direction: column; gap: 20px;">
                 <div class="card">
-                    <h3 style="font-size: 0.9rem; color: var(--text-muted); margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 1px;">Ostatnie Wpisy:</h3>
-                    {% for post in site.posts limit:5 %}
-                    <a href="{{ post.url }}" style="display: flex; justify-content: space-between; text-decoration: none; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-main);">
-                        <span style="font-size: 0.9rem;">{{ post.title }}</span>
-                        <span style="color: var(--text-muted); font-size: 0.8rem;">{{ post.date | date: "%d.%m" }}</span>
-                    </a>
-                    {% endfor %}
+                    <h3 style="font-size: 0.85rem; color: var(--text-muted); margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 1px; font-family: 'JetBrains Mono', monospace;">Recent System Logs:</h3>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        {% for post in site.posts limit:5 %}
+                        <a href="{{ post.url }}" style="display: flex; justify-content: space-between; text-decoration: none; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-main);">
+                            <span style="font-size: 0.9rem; font-weight: 600;">{{ post.title }}</span>
+                            <span style="color: var(--text-muted); font-size: 0.75rem; white-space: nowrap; margin-left: 15px; font-family: 'JetBrains Mono', monospace;">[{{ post.date | date: "%d.%m" }}]</span>
+                        </a>
+                        {% endfor %}
+                    </div>
                 </div>
 
                 <div class="card" style="border-color: var(--accent-blue); background: rgba(59, 130, 246, 0.05);">
-                    <h3 style="font-size: 0.9rem; color: var(--accent-blue); margin: 0 0 15px 0; text-transform: uppercase;">Wsparcie:</h3>
-                    <a href="https://patreon.com/DevLabStudy" target="_blank" class="support-btn" style="background: #e11d48; color: #fff;">PATREON</a>
+                    <h3 style="font-size: 0.85rem; color: var(--accent-blue); margin: 0 0 15px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Support_Lab:</h3>
+                    <a href="https://patreon.com/DevLabStudy" target="_blank" class="support-btn" style="background: #e11d48; color: #fff;">PATREON / PATRONITE</a>
                     <a href="https://www.buymeacoffee.com/DevLabStudy" target="_blank" class="support-btn" style="background: #FFDD00; color: #000;">BUY ME A COFFEE</a>
                 </div>
             </aside>
