@@ -1,94 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orbit™ Project | DevLabStudy</title>
-    <link rel="icon" type="image/jpeg" href="/profileIcon_g3ffyg7edeeg1.jpeg">
-    <style>
-        :root { --bg-body: #050505; --bg-nav: rgba(5, 5, 5, 0.85); --bg-card: #111; --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: rgba(255, 255, 255, 0.1); --accent-purple: #8b5cf6; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.6; }
-
-        /* IDENTYCZNY NAVBAR */
-        .navbar { position: sticky; top: 0; z-index: 100; background: var(--bg-nav); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; }
-        .nav-left { flex: 1; display: flex; justify-content: flex-start; }
-        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; }
-        .nav-center { flex: 2; display: flex; justify-content: center; gap: 30px; }
-        .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
-        .nav-center a:hover, .nav-center a.active { color: var(--accent-purple); }
-        .nav-right { flex: 1; display: flex; justify-content: flex-end; }
-        
-        .dropdown { position: relative; display: inline-block; padding: 10px 0; }
-        .dropbtn { color: var(--text-main); font-weight: 700; font-size: 0.95rem; cursor: pointer; background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border-color); transition: 0.3s; }
-        .dropdown:hover .dropbtn { background: rgba(255,255,255,0.2); }
-        .dropdown-content { display: none; position: absolute; right: 0; top: 100%; background-color: #111; min-width: 180px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; z-index: 1; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; }
-        .dropdown:hover .dropdown-content { display: block; opacity: 1; transform: translateY(0); }
-        .dropdown-content a { color: var(--text-main) !important; padding: 12px 20px; text-decoration: none; display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid var(--border-color); transition: background 0.2s; }
-        .dropdown-content a:hover { background: rgba(255,255,255,0.1); padding-left: 25px; }
-
-        .container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
-        .hero { text-align: center; margin-bottom: 50px; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; letter-spacing: -2px; }
-        .card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 40px; border-radius: 24px; margin-bottom: 30px; }
-        .card h2 { color: var(--accent-purple); border-bottom: 1px solid rgba(139, 92, 246, 0.2); padding-bottom: 10px; margin-bottom: 20px; }
-        
-        .btn-github { display: inline-block; background: var(--accent-purple); color: white; text-decoration: none; padding: 15px 30px; border-radius: 12px; font-weight: 700; margin-top: 15px; transition: 0.3s; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); text-align: center; font-size: 1.1rem; }
-        .btn-github:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6); }
-
-        @media (max-width: 768px) { .navbar { flex-direction: column; gap: 15px; } .nav-left, .nav-center, .nav-right { justify-content: center; width: 100%; flex-wrap: wrap; } }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-left">
-            <a href="/" class="nav-brand">DevLabStudy</a>
-        </div>
-        <div class="nav-center">
-            <a href="/">Hub</a>
-            <a href="/blog">Blog</a>
-            <a href="/homelab">HomeLab</a>
-            <a href="/orbit" class="active">Orbit™</a>
-        </div>
-        <div class="nav-right">
-            <div class="dropdown">
-                <span class="dropbtn">Community ▾</span>
-                <div class="dropdown-content">
-                    <a href="https://github.com/DevLabStudy">GitHub <span>↗</span></a>
-                    <a href="https://www.youtube.com/@devlabstudy">YouTube <span>↗</span></a>
-                    <a href="https://x.com/DevLabStudy">X / Twitter <span>↗</span></a>
-                    <a href="https://www.tiktok.com/@devlabstudy">TikTok <span>↗</span></a>
-                    <a href="https://www.reddit.com/user/devlabstudy">Reddit <span>↗</span></a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container">
-        <div class="hero">
-            <h1>Orbit™ Project</h1>
-            <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">Zarządzanie, optymalizacja i nowa jakość w architekturze środowisk kontenerowych.</p>
-        </div>
-
-        <div class="card" style="text-align: center;">
-            <h2>Project Repository</h2>
-            <p style="color: var(--text-muted);">Kod źródłowy, pliki konfiguracyjne i skrypty infrastruktury są otwarte.</p>
-            <a href="https://github.com/DevLabStudy/orbit" class="btn-github">View Orbit™ on GitHub</a>
-        </div>
-
-        <div class="card">
-            <h2>Skąd wziął się pomysł? (Origin Story)</h2>
-            <p>Projekt Orbit narodził się z rzeczywistej potrzeby zarządzania rozbudowanym środowiskiem HomeLab, składającym się z wielu różnorodnych węzłów (od starszych laptopów po instancje chmurowe VPS). Standardowe narzędzia były albo zbyt "ciężkie", albo nie spełniały wszystkich wymagań.</p>
-            <p>Głównym założeniem było stworzenie środowiska, które będzie natywnie opierać się na ultra-zoptymalizowanych obrazach Docker, minimalizując zużycie zasobów do niezbędnego minimum.</p>
-        </div>
-
-        <div class="card">
-            <h2>Roadmapa / Plany na przyszłość</h2>
-            <ul>
-                <li style="margin-bottom: 10px;"><strong>Faza 1:</strong> Optymalizacja i odchudzanie bazowych obrazów Docker.</li>
-                <li style="margin-bottom: 10px;"><strong>Faza 2:</strong> Zbudowanie stabilnej architektury rozproszonej pomiędzy węzłem w chmurze a lokalnym HomeLabem.</li>
-                <li style="margin-bottom: 10px;"><strong>Faza 3:</strong> Automatyzacja wdrażania za pomocą dedykowanych skryptów.</li>
-            </ul>
-        </div>
-    </main>
-</body>
-</html>
+---
+layout: default
+title: Orbit™
+---
+<div class="card" style="border-style: dashed; border-color: rgba(255,255,255,0.05); text-align: center; padding: 60px 20px;">
+    <h2 style="color: var(--text-main); margin: 0 0 15px 0; font-weight: 900; letter-spacing: -1px;">Projekt Orbit™</h2>
+    <p style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin: 0;">
+        [ Ustanawianie połączenia... ]<br>
+        Dokumentacja w trakcie kompilacji.
+    </p>
+</div>
