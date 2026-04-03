@@ -1,80 +1,22 @@
 ---
-layout: null
-permalink: /blog
+layout: default
+title: Blog
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | DevLabStudy</title>
-    <link rel="icon" type="image/jpeg" href="/profileIcon_g3ffyg7edeeg1.jpeg">
-    <style>
-        :root { --bg-body: #050505; --bg-nav: rgba(5, 5, 5, 0.85); --bg-card: #111; --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: rgba(255, 255, 255, 0.1); --accent-blue: #3b82f6; --radius: 12px; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg-body) url('/background.png') no-repeat center center fixed; background-size: cover; color: var(--text-main); margin: 0; line-height: 1.6; }
+<style>
+    .log-link { display: flex; justify-content: space-between; text-decoration: none; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-main); transition: 0.2s; }
+    .log-link:last-child { border-bottom: none; padding-bottom: 0; }
+    .log-link:hover { padding-left: 8px; color: var(--accent-blue); }
+</style>
 
-        .navbar { position: sticky; top: 0; z-index: 100; background: var(--bg-nav); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; }
-        .nav-left { flex: 1; display: flex; justify-content: flex-start; }
-        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; }
-        .nav-center { flex: 2; display: flex; justify-content: center; gap: 30px; }
-        .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
-        .nav-center a:hover, .nav-center a.active { color: var(--accent-blue); }
-        .nav-right { flex: 1; display: flex; justify-content: flex-end; }
-        
-        .dropdown { position: relative; display: inline-block; padding: 10px 0; }
-        .dropbtn { color: var(--text-main); font-weight: 700; font-size: 0.95rem; cursor: pointer; background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border-color); transition: 0.3s; }
-        .dropdown:hover .dropbtn { background: rgba(255,255,255,0.2); }
-        .dropdown-content { display: none; position: absolute; right: 0; top: 100%; background-color: #111; min-width: 180px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; z-index: 1; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; }
-        .dropdown:hover .dropdown-content { display: block; opacity: 1; transform: translateY(0); }
-        .dropdown-content a { color: var(--text-main) !important; padding: 12px 20px; text-decoration: none; display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid var(--border-color); transition: background 0.2s; }
-        .dropdown-content a:hover { background: rgba(255,255,255,0.1); padding-left: 25px; }
-
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; min-height: 60vh; background: rgba(5,5,5,0.7); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid var(--border-color); padding-top: 20px; padding-bottom: 20px;}
-        .post-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 25px; margin-bottom: 20px; transition: 0.2s; border-left: 4px solid var(--accent-blue); }
-        .post-item:hover { border-color: var(--accent-blue); transform: translateY(-3px); }
-        .post-title a { color: var(--text-main); text-decoration: none; font-size: 1.4rem; font-weight: 700; }
-        
-        @media (max-width: 768px) { .navbar { flex-direction: column; gap: 15px; } .nav-left, .nav-right { justify-content: center; width: 100%; flex-wrap: wrap; } }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-left">
-            <a href="/" class="nav-brand">DevLabStudy</a>
-        </div>
-        <div class="nav-center">
-            <a href="/">Hub</a>
-            <a href="/blog" class="active">Blog</a>
-            <a href="/homelab">HomeLab</a>
-            <a href="/orbit">Orbit™</a>
-        </div>
-        <div class="nav-right">
-            <div class="dropdown">
-                <span class="dropbtn">Community ▾</span>
-                <div class="dropdown-content">
-                    <a href="https://github.com/DevLabStudy">GitHub <span>↗</span></a>
-                    <a href="https://www.youtube.com/@devlabstudy">YouTube <span>↗</span></a>
-                    <a href="https://x.com/DevLabStudy">X / Twitter <span>↗</span></a>
-                    <a href="https://www.tiktok.com/@devlabstudy">TikTok <span>↗</span></a>
-                    <a href="https://www.reddit.com/user/devlabstudy">Reddit <span>↗</span></a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container">
-        <h1 style="border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">Articles & Research</h1>
-        <ul style="list-style: none; padding: 0;">
-
-            {% for post in site.posts %}
-            <li class="post-item">
-                <div style="font-size: 0.9rem; color: var(--text-muted);">{{ post.date | date: "%B %d, %Y" }}</div>
-                <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-                <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-            </li>
-            {% endfor %}
-            
-        </ul>
-    </main>
-</body>
-</html>
+<div class="card">
+    <h3 style="font-size: 0.85rem; color: var(--text-muted); margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 1px; font-family: 'JetBrains Mono', monospace;">[ Recent_System_Logs ]</h3>
+    
+    <div style="display: flex; flex-direction: column;">
+        {% for post in site.posts %}
+        <a href="{{ post.url }}" class="log-link">
+            <span style="font-size: 0.95rem; font-weight: 600;">{{ post.title }}</span>
+            <span style="color: var(--text-muted); font-size: 0.8rem; white-space: nowrap; margin-left: 15px; font-family: 'JetBrains Mono', monospace;">[{{ post.date | date: "%d.%m.%Y" }}]</span>
+        </a>
+        {% endfor %}
+    </div>
+</div>
