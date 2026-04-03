@@ -68,7 +68,7 @@ layout: null
         .hero-header { 
             max-width: 1000px; 
             margin: 60px auto 40px auto; 
-            text-align: center; /* Wymusza środek */
+            text-align: center; 
             padding: 0 20px; 
         }
         .hero-title { font-size: 3.5rem; font-weight: 900; margin: 0; letter-spacing: -2px; line-height: 1; color: #fff; }
@@ -79,9 +79,11 @@ layout: null
         /* MAIN DASHBOARD GRID                  */
         /* ------------------------------------ */
         .dashboard { 
-            max-width: 1600px; /* Bardzo szeroki kontener, żeby sidebar doszedł do lewej */
-            width: 95%; /* 95% szerokości ekranu */
+            width: 100%;
+            max-width: 100%; /* Zdejmujemy blokadę szerokości */
+            padding: 0 40px; /* Ustawiamy dokładnie taki sam odstęp od lewej krawędzi, jak logo w navbarze */
             margin: 0 auto 60px auto; 
+            box-sizing: border-box;
         }
 
         .grid-container { 
@@ -113,6 +115,7 @@ layout: null
             display: flex; 
             flex-direction: column; 
             gap: 30px; 
+            max-width: 1200px; /* Lekkie ograniczenie środka, żeby nie rozciągał się w nieskończoność na ogromnych monitorach */
         }
 
         .card { background: rgba(10, 10, 10, 0.7); border: 1px solid var(--border-color); padding: 25px; border-radius: 12px; backdrop-filter: blur(10px); }
@@ -128,8 +131,9 @@ layout: null
 
         @media (max-width: 1024px) { 
             .navbar { display: flex; flex-direction: column; gap: 15px; align-items: center; padding: 15px; }
+            .dashboard { padding: 0 20px; }
             .grid-container { grid-template-columns: 1fr; gap: 20px; }
-            .vertical-divider { display: none; } /* Chowa kreskę na telefonach */
+            .vertical-divider { display: none; } 
             .left-sidebar { position: static; }
             .hero-title { font-size: 2.5rem; }
         }
