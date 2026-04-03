@@ -1,132 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevLabStudy | HomeLab</title>
-    <link rel="icon" type="image/jpeg" href="/profileIcon_g3ffyg7edeeg1.jpeg">
-    <style>
-        :root {
-            --bg-body: #050505; --bg-nav: rgba(5, 5, 5, 0.85); --bg-card: #111;
-            --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: rgba(255, 255, 255, 0.1);
-            --accent-green: #10b981; --accent-blue: #3b82f6; --radius: 16px;
-        }
-        body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.6; }
+---
+layout: default
+title: HomeLab Inventory
+---
+<style>
+    /* Style tylko dla kafelków z serwerami */
+    .hero-homelab { text-align: left; margin-bottom: 40px; }
+    .hero-homelab h2 { font-size: 2.2rem; margin-bottom: 10px; background: linear-gradient(to right, #10b981, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: -1px; }
+    .hero-homelab p { color: var(--text-muted); font-size: 0.95rem; font-family: 'JetBrains Mono', monospace; }
+    
+    .nodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+    
+    .node-card { background: rgba(10, 10, 10, 0.7); border: 1px solid var(--border-color); padding: 30px; border-radius: 12px; position: relative; transition: all 0.3s; backdrop-filter: blur(10px); }
+    .node-card:hover { border-color: #10b981; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(16,185,129,0.05); }
+    
+    .status-badge { position: absolute; top: 25px; right: 25px; background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 5px 12px; border-radius: 20px; font-weight: 800; font-size: 0.7rem; border: 1px solid rgba(16, 185, 129, 0.2); text-transform: uppercase; font-family: 'JetBrains Mono', monospace; }
+    .node-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; display: block; padding-right: 60px; color: #fff; font-family: 'JetBrains Mono', monospace; }
+    
+    .spec-line { display: flex; align-items: center; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.05); font-size: 0.9rem; }
+    .spec-line:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .spec-label { color: var(--text-muted); width: 80px; font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+</style>
 
-        /* IDENTYCZNY NAVBAR */
-        .navbar { position: sticky; top: 0; z-index: 100; background: var(--bg-nav); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; }
-        .nav-left { flex: 1; display: flex; justify-content: flex-start; }
-        .nav-brand { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: -0.5px; }
-        .nav-center { flex: 2; display: flex; justify-content: center; gap: 30px; }
-        .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
-        .nav-center a:hover, .nav-center a.active { color: var(--accent-green); }
-        .nav-right { flex: 1; display: flex; justify-content: flex-end; }
-        
-        .dropdown { position: relative; display: inline-block; padding: 10px 0; }
-        .dropbtn { color: var(--text-main); font-weight: 700; font-size: 0.95rem; cursor: pointer; background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border-color); transition: 0.3s; }
-        .dropdown:hover .dropbtn { background: rgba(255,255,255,0.2); }
-        .dropdown-content { display: none; position: absolute; right: 0; top: 100%; background-color: #111; min-width: 180px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; z-index: 1; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease; }
-        .dropdown:hover .dropdown-content { display: block; opacity: 1; transform: translateY(0); }
-        .dropdown-content a { color: var(--text-main) !important; padding: 12px 20px; text-decoration: none; display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid var(--border-color); transition: background 0.2s; }
-        .dropdown-content a:hover { background: rgba(255,255,255,0.1); padding-left: 25px; }
+<section class="hero-homelab">
+    <h2>Infrastructure & HomeLab</h2>
+    <p>>_ Building, learning, and optimizing distributed server environments.</p>
+</section>
 
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .hero { text-align: center; margin-bottom: 50px; }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 10px; background: linear-gradient(to right, #10b981, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
-        
-        .nodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; margin-bottom: 60px; }
-        .node-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 30px; border-radius: var(--radius); position: relative; transition: all 0.3s; }
-        .node-card:hover { border-color: var(--accent-green); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(16,185,129,0.15); }
-        .status-badge { position: absolute; top: 30px; right: 30px; background: rgba(16, 185, 129, 0.1); color: var(--accent-green); padding: 5px 12px; border-radius: 20px; font-weight: 800; font-size: 0.7rem; border: 1px solid rgba(16, 185, 129, 0.2); text-transform: uppercase; }
-        .node-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; display: block; padding-right: 60px; }
-        .spec-line { display: flex; align-items: center; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; }
-        .spec-line:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .spec-label { color: var(--text-muted); width: 80px; font-weight: 600; }
-
-        @media (max-width: 768px) { .navbar { flex-direction: column; gap: 15px; } .nav-left, .nav-center, .nav-right { justify-content: center; width: 100%; flex-wrap: wrap; } }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-left">
-            <a href="/" class="nav-brand">DevLabStudy</a>
-        </div>
-        <div class="nav-center">
-            <a href="/">Hub</a>
-            <a href="/blog">Blog</a>
-            <a href="/homelab" class="active">HomeLab</a>
-            <a href="/orbit">Orbit™</a>
-        </div>
-        <div class="nav-right">
-            <div class="dropdown">
-                <span class="dropbtn">Community ▾</span>
-                <div class="dropdown-content">
-                    <a href="https://github.com/DevLabStudy">GitHub <span>↗</span></a>
-                    <a href="https://www.youtube.com/@devlabstudy">YouTube <span>↗</span></a>
-                    <a href="https://x.com/DevLabStudy">X / Twitter <span>↗</span></a>
-                    <a href="https://www.tiktok.com/@devlabstudy">TikTok <span>↗</span></a>
-                    <a href="https://www.reddit.com/user/devlabstudy">Reddit <span>↗</span></a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container">
-        <section class="hero">
-            <h1>Infrastructure & HomeLab</h1>
-            <p>Building, learning, and optimizing distributed server environments.</p>
-        </section>
-        
-        <div class="nodes-grid">
-            <div class="node-card">
-                <span class="status-badge">Online</span>
-                <span class="node-name">HP Compaq Pro 6300 SFF</span>
-                <div class="spec-line"><span class="spec-label">CPU</span><span>i5-3470 (4 Cores)</span></div>
-                <div class="spec-line"><span class="spec-label">RAM</span><span>16GB DDR3</span></div>
-                <div class="spec-line"><span class="spec-label">Storage</span><span>256GB SSD + 250GB SSD + 1TB HDD + 500GB HDD</span></div>
-            </div>
-            <div class="node-card">
-                <span class="status-badge">Online</span>
-                <span class="node-name">Packard Bell (pve-laptop)</span>
-                <div class="spec-line"><span class="spec-label">CPU</span><span>i5-2410M</span></div>
-                <div class="spec-line"><span class="spec-label">RAM</span><span>8GB</span></div>
-                <div class="spec-line"><span class="spec-label">GPU</span><span>GT 540M</span></div>
-                <div class="spec-line"><span class="spec-label">Storage</span><span>120GB SSD</span></div>
-                <div class="spec-line"><span class="spec-label">OS</span><span>Proxmox VE</span></div>
-            </div>
-            <div class="node-card">
-                <span class="status-badge">Online</span>
-                <span class="node-name">Motherboard Node - Probably broken</span>
-                <div class="spec-line"><span class="spec-label">CPU</span><span>i3-5005U</span></div>
-                <div class="spec-line"><span class="spec-label">RAM</span><span>8GB</span></div>
-                <div class="spec-line"><span class="spec-label">GPU</span><span>GeForce 920M</span></div>
-                <div class="spec-line"><span class="spec-label">Storage</span><span>128GB Flash OS</span></div>
-            </div>
-            <div class="node-card">
-                <span class="status-badge">Online</span>
-                <span class="node-name">Samsung</span>
-                <div class="spec-line"><span class="spec-label">CPU</span><span>i3 M 330</span></div>
-                <div class="spec-line"><span class="spec-label">RAM</span><span>4GB</span></div>
-                <div class="spec-line"><span class="spec-label">GPU</span><span>GT 320M</span></div>
-                <div class="spec-line"><span class="spec-label">Storage</span><span>320GB SSD</span></div>
-            </div>
-            <div class="node-card">
-                <span class="status-badge">Online</span>
-                <span class="node-name">Asus VivoBook 15</span>
-                <div class="spec-line"><span class="spec-label">CPU</span><span>Celeron N4000</span></div>
-                <div class="spec-line"><span class="spec-label">RAM</span><span>4GB</span></div>
-                <div class="spec-line"><span class="spec-label">Storage</span><span>256GB SSD</span></div>
-            </div>
-            <div class="node-card">
-                <span class="status-badge" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; border-color: rgba(59, 130, 246, 0.2);">Cloud Node</span>
-                <span class="node-name">VPS Cloud Instance</span>
-                <div class="spec-line"><span class="spec-label">CPU</span><span>1 vCore</span></div>
-                <div class="spec-line"><span class="spec-label">RAM</span><span>2GB</span></div>
-                <div class="spec-line"><span class="spec-label">Storage</span><span>10GB SSD</span></div>
-                <div class="spec-line"><span class="spec-label">OS</span><span>Ubuntu 24.04 LTS</span></div>
-            </div>
-        </div>
-    </main>
-</body>
-</html>
+<div class="nodes-grid">
+    <div class="node-card">
+        <span class="status-badge">Online</span>
+        <span class="node-name">HP Compaq Pro 6300 SFF</span>
+        <div class="spec-line"><span class="spec-label">CPU:</span><span>i5-3470 (4 Cores)</span></div>
+        <div class="spec-line"><span class="spec-label">RAM:</span><span>16GB DDR3</span></div>
+        <div class="spec-line"><span class="spec-label">Storage:</span><span>256GB SSD + 250GB SSD + 1TB HDD + 500GB HDD</span></div>
+    </div>
+    
+    <div class="node-card">
+        <span class="status-badge">Online</span>
+        <span class="node-name">Packard Bell (pve-laptop)</span>
+        <div class="spec-line"><span class="spec-label">CPU:</span><span>i5-2410M</span></div>
+        <div class="spec-line"><span class="spec-label">RAM:</span><span>8GB</span></div>
+        <div class="spec-line"><span class="spec-label">GPU:</span><span>GT 540M</span></div>
+        <div class="spec-line"><span class="spec-label">Storage:</span><span>120GB SSD</span></div>
+        <div class="spec-line"><span class="spec-label">OS:</span><span>Proxmox VE</span></div>
+    </div>
+    
+    <div class="node-card">
+        <span class="status-badge" style="color: #e11d48; background: rgba(225, 29, 72, 0.1); border-color: rgba(225, 29, 72, 0.2);">Likely Faulty</span>
+        <span class="node-name">Motherboard Node</span>
+        <div class="spec-line"><span class="spec-label">CPU:</span><span>i3-5005U</span></div>
+        <div class="spec-line"><span class="spec-label">RAM:</span><span>8GB</span></div>
+        <div class="spec-line"><span class="spec-label">GPU:</span><span>GeForce 920M</span></div>
+        <div class="spec-line"><span class="spec-label">Storage:</span><span>128GB Flash OS</span></div>
+    </div>
+    
+    <div class="node-card">
+        <span class="status-badge">Online</span>
+        <span class="node-name">Samsung Edge Node</span>
+        <div class="spec-line"><span class="spec-label">CPU:</span><span>i3 M 330</span></div>
+        <div class="spec-line"><span class="spec-label">RAM:</span><span>4GB</span></div>
+        <div class="spec-line"><span class="spec-label">GPU:</span><span>GT 320M</span></div>
+        <div class="spec-line"><span class="spec-label">Storage:</span><span>320GB SSD</span></div>
+    </div>
+    
+    <div class="node-card">
+        <span class="status-badge">Online</span>
+        <span class="node-name">Asus VivoBook 15</span>
+        <div class="spec-line"><span class="spec-label">CPU:</span><span>Celeron N4000</span></div>
+        <div class="spec-line"><span class="spec-label">RAM:</span><span>4GB</span></div>
+        <div class="spec-line"><span class="spec-label">Storage:</span><span>256GB SSD</span></div>
+    </div>
+    
+    <div class="node-card">
+        <span class="status-badge" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; border-color: rgba(59, 130, 246, 0.2);">Cloud Node</span>
+        <span class="node-name">VPS Cloud Instance</span>
+        <div class="spec-line"><span class="spec-label">CPU:</span><span>1 vCore</span></div>
+        <div class="spec-line"><span class="spec-label">RAM:</span><span>2GB</span></div>
+        <div class="spec-line"><span class="spec-label">Storage:</span><span>10GB SSD</span></div>
+        <div class="spec-line"><span class="spec-label">OS:</span><span>Ubuntu 24.04 LTS</span></div>
+    </div>
+</div>
