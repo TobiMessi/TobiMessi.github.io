@@ -33,7 +33,6 @@ I am a **Self-Taught Infrastructure & Systems Enthusiast**. My journey focuses o
 
 <p align="center" style="margin-top: 20px;">
   <a href="https://www.digitalocean.com/?refcode=6fd6e2226432&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%203.svg" alt="DigitalOcean Referral Badge" /></a>
-    <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" width="200" />
   </a>
 </p>
 
