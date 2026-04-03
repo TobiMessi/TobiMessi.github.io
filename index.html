@@ -30,7 +30,7 @@ layout: null
         }
 
         /* ------------------------------------ */
-        /* NAVBAR                               */
+        /* NAVBAR                                */
         /* ------------------------------------ */
         .navbar {
             background: var(--bg-nav);
@@ -44,76 +44,19 @@ layout: null
             z-index: 1000;
         }
 
-        /* LEWA STRONA (Tylko Logo tekstowe) */
-        .nav-left { 
-            display: flex; 
-            align-items: center;
-            justify-content: flex-start; 
-        }
-        .nav-brand { 
-            font-size: 1.5rem; 
-            font-weight: 900; 
-            text-decoration: none; 
-            color: #fff; 
-            letter-spacing: -0.5px;
-        }
+        .nav-left { display: flex; align-items: center; justify-content: flex-start; }
+        .nav-brand { font-size: 1.5rem; font-weight: 900; text-decoration: none; color: #fff; letter-spacing: -0.5px; }
 
-        /* ŚRODEK (Menu bez separatorów) */
-        .nav-center { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center;
-            gap: 25px; 
-        }
-        .nav-center a { 
-            text-decoration: none; 
-            color: var(--text-muted); 
-            font-weight: 600; 
-            font-size: 0.95rem; 
-            transition: 0.3s; 
-        }
+        .nav-center { display: flex; justify-content: center; align-items: center; gap: 25px; }
+        .nav-center a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
         .nav-center a:hover, .nav-center a.active { color: var(--accent-blue); }
 
-        /* PRAWA STRONA (Community) */
-        .nav-right { 
-            display: flex; 
-            justify-content: flex-end; 
-        }
+        .nav-right { display: flex; justify-content: flex-end; }
         .dropdown { position: relative; display: inline-block; }
-        .dropbtn { 
-            background: #111; 
-            color: #fff; 
-            padding: 8px 16px; 
-            border-radius: 6px; 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            cursor: pointer; 
-            font-family: 'Inter', sans-serif; 
-            font-weight: 600; 
-            font-size: 0.9rem; 
-        }
+        .dropbtn { background: #111; color: #fff; padding: 8px 16px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; }
         
-        .dropdown-content { 
-            display: none; 
-            position: absolute; 
-            right: 0; 
-            top: 130%;
-            background: #0a0a0a; 
-            min-width: 180px; 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-radius: 6px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-        }
-        .dropdown-content a { 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #fff; 
-            padding: 12px 16px; 
-            text-decoration: none; 
-            font-size: 0.85rem; 
-            font-weight: 600;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
-        }
+        .dropdown-content { display: none; position: absolute; right: 0; top: 130%; background: #0a0a0a; min-width: 180px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .dropdown-content a { display: flex; justify-content: space-between; align-items: center; color: #fff; padding: 12px 16px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         .dropdown-content a:last-child { border-bottom: none; }
         .dropdown-content a:hover { background: #1a1a1a; color: var(--accent-blue); }
         .dropdown:hover .dropdown-content { display: block; }
@@ -129,35 +72,19 @@ layout: null
         .dashboard { max-width: 1300px; margin: 0 auto 60px auto; padding: 0 20px; }
         .grid-container { display: grid; grid-template-columns: 1.8fr 1fr; gap: 25px; }
         
-        .card { 
-            background: rgba(10, 10, 10, 0.7); 
-            border: 1px solid var(--border-color); 
-            padding: 25px; 
-            border-radius: 12px; 
-            backdrop-filter: blur(10px);
-        }
+        .card { background: rgba(10, 10, 10, 0.7); border: 1px solid var(--border-color); padding: 25px; border-radius: 12px; backdrop-filter: blur(10px); }
         
-        .hero-project { 
-            height: 480px; 
-            background: url('/assets/images/IMG_20260304_153435_hdr.jpg') center/cover; 
-            display: flex; 
-            align-items: flex-end;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
+        .hero-project { height: 480px; background: url('/assets/images/IMG_20260304_153435_hdr.jpg') center/cover; display: flex; align-items: flex-end; border-radius: 12px; border: 1px solid var(--border-color); }
         .hero-overlay { width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.95)); padding: 40px; border-radius: 0 0 12px 12px; }
 
-        .btn-blue { 
-            display: inline-block; background: var(--accent-blue); color: #fff; 
-            padding: 12px 28px; border-radius: 8px; text-decoration: none; 
-            font-weight: 800; font-size: 0.95rem; transition: 0.3s;
-        }
+        .btn-blue { display: inline-block; background: var(--accent-blue); color: #fff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.95rem; transition: 0.3s; }
         .btn-blue:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3); }
 
-        .support-btn { 
-            display: block; text-decoration: none; padding: 14px; border-radius: 8px; 
-            font-weight: 800; font-size: 0.85rem; text-align: center; margin-top: 10px; transition: 0.3s; 
-        }
+        .support-btn { display: block; text-decoration: none; padding: 14px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; text-align: center; margin-top: 10px; transition: 0.3s; }
+        
+        /* Styl dla odznaki DigitalOcean, żeby pasowała do reszty */
+        .do-badge { display: flex; justify-content: center; margin-top: 10px; transition: 0.3s; }
+        .do-badge:hover { transform: scale(1.02); filter: brightness(1.1); }
 
         @media (max-width: 1024px) { 
             .navbar { display: flex; flex-direction: column; gap: 15px; align-items: center; padding: 15px; }
@@ -227,7 +154,12 @@ layout: null
 
                 <div class="card" style="border-color: var(--accent-blue); background: rgba(59, 130, 246, 0.05);">
                     <h3 style="font-size: 0.85rem; color: var(--accent-blue); margin: 0 0 15px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Support_Lab:</h3>
-                    <a href="https://patreon.com/DevLabStudy" target="_blank" class="support-btn" style="background: #e11d48; color: #fff;">PATREON / PATRONITE</a>
+                    <a href="https://patreon.com/DevLabStudy" target="_blank" class="support-btn" style="background: #e11d48; color: #fff;">PATREON</a>
+                    
+                    <a href="https://www.digitalocean.com/?refcode=6fd6e2226432&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" class="do-badge" target="_blank">
+                        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" style="width: 100%; border-radius: 8px;" />
+                    </a>
+
                     <a href="https://www.buymeacoffee.com/DevLabStudy" target="_blank" class="support-btn" style="background: #FFDD00; color: #000;">BUY ME A COFFEE</a>
                 </div>
             </aside>
