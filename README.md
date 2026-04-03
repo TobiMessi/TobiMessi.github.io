@@ -9,20 +9,8 @@ I am a **Self-Taught Infrastructure & Systems Enthusiast**. My journey focuses o
 ### 🚀 Current Projects & Focus
 **Orbit™ Project** | **Dockerized Infrastructure** | **Hybrid Cloud**
 
-<br />
-
-### 💻 My Home-Lab Setup (Infrastructure)
-
-| Device | Role | CPU | RAM | Storage |
-| :--- | :--- | :--- | :--- | :--- |
-| **HP Compaq 6300 SFF** | **Main Server** | i5-3470 (Xeon Ready) | 16GB | 256GB SSD + 1TB HDD + 160GB HDD + 500GB HDD|
-| **DigitalOcean VPS** | **Cloud Gateway** | 1 Intel vCPU | 2GB | 10GB NVMe SSD |
-| **Asus VivoBook 15** | **Management Node** | Celeron N4000 | 4GB | 256GB SSD |
-
-<br />
-
 ### 🛠 Tech Stack & Environment
-**OS:** Linux Mint 22.3 (Wilma), Ubuntu Server &nbsp; | &nbsp; **Virtualization:** Docker & Docker Compose
+**OS:** Linux Mint 22.3 (Wilma), Ubuntu Server &nbsp; | &nbsp; **Virtualization:** Docker & Docker Compose <br>
 **Tooling:** GitHub Copilot AI, JetBrains Student Pack &nbsp; | &nbsp; **Specialization:** Bash Automation, fstab/Samba
 
 ---
@@ -40,6 +28,12 @@ I am a **Self-Taught Infrastructure & Systems Enthusiast**. My journey focuses o
   &nbsp;&nbsp;
   <a href="https://www.buymeacoffee.com/devlabstudy">
     <img src="https://img.shields.io/badge/Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" />
+  </a>
+</p>
+
+<p align="center" style="margin-top: 20px;">
+  <a href="https://www.digitalocean.com/?refcode=6fd6e2226432&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank">
+    <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" width="200" />
   </a>
 </p>
 
