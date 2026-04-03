@@ -63,26 +63,31 @@ layout: null
         .dropdown:hover .dropdown-content { display: block; }
 
         /* ------------------------------------ */
-        /* HERO HEADER                          */
+        /* HERO HEADER (Wyśrodkowany)           */
         /* ------------------------------------ */
-        .hero-header { max-width: 1400px; margin: 60px auto 40px auto; text-align: left; padding: 0 40px; }
+        .hero-header { 
+            max-width: 1000px; 
+            margin: 60px auto 40px auto; 
+            text-align: center; /* Wymusza środek */
+            padding: 0 20px; 
+        }
         .hero-title { font-size: 3.5rem; font-weight: 900; margin: 0; letter-spacing: -2px; line-height: 1; color: #fff; }
         .hero-title span { color: var(--accent-blue); }
-        .hero-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-top: 15px; max-width: 700px; line-height: 1.5; }
+        .hero-subtitle { font-size: 1.05rem; color: var(--text-muted); margin-top: 15px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.5; }
 
         /* ------------------------------------ */
         /* MAIN DASHBOARD GRID                  */
         /* ------------------------------------ */
         .dashboard { 
-            max-width: 1400px; 
+            max-width: 1600px; /* Bardzo szeroki kontener, żeby sidebar doszedł do lewej */
+            width: 95%; /* 95% szerokości ekranu */
             margin: 0 auto 60px auto; 
-            padding: 0 40px; 
         }
 
         .grid-container { 
             display: grid; 
-            grid-template-columns: 220px 1px 1fr; /* Lewy sidebar (220px) | Kreska (1px) | Środek (1fr) */
-            gap: 40px; 
+            grid-template-columns: 240px 1px 1fr; /* Lewy sidebar (240px) | Kreska (1px) | Środek (reszta) */
+            gap: 50px; 
             align-items: start;
         }
 
@@ -123,12 +128,10 @@ layout: null
 
         @media (max-width: 1024px) { 
             .navbar { display: flex; flex-direction: column; gap: 15px; align-items: center; padding: 15px; }
-            .grid-container { grid-template-columns: 1fr; }
+            .grid-container { grid-template-columns: 1fr; gap: 20px; }
             .vertical-divider { display: none; } /* Chowa kreskę na telefonach */
             .left-sidebar { position: static; }
             .hero-title { font-size: 2.5rem; }
-            .hero-header { text-align: center; }
-            .hero-subtitle { margin-left: auto; margin-right: auto; }
         }
     </style>
 </head>
@@ -178,8 +181,8 @@ layout: null
                     <h3 style="font-size: 0.85rem; color: var(--accent-blue); margin: 0 0 15px 0; text-transform: uppercase; font-family: 'JetBrains Mono', monospace;">Support:</h3>
                     <a href="https://patreon.com/DevLabStudy" target="_blank" class="support-btn" style="background: #e11d48; color: #fff;">PATREON</a>
                     
-                    <a href="https://www.digitalocean.com/?refcode=6fd6e2226432&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" class="do-badge" target="_blank">
-                        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" style="width: 100%; border-radius: 8px;" />
+                    <a href="https://www.digitalocean.com/?refcode=6fd6e2226432" class="do-badge" target="_blank">
+                        <img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Badge" style="width: 100%; border-radius: 8px;" />
                     </a>
 
                     <a href="https://www.buymeacoffee.com/DevLabStudy" target="_blank" class="support-btn" style="background: #FFDD00; color: #000;">BUY ME A COFFEE</a>
@@ -189,10 +192,10 @@ layout: null
             <div class="vertical-divider"></div>
 
             <section class="main-content">
-                <div class="card" style="border-style: dashed; border-color: rgba(255,255,255,0.05); text-align: left; padding: 40px;">
-                    <p style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin: 0;">
+                <div class="card" style="border-style: dashed; border-color: rgba(255,255,255,0.05); text-align: left; padding: 40px; min-height: 200px;">
+                    <p style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin: 0; line-height: 1.6;">
                         > root@devlab:~# status_check <br>
-                        > // System_Ready. Oczekiwanie na inicjalizację nowych modułów na desce rozdzielczej...
+                        > // System_Ready. Oczekiwanie na inicjalizację nowych modułów...
                     </p>
                 </div>
             </section>
@@ -200,12 +203,12 @@ layout: null
         </div>
     </main>
 
-    <section style="max-width: 1400px; margin: 0 auto 40px auto; padding: 0 40px;">
+    <section style="max-width: 1000px; margin: 0 auto 40px auto; padding: 0 20px;">
         <div class="card" style="border-style: dashed; border-color: rgba(255,255,255,0.15); text-align: center; padding: 30px;">
             <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; text-transform: uppercase;">[ Contact_Channels ]</h3>
             <div style="display: flex; justify-content: center; gap: 40px; font-family: 'JetBrains Mono', monospace; flex-wrap: wrap;">
                 <p style="margin: 0;">> Widzowie: <a href="mailto:widzowie@devlabstudy.ovh" style="color: var(--accent-blue); text-decoration: none;">widzowie@devlabstudy.ovh</a></p>
-                <p style="margin: 0;">> Business: <a href="mailto:business@devlabstudy.ovh" style="color: #10b981; text-decoration: none;">business@devlabstudy.ovh</a></p>
+                <p style="margin: 0;">> Business: <a href="mailto:contact@devlabstudy.ovh" style="color: #10b981; text-decoration: none;">contact@devlabstudy.ovh</a></p>
             </div>
         </div>
     </section>
