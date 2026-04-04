@@ -1,0 +1,90 @@
+---
+layout: default
+title: Lab Benchmarks
+---
+<style>
+    .bench-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+    .test-header { border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 20px; }
+    
+    .data-table { width: 100%; border-collapse: collapse; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+    .data-table th { text-align: left; color: var(--accent-blue); padding: 12px; border-bottom: 2px solid var(--border-color); text-transform: uppercase; }
+    .data-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #e2e8f0; }
+    
+    .highlight-val { color: #10b981; font-weight: 800; }
+    .node-tag { font-size: 0.7rem; background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px; color: var(--text-muted); margin-left: 5px; }
+    
+    .status-badge { font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; border: 1px solid; }
+    .status-verified { color: #10b981; border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.05); }
+</style>
+
+<div class="test-header">
+    <h2 style="font-size: 2rem; font-weight: 900; margin: 0;">System <span style="color: var(--accent-blue);">Benchmarks</span></h2>
+    <p style="color: var(--text-muted); margin-top: 5px;">> Pomiary wydajności operacyjnej i przepustowości sieciowej klastra DevLab.</p>
+</div>
+
+<div class="bench-grid">
+    
+    <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="margin: 0; color: #fff; font-size: 1.1rem;">[ #01: Video_Processing_Speed ]</h3>
+            <span class="status-badge status-verified">VERIFIED BY TELEGRAM</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Test sprawności sprzętowego kodowania wideo przy użyciu Intel QuickSync na węźle roboczym.</p>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Hardware Node</th>
+                    <th>Task Details</th>
+                    <th>Processing Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HP 6300 Pro <span class="node-tag">i5-3470</span></td>
+                    <td>1080p | 42Mb/s | 65s (Proxy MOV)</td>
+                    <td class="highlight-val">187.2s</td>
+                </tr>
+                <tr>
+                    <td>Main PC <span class="node-tag">RX 7600</span></td>
+                    <td>1080p | 42Mb/s | 65s (Proxy MOV)</td>
+                    <td style="color: var(--text-muted);">TBD</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3 style="margin-top: 0; color: #fff; font-size: 1.1rem;">[ #02: Network_Throughput ]</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Pomiary rzeczywistej przepustowości między punktami końcowymi w sieci lokalnej (iPerf3).</p>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Source ➔ Target</th>
+                    <th>Interface</th>
+                    <th>Bandwidth (Avg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HP Pro ➔ Main PC</td>
+                    <td>Ethernet 1Gbps</td>
+                    <td style="color: var(--accent-blue);">Awaiting test...</td>
+                </tr>
+                <tr>
+                    <td>Asus Vivo ➔ HP Pro</td>
+                    <td>WiFi 5 / 2.4GHz</td>
+                    <td style="color: var(--accent-blue);">Awaiting test...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div class="card" style="margin-top: 30px; border-style: dashed; text-align: center;">
+    <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); margin: 0;">
+        // Logi z testów są generowane automatycznie i przesyłane przez bramkę Telegram API.
+    </p>
+</div>
