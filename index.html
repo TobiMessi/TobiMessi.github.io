@@ -29,45 +29,48 @@ title: Hub
 <div class="hub-grid">
 
     <div class="card">
-        <h3 style="color: var(--text-main); font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 15px 0;">> DevLab_Core Operational_Status</h3>
+        <h3 style="color: var(--text-main); font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 15px 0;">> DevLab_Core Operational_Center</h3>
         
         <div class="terminal-window">
-            <span class="terminal-prompt">root@devlab:~#</span> check_remote_services<br>
-            <span class="terminal-success">[OK]</span> Twingate Zero-Trust Tunnel: Stable<br>
-            <span class="terminal-success">[OK]</span> Sunshine Host Service: Active (Ready for Streaming)<br>
-            <span class="terminal-success">[OK]</span> HW Encoder: AMD AMF (RX 7600) Engaged<br>
+            <span class="terminal-prompt">root@devlab:~#</span> check_services --active<br>
+            <span class="terminal-success">[OK]</span> Twingate Zero-Trust: Connected<br>
+            <span class="terminal-success">[OK]</span> Telegram Notification Bot: Online (Listening for HW events)<br>
+            <span class="terminal-success">[OK]</span> Sunshine/Moonlight Bridge: Ready<br>
             <br>
-            System umożliwia bezlatencyjne strumieniowanie gier i aplikacji z głównej jednostki obliczeniowej na energooszczędne terminale mobilne (Asus VivoBook/Celeron N4000) przy wykorzystaniu protokołu Sunshine/Moonlight.<br>
+            <span style="color: #24A1DE;">[TELEGRAM]</span> Last event: HW_DECODE_COMPLETE<br>
+            <span style="color: #24A1DE;">[TELEGRAM]</span> Processing time: 00:12:45.32<br>
+            <br>
+            Infrastruktura DevLabStudy monitoruje procesy w czasie rzeczywistym, wysyłając powiadomienia o stanie dekodowania i wirtualizacji bezpośrednio na bezpieczny kanał Telegram.<br>
             <br>
             <span class="terminal-prompt">root@devlab:~#</span> <span class="cursor-blink">_</span>
         </div>
     </div>
 
     <div class="card">
-        <h3 style="color: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 15px 0; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px;">> Hybrid_Cloud_Capabilities</h3>
+        <h3 style="color: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 15px 0; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px;">> Tech_Stack_Capabilities</h3>
         
         <div class="capability-grid">
+            <div class="cap-card" style="border-color: #24A1DE; background: rgba(36, 161, 222, 0.05);">
+                <div class="cap-icon" style="color: #24A1DE;">🔔</div>
+                <div class="cap-text">
+                    <h4>Telegram Alerts</h4>
+                    <p>Powiadomienia o starcie/końcu dekodowania i statystyki czasu pracy.</p>
+                </div>
+            </div>
+
             <div class="cap-card" style="border-color: #9333ea; background: rgba(147, 51, 234, 0.05);">
                 <div class="cap-icon" style="color: #9333ea;">🎮</div>
                 <div class="cap-text">
-                    <h4>Remote Play (Sunshine)</h4>
-                    <p>Strumieniowanie gier w 1080p na słabsze urządzenia dzięki mocy RX 7600.</p>
+                    <h4>Sunshine Stream</h4>
+                    <p>Gaming 1080p na terminalu Asus (Celeron N4000) przez RX 7600.</p>
                 </div>
             </div>
 
             <div class="cap-card" style="border-color: #ff5f00; background: rgba(255, 95, 0, 0.05);">
                 <div class="cap-icon" style="color: #ff5f00;">TG</div>
                 <div class="cap-text">
-                    <h4>Twingate Tunnel</h4>
-                    <p>Bezpieczny dostęp do zasobów Labu z dowolnego miejsca na świecie.</p>
-                </div>
-            </div>
-            
-            <div class="cap-card" style="border-color: #10b981; background: rgba(16, 185, 129, 0.05);">
-                <div class="cap-icon" style="color: #10b981;">VM</div>
-                <div class="cap-text">
-                    <h4>Workstation VM</h4>
-                    <p>Wirtualne środowisko pracy (NoMachine) z akceleracją sprzętową HP 6300.</p>
+                    <h4>Global Tunnel</h4>
+                    <p>Dostęp do NoMachine i zasobów Labu przez Twingate Zero-Trust.</p>
                 </div>
             </div>
         </div>
