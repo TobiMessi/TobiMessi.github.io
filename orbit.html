@@ -1,11 +1,94 @@
 ---
 layout: default
-title: Orbit™
+title: Orbit™ Project
 ---
-<div class="card" style="border-style: dashed; border-color: rgba(255,255,255,0.05); text-align: center; padding: 60px 20px;">
-    <h2 style="color: var(--text-main); margin: 0 0 15px 0; font-weight: 900; letter-spacing: -1px;">Projekt Orbit™</h2>
-    <p style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; margin: 0;">
-        [ Ustanawianie połączenia... ]<br>
-        Dokumentacja w trakcie kompilacji.
+<style>
+    .orbit-header { border-bottom: 1px solid var(--border-color); padding-bottom: 20px; margin-bottom: 30px; }
+    .orbit-title { font-size: 2.2rem; font-weight: 900; color: var(--accent-blue); margin: 0; letter-spacing: -1px; }
+    
+    .repo-card { 
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(0,0,0,0) 100%);
+        border: 1px solid var(--accent-blue);
+        padding: 30px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .tech-pill {
+        display: inline-block;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-right: 8px;
+        margin-bottom: 8px;
+    }
+
+    .github-btn {
+        background: #24292e;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 0.9rem;
+        transition: 0.3s;
+        border: 1px solid rgba(255,255,255,0.1);
+        white-space: nowrap;
+    }
+    .github-btn:hover { background: #444; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+    @media (max-width: 768px) {
+        .repo-card { flex-direction: column; text-align: center; padding: 20px; }
+        .github-btn { width: 100%; box-sizing: border-box; }
+    }
+</style>
+
+<div class="orbit-header">
+    <h2 class="orbit-title">Orbit™ <span style="color: #fff;">Environment</span></h2>
+    <p style="color: var(--text-muted); margin-top: 10px; font-family: 'JetBrains Mono', monospace;">> System_Status: In_Development</p>
+</div>
+
+<div class="repo-card">
+    <div>
+        <h3 style="margin: 0 0 10px 0; font-size: 1.3rem; color: #fff;">Core Infrastructure Repository</h3>
+        <p style="margin: 0 0 15px 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+            Główny kod źródłowy systemu Orbit™. Architektura oparta na mikroserwisach, konteneryzacji i bezpiecznej komunikacji między węzłami klastra.
+        </p>
+        <div style="margin-top: 10px;">
+            <span class="tech-pill">Docker</span>
+            <span class="tech-pill">Android Studio</span>
+            <span class="tech-pill">Twingate API</span>
+            <span class="tech-pill">Zero-Trust</span>
+        </div>
+    </div>
+    <a href="https://github.com/DevLabStudy/orbit" target="_blank" class="github-btn">VIEW ON GITHUB ↗</a>
+</div>
+
+<div class="card" style="border-left: 4px solid var(--accent-blue);">
+    <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: var(--accent-blue); margin-bottom: 15px;">[ PROJECT_DESCRIPTION ]</h3>
+    <p style="font-size: 1rem; line-height: 1.7; color: #e2e8f0; margin-bottom: 20px;">
+        Orbit™ to autorski ekosystem zaprojektowany do pełnej kontroli nad rozproszoną infrastrukturą HomeLab. Celem projektu jest stworzenie bezpiecznego mostu pomiędzy fizycznymi serwerami Proxmox a użytkownikiem mobilnym.
+    </p>
+    
+    <h4 style="color: #fff; margin-bottom: 10px;">Główne założenia:</h4>
+    <ul style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; padding-left: 20px;">
+        <li>Zdalne zarządzanie węzłami klastra poprzez dedykowaną aplikację Android.</li>
+        <li>Integracja powiadomień o stanie usług (Proxmox / Docker / NoMachine).</li>
+        <li>Wykorzystanie technologii Zero-Trust (Twingate) do bezpiecznego dostępu z dowolnej lokalizacji.</li>
+        <li>Automatyzacja procesów backupu i monitorowania zasobów sprzętowych.</li>
+    </ul>
+</div>
+
+<div class="card" style="margin-top: 25px; border-style: dashed; text-align: center; background: transparent;">
+    <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+        // Więcej modułów i dokumentacji technicznej pojawi się w miarę postępów w kodowaniu.
     </p>
 </div>
