@@ -3,106 +3,74 @@ layout: default
 title: Hub
 ---
 <style>
-    .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+    .hub-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+    .terminal-window { background: rgba(0,0,0,0.5); padding: 20px; border-radius: 8px; border: 1px dashed rgba(255,255,255,0.1); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); }
+    .terminal-prompt { color: var(--accent-blue); }
+    .terminal-success { color: #10b981; }
     
-    /* Paski postępu */
-    .status-bar-bg { background: rgba(255,255,255,0.05); height: 6px; border-radius: 4px; margin-top: 8px; overflow: hidden; }
-    .status-bar-fill { height: 100%; border-radius: 4px; }
-    
-    /* Siatka przycisków usług */
-    .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    .service-btn { 
-        background: rgba(10,10,10,0.5); 
-        border: 1px solid rgba(255,255,255,0.05); 
+    .capability-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 15px; }
+    .cap-card { 
+        background: rgba(59, 130, 246, 0.05); 
+        border: 1px solid rgba(59, 130, 246, 0.1); 
         padding: 15px; 
         border-radius: 8px; 
-        text-decoration: none; 
-        color: var(--text-main); 
-        font-family: 'JetBrains Mono', monospace; 
-        font-size: 0.85rem; 
-        transition: 0.3s; 
         display: flex; 
         align-items: center; 
-        justify-content: space-between; 
+        gap: 15px;
     }
-    .service-btn:hover { 
-        border-color: #10b981; 
-        transform: translateY(-3px); 
-        background: rgba(16, 185, 129, 0.05); 
-        box-shadow: 0 5px 15px rgba(16, 185, 129, 0.1);
-    }
-    
-    /* Świecące diody statusu */
-    .service-status { width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; }
-    
-    /* Migający kursor w terminalu */
+    .cap-icon { font-weight: 900; font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; }
+    .cap-text h4 { margin: 0; font-size: 0.9rem; color: #fff; }
+    .cap-text p { margin: 0; font-size: 0.75rem; color: var(--text-muted); }
+
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     .cursor-blink { animation: blink 1s step-end infinite; color: #10b981; font-weight: bold; }
-
-    @media (max-width: 768px) {
-        .hub-grid { grid-template-columns: 1fr; }
-        .service-grid { grid-template-columns: 1fr; }
-    }
 </style>
 
 <div class="hub-grid">
-    <div class="card">
-        <h3 style="color: var(--accent-blue); font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 20px 0; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px;">> Cluster_Telemetry</h3>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);"><span>CPU Load (Avg)</span><span>28%</span></div>
-            <div class="status-bar-bg"><div class="status-bar-fill" style="width: 28%; background: #10b981;"></div></div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);"><span>Memory (RAM)</span><span>64%</span></div>
-            <div class="status-bar-bg"><div class="status-bar-fill" style="width: 64%; background: #f59e0b;"></div></div>
-        </div>
 
-        <div style="margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);"><span>Storage (LVM)</span><span>41%</span></div>
-            <div class="status-bar-bg"><div class="status-bar-fill" style="width: 41%; background: var(--accent-blue);"></div></div>
-        </div>
+    <div class="card">
+        <h3 style="color: var(--text-main); font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 15px 0;">> DevLab_Core Operational_Status</h3>
         
-        <div style="margin-top: 25px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted);">
-            <span style="color: #10b981;">●</span> 5/6 Nodes Online <br>
-            <span style="color: #e11d48; margin-top: 5px; display: inline-block;">●</span> 1 Node Offline (Motherboard)
+        <div class="terminal-window">
+            <span class="terminal-prompt">root@devlab:~#</span> check_remote_services<br>
+            <span class="terminal-success">[OK]</span> Twingate Zero-Trust Tunnel: Stable<br>
+            <span class="terminal-success">[OK]</span> Sunshine Host Service: Active (Ready for Streaming)<br>
+            <span class="terminal-success">[OK]</span> HW Encoder: AMD AMF (RX 7600) Engaged<br>
+            <br>
+            System umożliwia bezlatencyjne strumieniowanie gier i aplikacji z głównej jednostki obliczeniowej na energooszczędne terminale mobilne (Asus VivoBook/Celeron N4000) przy wykorzystaniu protokołu Sunshine/Moonlight.<br>
+            <br>
+            <span class="terminal-prompt">root@devlab:~#</span> <span class="cursor-blink">_</span>
         </div>
     </div>
 
     <div class="card">
-        <h3 style="color: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 20px 0; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px;">> Core_Services</h3>
+        <h3 style="color: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 15px 0; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px;">> Hybrid_Cloud_Capabilities</h3>
         
-        <div class="service-grid">
-            <a href="https://twoje-ip-proxmox:8006" target="_blank" class="service-btn">
-                <span>Proxmox GUI</span>
-                <div class="service-status"></div>
-            </a>
-            <a href="#" target="_blank" class="service-btn">
-                <span>Portainer (Docker)</span>
-                <div class="service-status"></div>
-            </a>
-            <a href="#" target="_blank" class="service-btn">
-                <span>Pi-hole / DNS</span>
-                <div class="service-status"></div>
-            </a>
-            <a href="#" target="_blank" class="service-btn">
-                <span>Orbit™ Core</span>
-                <div class="service-status" style="background: #f59e0b; box-shadow: 0 0 8px #f59e0b;"></div>
-            </a>
-        </div>
-        <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted); margin-top: 20px; line-height: 1.5;">
-            // Skróty do zarządzania infrastrukturą w sieci lokalnej (Zero-Trust).
-        </p>
-    </div>
-    
-    <div class="card" style="grid-column: 1 / -1; border-style: dashed; border-color: rgba(255,255,255,0.15);">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); line-height: 1.8;">
-            <span style="color: var(--accent-blue);">root@orbit-core</span>:<span style="color: #10b981;">~</span>$ tail -f /var/log/syslog<br>
-            [OK] Boot sequence initiated...<br>
-            [OK] Mounting network drives (fstab/Samba)...<br>
-            [OK] Docker socket listening.<br>
-            [INFO] Awaiting connection from Orbit™ Mobile client...<span class="cursor-blink">_</span>
+        <div class="capability-grid">
+            <div class="cap-card" style="border-color: #9333ea; background: rgba(147, 51, 234, 0.05);">
+                <div class="cap-icon" style="color: #9333ea;">🎮</div>
+                <div class="cap-text">
+                    <h4>Remote Play (Sunshine)</h4>
+                    <p>Strumieniowanie gier w 1080p na słabsze urządzenia dzięki mocy RX 7600.</p>
+                </div>
+            </div>
+
+            <div class="cap-card" style="border-color: #ff5f00; background: rgba(255, 95, 0, 0.05);">
+                <div class="cap-icon" style="color: #ff5f00;">TG</div>
+                <div class="cap-text">
+                    <h4>Twingate Tunnel</h4>
+                    <p>Bezpieczny dostęp do zasobów Labu z dowolnego miejsca na świecie.</p>
+                </div>
+            </div>
+            
+            <div class="cap-card" style="border-color: #10b981; background: rgba(16, 185, 129, 0.05);">
+                <div class="cap-icon" style="color: #10b981;">VM</div>
+                <div class="cap-text">
+                    <h4>Workstation VM</h4>
+                    <p>Wirtualne środowisko pracy (NoMachine) z akceleracją sprzętową HP 6300.</p>
+                </div>
+            </div>
         </div>
     </div>
+
 </div>
