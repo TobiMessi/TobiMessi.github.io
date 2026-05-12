@@ -1,79 +1,65 @@
 ---
 layout: default
-title: Hub
+title: Hub | DevLabStudy
 ---
 <style>
+    /* Zachowujemy Twoje style, dodajemy tylko spójność */
     .hub-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
     .terminal-window { background: rgba(0,0,0,0.5); padding: 20px; border-radius: 8px; border: 1px dashed rgba(255,255,255,0.1); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); }
     .terminal-prompt { color: var(--accent-blue); }
     .terminal-success { color: #10b981; }
+    .terminal-warn { color: #f59e0b; }
     
     .capability-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 15px; }
-    .cap-card { 
-        background: rgba(59, 130, 246, 0.05); 
-        border: 1px solid rgba(59, 130, 246, 0.1); 
-        padding: 15px; 
-        border-radius: 8px; 
-        display: flex; 
-        align-items: center; 
-        gap: 15px;
-    }
-    .cap-icon { font-weight: 900; font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; }
-    .cap-text h4 { margin: 0; font-size: 0.9rem; color: #fff; }
-    .cap-text p { margin: 0; font-size: 0.75rem; color: var(--text-muted); }
-
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .cap-card { background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.1); padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; transition: 0.3s; }
+    .cap-card:hover { transform: scale(1.02); background: rgba(59, 130, 246, 0.1); }
+    
     .cursor-blink { animation: blink 1s step-end infinite; color: #10b981; font-weight: bold; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 </style>
 
 <div class="hub-grid">
-
     <div class="card">
-        <h3 style="color: var(--text-main); font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 15px 0;">> DevLab_Core Operational_Center</h3>
-        
+        <h3 style="color: var(--text-main); font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 15px 0;">> DevLab_Infrastructure_Status</h3>
         <div class="terminal-window">
-            <span class="terminal-prompt">root@devlab:~#</span> check_services --active<br>
-            <span class="terminal-success">[OK]</span> Twingate Zero-Trust: Connected<br>
-            <span class="terminal-success">[OK]</span> Telegram Notification Bot: Online (Listening for HW events)<br>
-            <span class="terminal-success">[OK]</span> Sunshine/Moonlight Bridge: Ready<br>
+            <span class="terminal-prompt">root@devlab:~#</span> network_audit --list<br>
+            <span class="terminal-success">[OK]</span> D-Link DGS-1100-16: Core Switching Active (VLAN 10, 20, 30)<br>
+            <span class="terminal-success">[OK]</span> MikroTik RB951G: AP Mode / Management Interface Online<br>
+            <span class="terminal-warn">[WARN]</span> USB_Tethering: Interface 'lte1' not found (Power limit reached)<br>
             <br>
-            <span style="color: #24A1DE;">[TELEGRAM]</span> Last event: HW_DECODE_COMPLETE<br>
-            <span style="color: #24A1DE;">[TELEGRAM]</span> Processing time: 00:12:45.32<br>
-            <br>
-            Infrastruktura DevLabStudy monitoruje procesy w czasie rzeczywistym, wysyłając powiadomienia o stanie dekodowania i wirtualizacji bezpośrednio na bezpieczny kanał Telegram.<br>
+            <span class="terminal-prompt">root@devlab:~#</span> fetch --homelab-stats<br>
+            > Active Nodes: 3 (HP-Compaq, VivoBook, VPS)<br>
+            > Gateway: Bridge Mode<br>
+            > DNS Resolver: Pi-hole + Unbound (LXC)<br>
             <br>
             <span class="terminal-prompt">root@devlab:~#</span> <span class="cursor-blink">_</span>
         </div>
     </div>
 
     <div class="card">
-        <h3 style="color: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 15px 0; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px;">> Tech_Stack_Capabilities</h3>
-        
+        <h3 style="color: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 15px 0; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 10px;">> System_Capabilities</h3>
         <div class="capability-grid">
-            <div class="cap-card" style="border-color: #24A1DE; background: rgba(36, 161, 222, 0.05);">
-                <div class="cap-icon" style="color: #24A1DE;">🔔</div>
+            <div class="cap-card" style="border-color: #10b981;">
+                <div class="cap-icon">🌐</div>
                 <div class="cap-text">
-                    <h4>Telegram Alerts</h4>
-                    <p>Powiadomienia o starcie/końcu dekodowania i statystyki czasu pracy.</p>
+                    <h4>VLAN Management</h4>
+                    <p>Izolacja usług na D-Linku (Smart Managed) i MikroTiku.</p>
                 </div>
             </div>
-
-            <div class="cap-card" style="border-color: #9333ea; background: rgba(147, 51, 234, 0.05);">
-                <div class="cap-icon" style="color: #9333ea;">🎮</div>
+            <div class="cap-card" style="border-color: #9333ea;">
+                <div class="cap-icon">🎮</div>
                 <div class="cap-text">
-                    <h4>Sunshine Stream</h4>
-                    <p>Gaming 1080p na terminalu Asus (Celeron N4000) przez RX 7600.</p>
+                    <h4>Sunshine/Moonlight</h4>
+                    <p>Strumieniowanie mocy z RX 7600 na terminale o niskim poborze mocy.</p>
                 </div>
             </div>
-
-            <div class="cap-card" style="border-color: #ff5f00; background: rgba(255, 95, 0, 0.05);">
-                <div class="cap-icon" style="color: #ff5f00;">TG</div>
+            <div class="cap-card" style="border-color: #ff5f00;">
+                <div class="cap-icon">🔐</div>
                 <div class="cap-text">
-                    <h4>Global Tunnel</h4>
-                    <p>Dostęp do NoMachine i zasobów Labu przez Twingate Zero-Trust.</p>
+                    <h4>Zero-Trust Access</h4>
+                    <p>Bezpieczny tunel Twingate do zasobów NoMachine bez wystawiania portów.</p>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
