@@ -2,6 +2,141 @@
 layout: default
 title: Hub | DevLabStudy
 ---
+
+<style>
+    /* Główny kontener strony */
+    .hub-grid { 
+        display: grid; 
+        grid-template-columns: 1fr; 
+        gap: 25px; 
+        padding: 10px;
+    }
+
+    /* Okno terminala */
+    .terminal-window { 
+        background: rgba(0,0,0,0.6); 
+        padding: 25px; 
+        border-radius: 12px; 
+        border: 1px solid rgba(16, 185, 129, 0.2); 
+        font-family: 'JetBrains Mono', monospace; 
+        font-size: 0.85rem; 
+        line-height: 1.7; 
+        color: #a1a1aa; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .terminal-prompt { color: #3b82f6; font-weight: bold; }
+    .terminal-success { color: #10b981; font-weight: bold; }
+    .terminal-output { color: #e4e4e7; }
+    .terminal-header-text { color: #fff; font-size: 1rem; margin-bottom: 15px; display: block; opacity: 0.8; }
+    
+    /* Siatka możliwości (capabilities) */
+    .capability-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 15px; 
+        margin-top: 20px; 
+    }
+
+    .cap-card { 
+        background: rgba(255, 255, 255, 0.03); 
+        border: 1px solid rgba(255, 255, 255, 0.05); 
+        padding: 20px; 
+        border-radius: 10px; 
+        display: flex; 
+        align-items: center; 
+        gap: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .cap-card:hover { 
+        background: rgba(16, 185, 129, 0.05); 
+        border-color: #10b981; 
+        transform: translateY(-2px); 
+    }
+
+    .cap-icon { font-size: 1.5rem; }
+    .cap-text h4 { margin: 0; font-size: 0.95rem; color: #fff; font-family: 'JetBrains Mono', monospace; }
+    .cap-text p { margin: 5px 0 0 0; font-size: 0.8rem; color: #71717a; }
+
+    /* Animacja kursora */
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .cursor-blink { animation: blink 1s step-end infinite; color: #10b981; font-weight: bold; }
+
+    /* Sekcja "About" */
+    .intro-section {
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        margin-bottom: 20px;
+    }
+    .intro-section h2 { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; color: #fff; }
+</style>
+
+<div class="hub-grid">
+
+    <section class="intro-section">
+        <h2>Cześć, tu <span style="color: #10b981;">DevLabStudy</span>.</h2>
+        <p>Uczeń technikum informatycznego. Buduję, psuję i naprawiam infrastrukturę serwerową w moim beskidzkim Homelabie. Nobara Linux enthusiast.</p>
+    </section>
+
+    <div class="card">
+        <span class="terminal-header-text">> Operational_Center_Status</span>
+        <div class="terminal-window">
+            <span class="terminal-prompt">root@devlab:~#</span> run_diagnostics --fast<br>
+            <span class="terminal-success">[OK]</span> Core Switch: D-Link DGS-1100-16 (16x 1GbE Active)<br>
+            <span class="terminal-success">[OK]</span> Mgmt Node: MikroTik RB951G (RouterOS v7 Connected)<br>
+            <span class="terminal-success">[OK]</span> Main Drive: MSI NVMe PCIe Gen3 (<span class="terminal-output">21.7k IOPS randwrite</span>)<br>
+            <br>
+            <span class="terminal-prompt">root@devlab:~#</span> check_network --throughput<br>
+            <span class="terminal-output">Local Link (Gamingowy -> Proxmox):</span> <span class="terminal-success">943 Mbits/sec</span><br>
+            <span class="terminal-output">Active Tunnels:</span> Twingate Zero-Trust, Telegram Bot (Operational)<br>
+            <br>
+            <span class="terminal-prompt">root@devlab:~#</span> <span class="cursor-blink">_</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 style="color: #10b981; font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin: 0 0 15px 0; padding-bottom: 10px;">> Tech_Capabilities</h3>
+        
+        <div class="capability-grid">
+            <div class="cap-card" style="border-left: 3px solid #f59e0b;">
+                <div class="cap-icon">⚡</div>
+                <div class="cap-text">
+                    <h4>High-Speed NVMe</h4>
+                    <p>Optymalizacja I/O na systemie Nobara. 21k IOPS w testach fio.</p>
+                </div>
+            </div>
+
+            <div class="cap-card" style="border-left: 3px solid #3b82f6;">
+                <div class="cap-icon">🌐</div>
+                <div class="cap-text">
+                    <h4>Managed Networking</h4>
+                    <p>VLAN Segmentacja na D-Linku i MikroTiku. Izolacja usług labowych.</p>
+                </div>
+            </div>
+
+            <div class="cap-card" style="border-left: 3px solid #9333ea;">
+                <div class="cap-icon">🎮</div>
+                <div class="cap-text">
+                    <h4>Sunshine Stream</h4>
+                    <p>Streaming mocy RX 7600 na terminal Asus VivoBook przez LAN.</p>
+                </div>
+            </div>
+
+            <div class="cap-card" style="border-left: 3px solid #24A1DE;">
+                <div class="cap-icon">🔔</div>
+                <div class="cap-text">
+                    <h4>Telegram Automation</h4>
+                    <p>Powiadomienia o zdarzeniach HW i procesach wirtualizacji w czasie rzeczywistym.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>---
+layout: default
+title: Hub | DevLabStudy
+---
 <style>
     /* Zachowujemy Twoje style, dodajemy tylko spójność */
     .hub-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
