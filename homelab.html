@@ -8,6 +8,70 @@ title: HomeLab Inventory
     .hero-homelab p { color: var(--text-muted); font-size: 0.95rem; font-family: 'JetBrains Mono', monospace; }
     
     .section-title { font-family: 'JetBrains Mono', monospace; color: #fff; border-left: 4px solid #10b981; padding-left: 15px; margin: 40px 0 20px 0; font-size: 1.5rem; text-transform: uppercase; }
+    .nodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+    
+    .node-card { background: rgba(10, 10, 10, 0.7); border: 1px solid var(--border-color); padding: 30px; border-radius: 12px; position: relative; transition: all 0.3s; backdrop-filter: blur(10px); }
+    .node-card:hover { border-color: #10b981; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(16,185,129,0.05); }
+    
+    .status-badge { position: absolute; top: 25px; right: 25px; background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 5px 12px; border-radius: 20px; font-weight: 800; font-size: 0.7rem; border: 1px solid rgba(16, 185, 129, 0.2); text-transform: uppercase; font-family: 'JetBrains Mono', monospace; }
+    .node-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; display: block; padding-right: 60px; color: #fff; font-family: 'JetBrains Mono', monospace; }
+    
+    .spec-line { display: flex; align-items: center; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.05); font-size: 0.85rem; }
+    .spec-label { color: var(--text-muted); width: 90px; font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; }
+</style>
+
+<section class="hero-homelab">
+    <h2>Infrastructure & HomeLab</h2>
+    <p>>_ Monitoring, Virtualization, and Network Management.</p>
+</section>
+
+<h3 class="section-title">Network Stack</h3>
+<div class="nodes-grid">
+    <div class="node-card">
+        <span class="status-badge">Core</span>
+        <span class="node-name">D-Link DGS-1100-16</span>
+        <div class="spec-line"><span class="spec-label">TYPE:</span><span>Smart Managed L2 Switch</span></div>
+        <div class="spec-line"><span class="spec-label">VLANS:</span><span>VLAN 10, 20, 30 Configured</span></div>
+        <div class="spec-line"><span class="spec-label">UPLINK:</span><span>1Gbps (Cat6)</span></div>
+    </div>
+
+    <div class="node-card">
+        <span class="status-badge">AP/MGMT</span>
+        <span class="node-name">MikroTik RB951G-2HnD</span>
+        <div class="spec-line"><span class="spec-label">OS:</span><span>RouterOS v7.x</span></div>
+        <div class="spec-line"><span class="spec-label">WLAN:</span><span>2.4GHz Management AP</span></div>
+        <div class="spec-line"><span class="spec-label">FEATURES:</span><span>WinBox / CapMan</span></div>
+    </div>
+</div>
+
+<h3 class="section-title">Compute & Storage</h3>
+<div class="nodes-grid">
+    <div class="node-card">
+        <span class="status-badge">Main</span>
+        <span class="node-name">Gamingowy (Main Host)</span>
+        <div class="spec-line"><span class="spec-label">CPU:</span><span>Ryzen 5 3600 (12T)</span></div>
+        <div class="spec-line"><span class="spec-label">RAM:</span><span>16GB DDR4</span></div>
+        <div class="spec-line"><span class="spec-label">STORAGE:</span><span>MSI NVMe PCIe Gen3</span></div>
+        <div class="spec-line"><span class="spec-label">OS:</span><span>Nobara Linux 43 (Fedora)</span></div>
+    </div>
+
+    <div class="node-card">
+        <span class="status-badge">Online</span>
+        <span class="node-name">HP Compaq Pro 6300</span>
+        <div class="spec-line"><span class="spec-label">CPU:</span><span>i5-3470</span></div>
+        <div class="spec-line"><span class="spec-label">STORAGE:</span><span>256GB SSD + 2TB Multi-HDD</span></div>
+        <div class="spec-line"><span class="spec-label">ROLE:</span><span>Storage & Backup Server</span></div>
+    </div>
+</div>---
+layout: default
+title: HomeLab Inventory
+---
+<style>
+    .hero-homelab { text-align: left; margin-bottom: 40px; }
+    .hero-homelab h2 { font-size: 2.2rem; margin-bottom: 10px; background: linear-gradient(to right, #10b981, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: -1px; }
+    .hero-homelab p { color: var(--text-muted); font-size: 0.95rem; font-family: 'JetBrains Mono', monospace; }
+    
+    .section-title { font-family: 'JetBrains Mono', monospace; color: #fff; border-left: 4px solid #10b981; padding-left: 15px; margin: 40px 0 20px 0; font-size: 1.5rem; text-transform: uppercase; }
     
     .nodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
     
