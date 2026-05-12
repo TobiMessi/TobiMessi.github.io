@@ -4,6 +4,61 @@ title: HomeLab Inventory
 ---
 <style>
     .hero-homelab { text-align: left; margin-bottom: 40px; }
+    .hero-homelab h2 { font-size: 2.2rem; margin-bottom: 10px; background: linear-gradient(to right, #10b981, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+    .section-title { font-family: 'JetBrains Mono', monospace; color: #fff; border-left: 4px solid #10b981; padding-left: 15px; margin: 40px 0 20px 0; font-size: 1.3rem; }
+    .nodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .node-card { background: rgba(10, 10, 10, 0.7); border: 1px solid var(--border-color); padding: 25px; border-radius: 12px; position: relative; backdrop-filter: blur(5px); }
+    .status-badge { position: absolute; top: 20px; right: 20px; background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 800; border: 1px solid rgba(16, 185, 129, 0.2); }
+    .node-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; display: block; color: #fff; font-family: 'JetBrains Mono', monospace; }
+    .spec-line { display: flex; margin-bottom: 8px; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 4px; }
+    .spec-label { color: var(--text-muted); width: 100px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; }
+</style>
+
+<section class="hero-homelab">
+    <h2>Infrastructure & DevLab</h2>
+    <p>>_ Local and cloud-based services architecture.</p>
+</section>
+
+<h3 class="section-title">01. Networking</h3>
+<div class="nodes-grid">
+    <div class="node-card">
+        <span class="status-badge">Operational</span>
+        <span class="node-name">D-Link DGS-1100-16</span>
+        <div class="spec-line"><span class="spec-label">Role:</span><span>Core Managed Switch</span></div>
+        <div class="spec-line"><span class="spec-label">Capacity:</span><span>16x 1GbE Ports</span></div>
+        <div class="spec-line"><span class="spec-label">Features:</span><span>VLAN / IGMP / SNMP</span></div>
+    </div>
+    <div class="node-card">
+        <span class="status-badge">Active</span>
+        <span class="node-name">MikroTik RB951G-2HnD</span>
+        <div class="spec-line"><span class="spec-label">Role:</span><span>Mgmt AP & RouterOS Node</span></div>
+        <div class="spec-line"><span class="spec-label">System:</span><span>RouterOS v7 (WinBox)</span></div>
+        <div class="spec-line"><span class="spec-label">Uplink:</span><span>Gigabit Ethernet</span></div>
+    </div>
+</div>
+
+<h3 class="section-title">02. Computing</h3>
+<div class="nodes-grid">
+    <div class="node-card">
+        <span class="status-badge">Main Node</span>
+        <span class="node-name">Gamingowy (Nobara Host)</span>
+        <div class="spec-line"><span class="spec-label">CPU:</span><span>Ryzen 5 3600 (12T)</span></div>
+        <div class="spec-line"><span class="spec-label">RAM:</span><span>16GB DDR4</span></div>
+        <div class="spec-line"><span class="spec-label">Disk:</span><span>MSI NVMe (21k IOPS)</span></div>
+    </div>
+    <div class="node-card">
+        <span class="status-badge">Server</span>
+        <span class="node-name">HP Compaq Pro 6300</span>
+        <div class="spec-line"><span class="spec-label">CPU:</span><span>i5-3470</span></div>
+        <div class="spec-line"><span class="spec-label">RAM:</span><span>16GB DDR3</span></div>
+        <div class="spec-line"><span class="spec-label">Role:</span><span>Storage (ZFS/Docker)</span></div>
+    </div>
+</div>---
+layout: default
+title: HomeLab Inventory
+---
+<style>
+    .hero-homelab { text-align: left; margin-bottom: 40px; }
     .hero-homelab h2 { font-size: 2.2rem; margin-bottom: 10px; background: linear-gradient(to right, #10b981, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: -1px; }
     .hero-homelab p { color: var(--text-muted); font-size: 0.95rem; font-family: 'JetBrains Mono', monospace; }
     
