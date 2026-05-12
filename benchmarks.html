@@ -1,5 +1,58 @@
 ---
 layout: default
+title: System Benchmarks
+---
+<style>
+    .bench-container { font-family: 'JetBrains Mono', monospace; padding: 20px; }
+    .bench-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: rgba(0,0,0,0.3); }
+    .bench-table th, .bench-table td { border: 1px solid rgba(255,255,255,0.1); padding: 12px; text-align: left; }
+    .bench-table th { background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); }
+    .result-value { color: #10b981; font-weight: bold; }
+    .cmd-hint { color: #666; font-size: 0.8rem; }
+</style>
+
+<div class="bench-container">
+    <h2>> Hardware_Performance_Report</h2>
+    <p>Ostatnia aktualizacja: 2026-05-12 | OS: Nobara Linux (Fedora-based)</p>
+
+    <table class="bench-table">
+        <thead>
+            <tr>
+                <th>Komponent / Test</th>
+                <th>Narzędzie</th>
+                <th>Wynik</th>
+                <th>Szczegóły</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>CPU Performance</strong></td>
+                <td><code>7z b</code></td>
+                <td class="result-value">46,287 MIPS</td>
+                <td>AMD Ryzen 5 3600 (12T)</td>
+            </tr>
+            <tr>
+                <td><strong>Network (LAN)</strong></td>
+                <td><code>iperf3</code></td>
+                <td class="result-value">941 Mbits/s</td>
+                <td>Styk PC (Gamingowy) -> Proxmox (Node)</td>
+            </tr>
+            <tr>
+                <td><strong>Disk Throughput</strong></td>
+                <td><code>hdparm</code></td>
+                <td class="result-value">445.88 MB/s</td>
+                <td>SATA III SSD (/dev/sda)</td>
+            </tr>
+            <tr>
+                <td><strong>Disk Cache</strong></td>
+                <td><code>hdparm</code></td>
+                <td class="result-value">11,594 MB/s</td>
+                <td>Timing cached reads</td>
+            </tr>
+        </tbody>
+    </table>
+</div>---
+layout: default
 title: Lab Benchmarks
 ---
 <style>
