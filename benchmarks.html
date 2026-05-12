@@ -1,5 +1,58 @@
 ---
 layout: default
+title: Lab Benchmarks
+---
+<style>
+    .bench-container { font-family: 'JetBrains Mono', monospace; padding: 20px; }
+    .bench-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: rgba(0,0,0,0.3); border-radius: 8px; overflow: hidden; }
+    .bench-table th, .bench-table td { border: 1px solid rgba(255,255,255,0.1); padding: 12px; text-align: left; }
+    .bench-table th { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+    .result-value { color: #10b981; font-weight: bold; }
+    .unit { color: var(--text-muted); font-size: 0.8rem; margin-left: 4px; }
+</style>
+
+<div class="bench-container">
+    <h2>> Hardware_Audit_Report</h2>
+    <p>Last scan: 2026-05-12 | Environment: Nobara Linux (Kernel 7.0.5)</p>
+
+    <table class="bench-table">
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Test Type</th>
+                <th>Result</th>
+                <th>Metric</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>MSI NVMe Storage</strong></td>
+                <td>Random Write (4k)</td>
+                <td class="result-value">21,700<span class="unit">IOPS</span></td>
+                <td><code>fio</code> (libaio, depth 64)</td>
+            </tr>
+            <tr>
+                <td><strong>Network (LAN)</strong></td>
+                <td>TCP Throughput</td>
+                <td class="result-value">941<span class="unit">Mbits/sec</span></td>
+                <td><code>iperf3</code> (D-Link Switch)</td>
+            </tr>
+            <tr>
+                <td><strong>Ryzen 5 3600</strong></td>
+                <td>Compressing Avr</td>
+                <td class="result-value">46,287<span class="unit">MIPS</span></td>
+                <td><code>7z benchmark</code></td>
+            </tr>
+            <tr>
+                <td><strong>SATA SSD (Backup)</strong></td>
+                <td>Buffered Read</td>
+                <td class="result-value">445.8<span class="unit">MB/s</span></td>
+                <td><code>hdparm -tT</code></td>
+            </tr>
+        </tbody>
+    </table>
+</div>---
+layout: default
 title: System Benchmarks
 ---
 <style>
